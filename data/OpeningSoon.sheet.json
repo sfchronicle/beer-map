@@ -1,0 +1,42 @@
+[
+  {
+    "Brewery": "Uncle Sam's Misguided Brewery",
+    "Address": "New brewery coming some to downtown Livermore",
+    "City": "Livermore",
+    "Website": "http://www.usmbtaphouse.com/",
+    "Blurb": "i think this place crapped out "
+  },
+  {
+    "Brewery": "Shanty Shack Brewing",
+    "City": "Santa Cruz",
+    "Website": "http://www.shantyshackbrewing.com/",
+    "Blurb": "Opening in 2016 - still looking for money"
+  },
+  {
+    "Brewery": "Blue Oak Brewing Co. ",
+    "Address": "821 Cherry Lane",
+    "City": "San Carlos",
+    "Website": "http://blueoakbrewing.com/",
+    "Blurb": "Still in start-up mode",
+    "Logo\nin folder?": "yes",
+    "Logo Link ": "http://ww2.hdnux.com/photos/43/30/40/9275441/4/300x300.jpg"
+  },
+  {
+    "Brewery": "Humble Sea Brewery",
+    "Address": "opening summer 2016?",
+    "City": "Santa Cruz",
+    "Website": "http://humblesea.com/"
+  },
+  {
+    "Brewery": "Brewery Twenty-Five",
+    "City": "Hollister",
+    "Website": "https://www.facebook.com/brewerytwentyfive/"
+  },
+  {
+    "Brewery": "PayStreak Brewing Co.",
+    "Address": "204 W Miner St.",
+    "City": "Yreka",
+    "Website": "https://www.facebook.com/Paystreakbrewing/",
+    "Blurb": "opening in summer"
+  }
+]

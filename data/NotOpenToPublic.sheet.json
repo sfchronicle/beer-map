@@ -1,0 +1,69 @@
+[
+  {
+    "Brewery": "Humble Sea Brewing Co. ",
+    "Address": "NOT OPEN TO PUBLIC",
+    "City": "Ben Lomond",
+    "Website": "http://humblesea.com/"
+  },
+  {
+    "Brewery": "Bison Brewing",
+    "Address": "NOT OPEN TO PUBLIC",
+    "City": "Berkeley",
+    "Website": "http://www.bisonbrew.com/"
+  },
+  {
+    "Brewery": "Headlands Brewing",
+    "Address": "NOT OPEN TO PUBLIC",
+    "City": "Mill Valley",
+    "Website": "http://www.headlandsbrewing.com/",
+    "Blurb": "Noted for their \"bag-ass cans\" of beer. Groupe Belgian RyePA, Hill 88 Double IPA and Pt. Bonita Pilsner are their flagship brews.",
+    "Logo\nin folder?": "yes"
+  },
+  {
+    "Brewery": "Golden Gate Brewing Co.",
+    "Address": "NOT OPEN TO PUBLIC",
+    "City": "Oakland",
+    "Website": "http://www.goldengatebrewingco.com/"
+  },
+  {
+    "Brewery": "Benoit Casper Brewing Co. ",
+    "Address": "NOT OPEN TO PUBLIC",
+    "City": "Richmond",
+    "Website": "https://bcbrewing.com/"
+  },
+  {
+    "Brewery": "Healdsburg Beer Co. ",
+    "Address": "??",
+    "City": "Healdsburg ",
+    "Website": "http://www.healdsburgbeercompany.com/"
+  },
+  {
+    "Brewery": "Pine Street Brewery",
+    "Address": "Pine Street Brewery is looking for a permanent home. We are actively seeking a location that will be able to provide sufficient production space and provide a positive atmosphere for a taproom that will provide home away from home for community members.NOT OPEN TO PUBLIC",
+    "City": "San Francisco",
+    "Website": "http://www.pinestreetbrewery.com/",
+    "Logo\nin folder?": "yes"
+  },
+  {
+    "Brewery": "San Francisco Brewing Co. ",
+    "Address": "NOT OPEN TO PUBLIC",
+    "City": "San Francisco",
+    "Website": "http://www.sfbrewingco.com/"
+  },
+  {
+    "Brewery": "Almanac Beer Co. ",
+    "Address": "NOT OPEN TO PUBLIC We are not currently able to give brewery tours to the public and we do not have a taproom. Sorry for any inconvenience.",
+    "City": "San Francisco",
+    "Website": "http://www.almanacbeer.com/",
+    "Blurb": "Jesse Friedman and Damian Fagan founded their \"farm-to-table\" brewery in 2010 in an effort to create finely crafted brews that pair well with food. Their collection of seasonal sour beers are especially good and food-friendly. ",
+    "SFC links": "http://insidescoopsf.sfgate.com/blog/2015/07/24/where-to-find-sour-beer-in-the-bay-area/"
+  },
+  {
+    "Brewery": "High Water Brewing",
+    "Website": "http://www.highwaterbrewing.com/"
+  },
+  {
+    "Brewery": "Ghost Town Brewing Co.",
+    "Website": "http://www.ghosttownbrewing.com/"
+  }
+]
