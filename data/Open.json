@@ -408,7 +408,7 @@
     "Latitude": 37.72216179,
     "Longitude": "-122.1916646",
     "Website": "http://www.cleoph.us/",
-    "Blurb": "This just over a year old San Leandro brewery from fellow Google employees Peter Baker and Dan Watson specializes in small batch Beligian-style beers. The tasting room is open Friday-Sunday.",
+    "Blurb": "This just over a year old San Leandro brewery from fellow Google employees Peter Baker and Dan Watson specializes in small batch Belgian-style beers. The tasting room is open Friday-Sunday.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww1.hdnux.com/photos/43/31/13/9278188/4/300x300.jpg",
     "SFC links": "http://insidescoopsf.sfgate.com/blog/2015/02/09/beer-week-debutantes-cleophus-quealy-beer-co/"
@@ -564,7 +564,7 @@
     "Latitude": 37.71756209,
     "Longitude": "-122.1818057",
     "Website": "http://drinkdrakes.com/",
-    "Blurb": "Drake's doesn't just produce some of the Bay Area's stalwarts (the 1500 Pale Ale, the Hefeweizen), its Hopocalypse releases have become an annual event in the beer world. ",
+    "Blurb": "Drake's doesn't just produce some of the Bay Area's stalwarts (the 1500 Pale Ale, the Hefeweizen). Its Hopocalypse releases have become an annual event in the beer world. ",
     "Logo\nin folder?": "new",
     "Logo Link": "http://ww2.hdnux.com/photos/43/33/04/9285929/4/300x300.jpg"
   },
@@ -649,7 +649,7 @@
     "Latitude": 37.69888139,
     "Longitude": "-121.8148017",
     "Website": "http://8bridgesbrewing.com/",
-    "Blurb": "Core beer offerings include pilners, ales and stout.",
+    "Blurb": "Core beer offerings include pilsners, ales and stout.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww1.hdnux.com/photos/43/31/17/9278448/4/300x300.jpg"
   },
@@ -660,7 +660,7 @@
     "Latitude": 37.130489,
     "Longitude": "-121.6546",
     "Website": "http://www.eltorobrewing.com/",
-    "Blurb": "First started brewing in 1994 and opened a new brewpub in 2006. Among the beers it is know for is the Poppy Jasper Amber Ale.",
+    "Blurb": "First started brewing in 1994 and opened a new brewpub in 2006. Among the beers it is known for is the Poppy Jasper Amber Ale.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww1.hdnux.com/photos/43/31/16/9278396/4/300x300.jpg"
   },
@@ -776,7 +776,7 @@
     "Latitude": 37.38693178,
     "Longitude": "-121.9926526",
     "Website": "http://www.faultlinebrewing.com/",
-    "Blurb": "Classic beers include a Kolsch, Hefe Weizen and a Pale Ale.",
+    "Blurb": "Classic beers include a Kolsch, Hefeweizen and a Pale Ale.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww3.hdnux.com/photos/43/32/43/9283806/4/300x300.jpg"
   },
@@ -805,7 +805,7 @@
     "Latitude": 37.881499,
     "Longitude": "-122.302417",
     "Website": "http://fieldworkbrewing.com/",
-    "Blurb": "Craft brewery offers a variety of styles. Recent batches included a Thai Tea Espresso Porter and a Dry Hopped Berlinerweisse",
+    "Blurb": "Craft brewery offers a variety of styles. Recent batches included a Thai Tea Espresso Porter and a Dry Hopped Berliner Weisse",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww4.hdnux.com/photos/43/31/17/9278415/4/300x300.jpg"
   },
@@ -949,7 +949,7 @@
     "Latitude": 38.37694542,
     "Longitude": "-121.3567405",
     "Website": "http://www.handcraftbrewing.com/",
-    "Blurb": "Home brew supply story also sells handcrafted beers on tap.",
+    "Blurb": "Home brew supply store also sells handcrafted beers on tap.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww3.hdnux.com/photos/43/31/21/9278562/4/300x300.jpg"
   },
@@ -960,7 +960,7 @@
     "Latitude": 37.7516223,
     "Longitude": "-122.3900689",
     "Website": "http://harmonicbrewing.com/",
-    "Blurb": "One of the newest breweries in the city, they brew a variety of styles, from Kolsch, to Beligan Wit to English bitters.",
+    "Blurb": "One of the newest breweries in the city, they brew a variety of styles, from Kolsch, to Belgian Wit to English bitters.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww4.hdnux.com/photos/43/31/35/9279339/4/300x300.jpg"
   },
@@ -1005,13 +1005,13 @@
     "Latitude": 37.16618923,
     "Longitude": "-122.3607437",
     "Website": "http://www.highway1brewing.com/",
-    "Blurb": "Their stated goal is big beer flavors with lower alcohol levels due to its remote location. Their beers include a Rye Ale and a Begian Blond Ale with strawberry notes.",
+    "Blurb": "Their stated goal is big beer flavors with lower alcohol levels due to its remote location. Their beers include a Rye Ale and a Belgian Blond Ale with strawberry notes.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww4.hdnux.com/photos/43/31/22/9278655/4/300x300.jpg"
   },
   {
     "Brewery": "Hoi Polloi Brewpub and Beat Lounge",
-    "Address": "1763 Alactraz Ave.",
+    "Address": "1763 Alcatraz Ave.",
     "City": "Berkeley",
     "Latitude": 37.84876911,
     "Longitude": "-122.2723142",
@@ -1177,7 +1177,7 @@
     "Latitude": 37.722784,
     "Longitude": "-122.393656",
     "Website": "http://laughingmonkbrewing.com/",
-    "Blurb": "This is a small batch brewery that blends Calfornia and Belgian styles. Beers include an American stout with coffee and golden ale with chamomile.",
+    "Blurb": "This is a small batch brewery that blends California and Belgian styles. Beers include an American stout with coffee and golden ale with chamomile.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww2.hdnux.com/photos/46/31/23/10065125/4/300x300.jpg"
   },
@@ -1188,7 +1188,7 @@
     "Latitude": 37.80007675,
     "Longitude": "-122.2874648",
     "Website": "http://www.lindenbeer.com/",
-    "Blurb": "This small-production West Oakland brewery has slowly built its line of beers, though its flagship ales remain the California Common (a style equivalent to Anchor's Steam beer) and Black Lager.",
+    "Blurb": "This small-production West Oakland brewery has slowly built its line of beers, though its flagship ales remain the California Common (a style equivalent to Anchor Steam beer) and Black Lager.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww1.hdnux.com/photos/43/31/27/9278936/6/300x300.jpg"
   },
@@ -1199,7 +1199,7 @@
     "Latitude": 37.7764816,
     "Longitude": "-122.3968236",
     "Website": "http://localbrewingco.com/",
-    "Blurb": "Small batch brewery near Cal Train and AT&T. IPAs and lagers are featured. ",
+    "Blurb": "Small batch brewery near Caltrain and AT&T. IPAs and lagers are featured. ",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww1.hdnux.com/photos/43/31/36/9279360/4/300x300.jpg"
   },
@@ -1356,7 +1356,7 @@
     "Logo Link": "http://ww3.hdnux.com/photos/43/32/44/9283894/4/300x300.jpg"
   },
   {
-    "Brewery": "Mill Valley Beer Works",
+    "Brewery": "Mill Valley Beerworks",
     "Address": "173 Throckmorton Ave. ",
     "City": "Mill Valley",
     "Website": "http://www.millvalleybeerworks.com/",
@@ -1445,7 +1445,7 @@
     "Latitude": 38.225506,
     "Longitude": "-122.253216",
     "Website": "http://www.napasmithbrewery.com/",
-    "Blurb": "It is the only production craft brewery in the city of Napa. The tap room has 12 brews on offer at all time. ",
+    "Blurb": "Taproom is now open. Beers include the HopTomic double IPA, Mad Badger pale ale and the Apogee Baltic Porter, which won a gold medal at the 2016 World Beer Cup.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww4.hdnux.com/photos/43/31/45/9279823/4/300x300.jpg"
   },
@@ -1509,7 +1509,7 @@
     "Address": "6510 San Pablo Ave.",
     "City": "Oakland",
     "Website": "http://www.novelbrewing.com/",
-    "Blurb": "One of the latest additions to the Oakland brewing scene, they have a variety of styles on tap, include Belgian (Tripel and Dubble); German (kolsch and pilsner) and American (IPA and Amber).",
+    "Blurb": "One of the latest additions to the Oakland brewing scene, they have a variety of styles on tap, include Belgian (Tripel and Dubbel); German (kolsch and pilsner) and American (IPA and Amber).",
     "Logo\nin folder?": "yes"
   },
   {
@@ -1540,7 +1540,7 @@
     "City": "Nevada City ",
     "Latitude": 39.25278576,
     "Longitude": "-121.0243526",
-    "Website": "http://olrepublicbrewery.com/Home.html",
+    "Website": "http://olrepublicbrewery.com",
     "Blurb": "Jim Harte and Simon Olney's brewery sidesteps the great hop rush by focusing on German and British styles -- its flagship ales are arguably its Helles, its Schwartzbier and its California Common ale.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww3.hdnux.com/photos/43/31/46/9279894/4/300x300.jpg"
@@ -1586,7 +1586,7 @@
     "Latitude": 37.80134588,
     "Longitude": "-122.274453",
     "Website": "http://www.pacificcoastbrewing.com/wordpress1/",
-    "Blurb": "The Oakland brewing fixture has long been know for its signature \"whale ales\" including Blue Whale, Gray Whale, Killer Whale Stout and Orca Porter. ",
+    "Blurb": "The Oakland brewing fixture has long been known for its signature \"whale ales\" including Blue Whale, Gray Whale, Killer Whale Stout and Orca Porter. ",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww4.hdnux.com/photos/43/31/46/9279899/4/300x300.jpg"
   },
@@ -1692,7 +1692,7 @@
     "Latitude": 38.017809,
     "Longitude": "-122.137782",
     "Website": "http://www.rocksteadybrewing.com/",
-    "Blurb": "Beers served at Creek Monkey Taphouse. Brews include a Rude Boy Red and a Straight Edge light ale.",
+    "Blurb": "The small brewer is located across the street from Lagunitas and a variety of beers from Big House Blonde to Tripel J.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww4.hdnux.com/photos/43/53/45/9353539/4/300x300.jpg"
   },
@@ -1703,7 +1703,7 @@
     "Latitude": 38.76601441,
     "Longitude": 38.76601441,
     "Website": "http://www.rosevillebrewingcompany.com/",
-    "Blurb": "Brews include a Blackberry Wheat and Amstrong Amber. ",
+    "Blurb": "Brews include a Blackberry Wheat and Armstrong Amber. ",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww1.hdnux.com/photos/43/31/40/9279528/4/300x300.jpg"
   },
@@ -2031,7 +2031,7 @@
   },
   {
     "Brewery": "Sunset Reservoir Brewing Co. ",
-    "Address": "1735 Noreiga St. ",
+    "Address": "1735 Noriega St. ",
     "City": "San Francisco",
     "Latitude": "-121.726214",
     "Longitude": "-122.4823809",
@@ -2125,7 +2125,7 @@
     "Latitude": 37.85862593,
     "Longitude": "-122.2919124",
     "Website": "https://www.therarebarrel.com/",
-    "Blurb": "Time is the currency of the Rare Barrel, which specializes in wilid-fermented sour beers aged in barrels. The beers aren't just tart, like too many American sours; they're balanced with rich malts and sometimes fruit.",
+    "Blurb": "Time is the currency of the Rare Barrel, which specializes in wild-fermented sour beers aged in barrels. The beers aren't just tart, like too many American sours; they're balanced with rich malts and sometimes fruit.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww1.hdnux.com/photos/43/31/37/9279440/6/300x300.jpg"
   },
@@ -2191,7 +2191,7 @@
     "Latitude": 38.386368,
     "Longitude": "-121.361855",
     "Website": "http://tilted-mash.myshopify.com/",
-    "Blurb": "Nano-artisianal brewery is open Friday, Saturday and Sunday. Beers include the Hoppy Jefe wheat IPA and the Eskimo Brothers coffee milk stout.",
+    "Blurb": "Nano-artisanal brewery is open Friday, Saturday and Sunday. Beers include the Hoppy Jefe wheat IPA and the Eskimo Brothers coffee milk stout.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww3.hdnux.com/photos/46/31/26/10065302/4/300x300.jpg"
   },
@@ -2246,7 +2246,7 @@
     "Latitude": 38.56597579,
     "Longitude": "-121.4333015",
     "Website": "http://twelveroundsbrewing.com/",
-    "Blurb": "Beers include a Whiskey Barrel Ages Porter and a Haymaker Hefeweizen.",
+    "Blurb": "Beers include a Whiskey Barrel Aged Porter and a Haymaker Hefeweizen.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww3.hdnux.com/photos/43/30/36/9275318/4/300x300.jpg"
   },
@@ -2268,7 +2268,7 @@
     "Latitude": 36.98116317,
     "Longitude": "-122.0305109",
     "Website": "http://www.uncommonbrewers.com/",
-    "Blurb": "Vists to the brewery are by appointment only.",
+    "Blurb": "Visits to the brewery are by appointment only.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww3.hdnux.com/photos/43/31/54/9280314/4/300x300.jpg"
   },
@@ -2279,7 +2279,7 @@
     "Latitude": 40.289769,
     "Longitude": "-121.132593",
     "Website": "http://www.waganupa.com/",
-    "Blurb": "Small brewery with a pair of tasting rooms. Beers include a NorCal Common and Begian dark quad.",
+    "Blurb": "Small brewery with a pair of tasting rooms. Beers include a NorCal Common and Belgian dark quad.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww2.hdnux.com/photos/47/25/31/10311261/4/300x300.jpg"
   },

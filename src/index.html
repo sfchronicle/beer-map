@@ -18,12 +18,32 @@
 
     <%= t.include("partials/_nav.html") %>
 
+    <div class="outer">
+      <div class="hed">Mapping bay area breweries</div>
+      <div class="chatter">Discover the best breweries in Northern California! Hover over the map or search below to find just the right brewery with the most delicious beer just for you, brought to you by your beer-loving friends at the Chronicle, who encourage you to imbibe responsibly.</div>
 
-    <div class="container">
-      <p>Content goes here...</p>
+      <leaflet-map zoom=12 id="beer-map">
+        <tile-layer layer="cartoPositron"></tile-layer>
+      </leaflet-map>
+
+      <div class="credit">
+        <div class="entry">Kimberly Chua  &bull; <a href="mailto:kchua@sfchronicle.com">kchua@sfchronicle.com</a>  &bull; <a href = "https://twitter.com/kimberlyachua" target="_blank">@KimberlyAChua</a></div>
+        <div class="entry">Emma O'Neill  &bull; <a href="mailto:eoneill@sfchronicle.com">eoneill@sfchronicle.com</a>   &bull; <a href = "https://twitter.com/emmaruthoneill" target="_blank">@emmaruthoneill</a></div>
+      </div>
+
     </div>
+    <div class="tooltip-beermap"></div>
+
+    <!-- json.Open.forEach(function(d){
+
+    }); -->
 
     <%= t.include("partials/_footer.html") %>
+
+    <script>
+      var beerData = <%= JSON.stringify(json.Open) %>
+      console.log(beerData);
+    </script>
 
     <script src="app.js" async></script>
     <%= t.include("partials/_helloSFC.html") %>

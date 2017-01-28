@@ -1,0 +1,69 @@
+.logo-link {
+  padding-top: 9px;
+}
+
+.hed {
+  padding-top: 30px;
+}
+
+.credit {
+  padding-top: 20px;
+}
+
+.tooltip-beermap {
+  width: 400px;
+  position: absolute;
+  font-family: @block-graphics;
+  font-size: 16px;
+  background: white;
+  padding: 10px 20px;
+  border: @light-gray 1px solid;
+  visibility: hidden;
+  .bold {
+    font-family: @med-graphics;
+  }
+  .desc {
+    font-size: 14px;
+    padding-top: 10px;
+  }
+}
+
+
+svg {
+  pointer-events: all;
+}
+
+// leaflet styles --------------------------------------------------------------
+
+leaflet-map {
+  width: 900px;
+  height: 600px;
+  z-index: 0;
+  @media @tablet {
+    width: 100%;
+  }
+  @media @mobile {
+    width: 300px;
+    height: 250px;
+  }
+}
+
+.leaflet-popup-content{
+  margin: 10px 5px;
+  width:auto;
+  max-width:240px;
+  font-family: @df-sans;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius:3px;
+  max-width:240px;
+  box-shadow: 0 1px 14px rgba(0,0,0,0.30);
+  // text-align:center;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.leaflet-control-zoom {
+  display: none;
+}
