@@ -51,7 +51,11 @@ g = svgMap.append("g");
 var feature = g.selectAll("dot")
   .data(beerData)
   .enter().append("circle")
-  // .attr("class","dot")
+  .attr("id",function(d) {
+    return d.Brewery.toLowerCase().replace(/ /g,'');
+    // console.log(d.Brewery.toLowerCase().replace(/ /g,''));
+  })
+  .attr("class","dot")
   // .style("stroke", "black")
   .style("opacity", function(d) {
     return 0.6;
@@ -92,36 +96,41 @@ var feature = g.selectAll("dot")
     // }
   });
 
-if (screen.width <= 480) {
 
-  var node = svgMap.selectAll(".circle")
-      .data(beerData)
-      .enter().append("g")
-      .attr("class","node");
+// if (screen.width <= 480) {
 
-  node.append("text")
-      .style("fill","black")
-      .style("font-family","AntennaExtraLight")
-      .style("font-size","14px")
-      .style("font-style","italic")
-      .style("visibility",function(d) {
-        // if (d.NAME == "Crosby Hotel") {
-        //   return "visible"
-        // } else {
-          return "hidden"
-        // }
-      })
-      .attr("transform",
-      function(d) {
-        return "translate("+
-          (map.latLngToLayerPoint(d.LatLng).x+10) +","+
-          map.latLngToLayerPoint(d.LatLng).y +")";
-        }
-      )
-      .text(function(d) {
-        return d.NAME
-      });
-}
+  // var node = svgMap.selectAll(".circle")
+  //     .data(beerData)
+  //     .enter().append("g")
+  //     .attr("class","node")
+  //     .attr("id",function(d) {
+  //       d.Brewery.toLowerCase().replace(/ /g,'');
+  //       console.log(d.Brewery.toLowerCase().replace(/ /g,''));
+  //     })
+  //
+  // node.append("text")
+  //     .style("fill","black")
+  //     .style("font-family","AntennaExtraLight")
+  //     .style("font-size","14px")
+  //     .style("font-style","italic")
+  //     .style("visibility",function(d) {
+  //       // if (d.NAME == "Crosby Hotel") {
+  //       //   return "visible"
+  //       // } else {
+  //         return "hidden"
+  //       // }
+  //     })
+  //     .attr("transform",
+  //     function(d) {
+  //       return "translate("+
+  //         (map.latLngToLayerPoint(d.LatLng).x+10) +","+
+  //         map.latLngToLayerPoint(d.LatLng).y +")";
+  //       }
+  //     )
+  //     .text(function(d) {
+  //       return d.NAME
+  //     });
+// }
 
 map.on("viewreset", update);
 update();
@@ -167,3 +176,36 @@ $("input").bind("input propertychange", function() {
   });
 
 });
+
+function fill_info(data){
+  var strBrewery = data.Brewery;
+  var strCity = data.City;
+  // var html = "<div class='brewery-group'>FILL IN MY INFO HERE!!!</div>"
+  var html = "<div class='brewery-group-top active'><div class='name'>"+data.Brewery+"</div><div class='address'><a href='"+data.Website+"' target='_blank'>"+data.Address+", "+data.City+"</a></div><div class='blurb'>"+data.Blurb+"</div></div>";
+  return html;
+}
+
+var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
+qsa(".clickme").forEach(function(group,index) {
+  group.addEventListener("click", function(e) {
+    console.log(e.target.classList);
+    $('html, body').animate({
+        scrollTop: $("#scroll-to-top").offset().top
+    }, 600);
+    document.querySelector("#chosen-brewery").innerHTML = fill_info(beerData[index]);
+    console.log(beerData[index]);
+    var circles = d3.selectAll(".dot").style("fill", "#FFCC32");
+    var circles = d3.selectAll(".dot").style("opacity", "0.6");
+    var circle_highlight = d3.select("#"+e.target.classList[1]).style("fill","red");
+    var circle_highlight = d3.select("#"+e.target.classList[1]).style("opacity","1.0");
+  });
+});
+
+
+// var reset_bubbles = function () {
+//     var circles = svg.selectAll(".dot").attr("opacity", "0.5");
+//     myEl.attr("opacity","1.0");
+//   } else {
+//     var circles = svg.selectAll(".dot").attr("opacity", "1.0");
+//     var circlestext = svg.selectAll(".dottext").attr("opacity", "1.0");
+//   }

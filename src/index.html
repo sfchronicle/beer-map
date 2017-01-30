@@ -22,9 +22,11 @@
       <div class="hed">Mapping bay area breweries</div>
       <div class="chatter">Discover the best breweries in Northern California! Hover over the map or search below to find just the right brewery with the most delicious beer just for you, brought to you by your beer-loving friends at the Chronicle, who encourage you to imbibe responsibly.</div>
 
+      <div id="scroll-to-top"></div>
       <leaflet-map zoom=12 id="beer-map">
         <tile-layer layer="cartoPositron"></tile-layer>
       </leaflet-map>
+      <div id="chosen-brewery"></div>
 
       <div class="search-container">
         <span class="search">Search by brewery or city:</span>
@@ -39,6 +41,7 @@
             <div class="name"><%=d.Brewery%></div>
             <div class="address"><a href="<%=d.Website%>" target="_blank"><%=d.Address%>, <%=d.City%></a></div>
             <div class="blurb"><%=d.Blurb%></div>
+            <div class="clickme <%=strBrewery.toLowerCase().replace(/ /g,'') %>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
           </div>
         <% }); %>
       </div>

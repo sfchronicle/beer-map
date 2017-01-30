@@ -2,6 +2,12 @@
   padding-top: 9px;
 }
 
+.chatter {
+  @media @tablet-horiz {
+    padding: 0 20px;
+  }
+}
+
 #beer-map {
   margin: auto;
 }
@@ -83,6 +89,21 @@
     padding-bottom: 20px;
   }
 }
+.brewery-group-top {
+  margin-top: 30px;
+  font-family: @med-graphics;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 1px @dark-gray solid;
+  .address {
+    font-style: italic;
+    padding-bottom: 3px;
+    font-size: 16px;
+  }
+  .blurb {
+    font-size: 14px;
+  }
+}
 .brewery-group {
   display: none;
   padding-bottom: 20px;
@@ -95,6 +116,13 @@
     font-style: italic;
     padding-bottom: 3px;
     font-size: 14px;
+  }
+  .clickme {
+    font-family: @bold-graphics;
+    padding-top: 5px;
+    font-size: 14px;
+    color: darken(@gray-blue,10%);
+    cursor: pointer;
   }
   &.active {
     display: block;
