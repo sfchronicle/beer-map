@@ -2,12 +2,103 @@
   padding-top: 9px;
 }
 
+#beer-map {
+  margin: auto;
+}
+
+.search-container {
+  font-family: @block-graphics;
+  margin-top: 50px;
+  @media @mobile {
+    margin-top: 30px;
+  }
+  text-align: center;
+  .search {
+    font-family: @med-graphics;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  input {
+    border-radius: 5px;
+    border: 1px solid @dark-gray;
+    font-family: @block-graphics;
+    padding: 5px;
+    width: 80%;
+    font-size: 18px;
+    @media @mobile {
+      width: 100%;
+      font-size: 16px;
+    }
+  }
+}
+
 .hed {
   padding-top: 30px;
 }
 
-.credit {
-  padding-top: 20px;
+.credits {
+  font-family: @block-graphics;
+  font-size: 14px;
+  .entry {
+    padding: 0;
+  }
+}
+
+.divider {
+  width: 80%;
+  margin: auto;
+  border-bottom: 1px @dark-gray solid;
+  height: 2px;
+  &.top {
+    padding-top: 20px;
+    width: 90%;
+    margin: auto;
+    border-bottom: 1px white solid;
+  }
+  &.map {
+    background: lighten(@gray-blue,20%);
+    width: 90%;
+    margin: auto;
+    height: 1px;
+    border-bottom: 1px @dark-gray solid;
+  }
+  &.introbox {
+    margin-top: 5px;
+    margin-bottom: 25px;
+  }
+  &.short {
+    width: 50%;
+    margin: auto;
+    border-bottom: 1px @dark-gray solid;
+  }
+}
+
+.brewery-list {
+  font-family: @block-graphics;
+  padding: 50px 0;
+  font-size: 15px;
+  max-width: 600px;
+  margin: auto;
+  @media @mobile {
+    padding-bottom: 20px;
+  }
+}
+.brewery-group {
+  display: none;
+  padding-bottom: 20px;
+  .name {
+    font-family: @med-graphics;
+    border-bottom: 1px solid @dark-gray;
+    margin-bottom: 5px;
+  }
+  .address {
+    font-style: italic;
+    padding-bottom: 3px;
+    font-size: 14px;
+  }
+  &.active {
+    display: block;
+  }
 }
 
 .tooltip-beermap {
@@ -19,6 +110,9 @@
   padding: 10px 20px;
   border: @light-gray 1px solid;
   visibility: hidden;
+  @media @mobile {
+    display: none;
+  }
   .bold {
     font-family: @med-graphics;
   }

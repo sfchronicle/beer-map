@@ -26,17 +26,25 @@
         <tile-layer layer="cartoPositron"></tile-layer>
       </leaflet-map>
 
-      <div class="credit">
-        <div class="entry">Kimberly Chua  &bull; <a href="mailto:kchua@sfchronicle.com">kchua@sfchronicle.com</a>  &bull; <a href = "https://twitter.com/kimberlyachua" target="_blank">@KimberlyAChua</a></div>
-        <div class="entry">Emma O'Neill  &bull; <a href="mailto:eoneill@sfchronicle.com">eoneill@sfchronicle.com</a>   &bull; <a href = "https://twitter.com/emmaruthoneill" target="_blank">@emmaruthoneill</a></div>
+      <div class="search-container">
+        <span class="search">Search by brewery or city:</span>
+        <input class="input" id="input" type="text" placeholder="Try Oakland or Lagunitas or Mendocino... ">
+      </div>
+
+      <div class="brewery-list">
+        <% json.Open.forEach(function(d){ %>
+        <% var strBrewery = d.Brewery; %>
+        <% var strCity = d.City; %>
+          <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active">
+            <div class="name"><%=d.Brewery%></div>
+            <div class="address"><a href="<%=d.Website%>" target="_blank"><%=d.Address%>, <%=d.City%></a></div>
+            <div class="blurb"><%=d.Blurb%></div>
+          </div>
+        <% }); %>
       </div>
 
     </div>
     <div class="tooltip-beermap"></div>
-
-    <!-- json.Open.forEach(function(d){
-
-    }); -->
 
     <%= t.include("partials/_footer.html") %>
 

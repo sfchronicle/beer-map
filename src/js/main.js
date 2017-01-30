@@ -21,7 +21,7 @@ map.scrollWheelZoom.disable();
 map.keyboard.disable();
 
 if (screen.width <= 480) {
-  map.setView(new L.LatLng(37.75, -122.43), 10);
+  map.setView(new L.LatLng(37.85, -122.43), 8);
 } else {
   map.setView(new L.LatLng(38.05, -121.8), 8);
 }
@@ -62,7 +62,7 @@ var feature = g.selectAll("dot")
   })
   .attr("r", function(d) {
     if (screen.width <= 480) {
-      return 2;
+      return 4;
     } else {
       return 7;
     }
@@ -139,4 +139,31 @@ function update() {
 // show tooltip
 var tooltip = d3.select("div.tooltip-beermap");
 
-console.log(tooltip);
+//$("input").change(function() {
+$("input").bind("input propertychange", function() {
+  var filter = $(this).val().toLowerCase().replace(/ /g,'');
+  var class_match = 0;
+
+  $(".brewery-group").filter(function() {
+
+    var classes = this.className.split(" ");
+    for (var i=0; i< classes.length; i++) {
+
+      var current_class = classes[i].toLowerCase();
+
+      if (classes[i] != "column" && classes[i] != "restaurant") {
+        if ( current_class.match(filter)) {
+          class_match = class_match + 1;
+        }
+      }
+    }
+    if (class_match > 0) {
+      $(this).addClass("active");
+    } else {
+      $(this).removeClass("active");
+    }
+    class_match = 0;
+
+  });
+
+});
