@@ -33,17 +33,21 @@
         <input class="input" id="input" type="text" placeholder="Try Oakland or Lagunitas or Mendocino... ">
       </div>
 
+      <div class="button" id="reset-button">Reset map</div>
+
       <div class="brewery-list">
-        <% json.Open.forEach(function(d){ %>
-        <% var strBrewery = d.Brewery; %>
-        <% var strCity = d.City; %>
-          <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active">
-            <div class="name"><%=d.Brewery%>  <a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></div>
-            <div class="address"><a href="<%=d.Website%>" target="_blank"><%=d.Address%>, <%=d.City%></a></div>
-            <div class="blurb"><%=d.Blurb%></div>
-            <div class="clickme <%=strBrewery.toLowerCase().replace(/ /g,'') %>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
-          </div>
-        <% }); %>
+        <div class="brewery-scroll-container">
+          <% json.Open.forEach(function(d){ %>
+          <% var strBrewery = d.Brewery; %>
+          <% var strCity = d.City; %>
+            <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active">
+              <div class="name"><%=d.Brewery%>  <a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></div>
+              <div class="address"><a href="<%=d.Website%>" target="_blank"><%=d.Address%>, <%=d.City%></a></div>
+              <div class="blurb"><%=d.Blurb%></div>
+              <div class="clickme <%=strBrewery.toLowerCase().replace(/ /g,'') %>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
+            </div>
+          <% }); %>
+        </div>
       </div>
 
     </div>
