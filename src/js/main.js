@@ -23,18 +23,14 @@ function tooltip_function (d) {
 function fill_info(data){
   var strBrewery = data.Brewery;
   var strCity = data.City;
-  // var html = "<div class='brewery-group'>FILL IN MY INFO HERE!!!</div>"
   var html = "<div class='brewery-group-top active'><div class='name'>"+data.Brewery+"</div><div class='address'><a href='"+data.Website+"' target='_blank'>"+data.Address+", "+data.City+"</a></div><div class='blurb'>"+data.Blurb+"</div></div>";
   return html;
 }
 
 // function that zooms and pans the data when the map zooms and pans
 function update() {
-  console.log("we are updating");
 	feature.attr("transform",
 	function(d) {
-    // console.log(d);
-    // console.log(map.latLngToLayerPoint(d.LatLng));
 		return "translate("+
 			map.latLngToLayerPoint(d.LatLng).x +","+
 			map.latLngToLayerPoint(d.LatLng).y +")";
@@ -42,22 +38,8 @@ function update() {
 	)
 }
 
-// function update() {
-//   console.log("we are updating");
-//   feature.attr("cx",function(d) { return map.latLngToLayerPoint(d.LatLng).x})
-//   feature.attr("cy",function(d) { return map.latLngToLayerPoint(d.LatLng).y})
-//   feature.attr("r",function(d) { return 20/1400*Math.pow(2,map.getZoom())})
-// }
 
-// //get access to Leaflet and the map
-// var element = document.querySelector("#map");
-// var L = element.leaflet;
-// var map = element.map;
-// map.options.minZoom = 7;
-// map.options.maxZoom = 16;
-// map.options.zoomControl = true;
-// map.zoomControl.setPosition('topright');
-
+// initialize map with center position and zoom levels
 var map = L.map("map", {
   minZoom: 7,
   maxZoom: 16,
@@ -66,6 +48,7 @@ var map = L.map("map", {
 }).setView([sf_lat,sf_long], zoom_deg);;
 // window.map = map;
 
+// add tiles to the map
 var OpenStreetMap = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
 	maxZoom: 16,
   minZoom: 7,
@@ -73,24 +56,16 @@ var OpenStreetMap = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/
 });
 OpenStreetMap.addTo(map);
 
-// tiles.addTo(map);
-
-// map.addLayer( new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar',minZoom: "7",maxZoom: "16"}).addTo(map));
-
 // dragging and zooming controls
+map.scrollWheelZoom.disable();
 // map.dragging.disable();
 // map.touchZoom.disable();
 // map.doubleClickZoom.disable();
-map.scrollWheelZoom.disable();
 // map.keyboard.disable();
-
-// setting the center point
 
 // initializing the svg layer
 // L.svg().addTo(map)
 map._initPathRoot();
-
-console.log(L);
 
 // creating Lat/Lon objects that d3 is expecting
 beerData.forEach(function(d,idx) {
@@ -107,7 +82,7 @@ beerData.forEach(function(d,idx) {
 var svgMap = d3.select("#map").select("svg"),
 g = svgMap.append("g");
 
-// adding
+// adding circles to the map
 var feature = g.selectAll("circle")
   .data(beerData)
   .enter().append("circle")
