@@ -8,8 +8,8 @@ if (screen.width <= 480) {
   var sf_long = -122.43;
   var zoom_deg = 8;
 } else {
-  var sf_lat = 38.05;
-  var sf_long = -121.8;
+  var sf_lat = 37.55;
+  var sf_long = -122.0;
   var zoom_deg = 9;
 }
 
@@ -43,10 +43,15 @@ function update() {
 var map = L.map("map", {
   minZoom: 7,
   maxZoom: 16,
+  zoomControl: false,
+  dragging: true,
+  touchZoom: true
   // zoomControl: isMobile ? false : true,
   // scrollWheelZoom: false
 }).setView([sf_lat,sf_long], zoom_deg);;
 // window.map = map;
+
+map.dragging.enable();
 
 // add tiles to the map
 var OpenStreetMap = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
@@ -55,6 +60,10 @@ var OpenStreetMap = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
 OpenStreetMap.addTo(map);
+
+L.control.zoom({
+     position:'topright'
+}).addTo(map);
 
 // dragging and zooming controls
 map.scrollWheelZoom.disable();
@@ -101,7 +110,7 @@ var feature = g.selectAll("circle")
   .style("stroke","#696969")
   .attr("r", function(d) {
     if (screen.width <= 480) {
-      return 4;
+      return 7;
     } else {
       return 7;
     }
@@ -114,8 +123,10 @@ var feature = g.selectAll("circle")
   .on("mousemove", function() {
     if (screen.width <= 480) {
       return tooltip
-        .style("top",(d3.event.pageY+40)+"px")//(d3.event.pageY+40)+"px")
-        .style("left",10+"px");
+        .style("top", 70+"px")
+        .style("left",40+"px");
+        // .style("top",(d3.event.pageY+40)+"px")//(d3.event.pageY+40)+"px")
+        // .style("left",10+"px");
     } else {
       return tooltip
         .style("top", (d3.event.pageY+16)+"px")

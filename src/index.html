@@ -22,40 +22,46 @@
 
     <%= t.include("partials/_nav.html") %>
 
-    <div class="outer">
-      <div class="hed">Mapping bay area breweries</div>
+    <div class="hed-wrapper">
+      <div class="hed">Most ultimate NorCal Brewery Map</div>
       <div class="chatter">Discover the best breweries in Northern California! Hover over the map or search below to find just the right brewery with the most delicious beer just for you, brought to you by your beer-loving friends at the Chronicle, who encourage you to imbibe responsibly.</div>
+    </div>
 
-      <div id="scroll-to-top"></div>
-      <div class="map-container">
-        <div id="map"></div>
+    <div class="content">
+      <div class="map-wrapper">
+        <div id="scroll-to-top"></div>
+        <div class="map-container">
+          <div id="map"></div>
+        </div>
+        <div class="tooltip-beermap"></div>
+        <div id="chosen-brewery"></div>    
       </div>
-      <div id="chosen-brewery"></div>
 
-      <div class="search-container">
-        <span class="search">Search by brewery or city:</span>
-        <input class="input" id="input" type="text" placeholder="Try Oakland or Lagunitas or Mendocino... ">
-      </div>
+      <div class="sidebar">
+        <div class="search-container">
+          <span class="search">Search by brewery or city:</span>
+          <input class="input" id="input" type="text" placeholder="Try Oakland or Lagunitas or ... ">
+        </div>
 
-      <div class="button" id="reset-button">Reset map</div>
+        <div class="button" id="reset-button">Reset map</div>
 
-      <div class="brewery-list">
-        <div class="brewery-scroll-container">
-          <% json.Open.forEach(function(d){ %>
-          <% var strBrewery = d.Brewery; %>
-          <% var strCity = d.City; %>
-            <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active">
-              <div class="name"><%=d.Brewery%>  <a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></div>
-              <div class="address"><a href="<%=d.Website%>" target="_blank"><%=d.Address%>, <%=d.City%></a></div>
-              <div class="blurb"><%=d.Blurb%></div>
-              <div class="clickme <%=strBrewery.toLowerCase().replace(/ /g,'') %>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
-            </div>
-          <% }); %>
+        <div class="brewery-list">
+          <div class="brewery-scroll-container">
+            <% json.Open.forEach(function(d){ %>
+            <% var strBrewery = d.Brewery; %>
+            <% var strCity = d.City; %>
+              <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active">
+                <div class="name"><%=d.Brewery%>  <a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></div>
+                <div class="address"><a href="<%=d.Website%>" target="_blank"><%=d.Address%>, <%=d.City%></a></div>
+                <div class="blurb"><%=d.Blurb%></div>
+                <div class="clickme <%=strBrewery.toLowerCase().replace(/ /g,'') %>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
+              </div>
+            <% }); %>
+          </div>
         </div>
       </div>
 
     </div>
-    <div class="tooltip-beermap"></div>
 
     <%= t.include("partials/_footer.html") %>
 
