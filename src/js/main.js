@@ -129,7 +129,7 @@ var feature = g.selectAll("circle")
         // .style("left",10+"px");
     } else {
       return tooltip
-        .style("top", (d3.event.pageY+16)+"px")
+        .style("top", (d3.event.pageY-220)+"px")
         .style("left",(d3.event.pageX-50)+"px");
     }
   })
