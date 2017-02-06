@@ -1,0 +1,18 @@
+[
+  {
+    "Brewery": "East End Gastropub",
+    "Address": "1501 41st Ave.",
+    "City": "Capitola",
+    "Latitude": 36.972076,
+    "Longitude": "-121.967075",
+    "Website": "http://eastendpub.com/"
+  },
+  {
+    "Brewery": "West End Tap & Kitchen",
+    "Address": "334 Ingalls St., D",
+    "City": "Santa Cruz",
+    "Latitude": 36.959194,
+    "Longitude": "-122.047801",
+    "Website": "http://westendtap.com/"
+  }
+]

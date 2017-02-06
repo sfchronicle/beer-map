@@ -54,7 +54,7 @@
                 <div class="name"><%=d.Brewery%>  <a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></div>
                 <div class="address"><a href="<%=d.Website%>" target="_blank"><%=d.Address%>, <%=d.City%></a></div>
                 <div class="blurb"><%=d.Blurb%></div>
-                <div class="clickme <%=strBrewery.toLowerCase().replace(/ /g,'') %>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
+                <div class="clickme <%=d.BreweryClass%>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
               </div>
             <% }); %>
           </div>

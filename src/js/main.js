@@ -96,10 +96,11 @@ var feature = g.selectAll("circle")
   .data(beerData)
   .enter().append("circle")
   .attr("id",function(d) {
-    return d.Brewery.toLowerCase().replace(/ /g,'');
+    return d.BreweryClass;
   })
   .attr("class",function(d) {
-    return "dot "+d.Brewery.toLowerCase().replace(/ /g,'');
+    console.log(d);
+    return "dot "+d.BreweryClass;
   })
   .style("opacity", function(d) {
     return 0.8;
