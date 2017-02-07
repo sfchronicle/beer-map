@@ -1,6 +1,15 @@
 @lightest-gray: #F2F2F2;
 @yellow: #FFCC32;
 @dark-yellow: #E6B319;
+@sea-blue: #7C9B9D;
+
+#psec {
+  display: none;
+}
+
+#pcntl, #scntl {
+  cursor: pointer;
+}
 
 .hed {
   font-size: 30px;
@@ -11,6 +20,14 @@
   }
 }
 
+.cntl {
+  font-family: @med-graphics;
+  color: darken(@sea-blue,25%);
+  margin-bottom: 10px;
+  font-size: 18px;
+  border-bottom: 2px solid @sea-blue;
+}
+
 .content {
   .display-flex;
   .flex-wrap(wrap);
@@ -18,7 +35,7 @@
     .flex(0 0 28%);
     margin-right: 2%;
     .brewery-list {
-      height: 850px;
+      height: 800px;
       overflow-y: scroll;
       margin-bottom: 20px;
     }
@@ -34,7 +51,7 @@
     #chosen-brewery {
       max-width: 500px;
       position: absolute;
-      top: 30px;
+      top: 0;
       float: right;
       width: 80%;
       opacity: 0.8;
@@ -143,7 +160,7 @@ circle {
   @media @mobile {
     margin-top: 30px;
   }
-  text-align: center;
+  // text-align: center;
   .search {
     font-family: @med-graphics;
     font-size: 16px;
@@ -180,6 +197,7 @@ circle {
 }
 
 .divider {
+  padding-top:30px;
   width: 80%;
   margin: auto;
   border-bottom: 1px @dark-gray solid;

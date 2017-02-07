@@ -7,30 +7,16 @@
     "Blurb": "i think this place crapped out "
   },
   {
-    "Brewery": "Shanty Shack Brewing",
-    "City": "Santa Cruz",
-    "Website": "http://www.shantyshackbrewing.com/",
-    "Blurb": "Opening in 2016 - still looking for money"
-  },
-  {
-    "Brewery": "Blue Oak Brewing Co. ",
-    "Address": "821 Cherry Lane",
-    "City": "San Carlos",
-    "Website": "http://blueoakbrewing.com/",
-    "Blurb": "Still in start-up mode",
-    "Logo\nin folder?": "yes",
-    "Logo Link ": "http://ww2.hdnux.com/photos/43/30/40/9275441/4/300x300.jpg"
-  },
-  {
     "Brewery": "Humble Sea Brewery",
-    "Address": "opening summer 2016?",
+    "Address": "opening \"early 2017\"",
     "City": "Santa Cruz",
     "Website": "http://humblesea.com/"
   },
   {
     "Brewery": "Brewery Twenty-Five",
     "City": "Hollister",
-    "Website": "https://www.facebook.com/brewerytwentyfive/"
+    "Website": "https://www.facebook.com/brewerytwentyfive/",
+    "Blurb": "Brewery Twenty Five is a small-batch craft brewery based in San Benito County. Not open to the public. Tap Room in Downtown San Juan Bautista - summer 2017"
   },
   {
     "Brewery": "PayStreak Brewing Co.",

@@ -8,7 +8,7 @@ if (screen.width <= 480) {
   var sf_long = -122.43;
   var zoom_deg = 8;
 } else {
-  var sf_lat = 37.55;
+  var sf_lat = 37.75;
   var sf_long = -122.0;
   var zoom_deg = 9;
 }
@@ -41,8 +41,8 @@ function update() {
 
 // initialize map with center position and zoom levels
 var map = L.map("map", {
-  minZoom: 7,
-  maxZoom: 16,
+  minZoom: 6,
+  maxZoom: 15,
   zoomControl: false,
   dragging: true,
   touchZoom: true
@@ -54,14 +54,8 @@ var map = L.map("map", {
 map.dragging.enable();
 
 // add tiles to the map
-var OpenStreetMap = L.tileLayer("http://{s}.tile.stamen.com/terrain/{z}/{x}/{y}.png",{
-  subdomains: "abcd".split(""),
-  scheme: "xyz",//'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-	maxZoom: 16,
-  minZoom: 7,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-});
-OpenStreetMap.addTo(map);
+var mapLayer = L.tileLayer("https://api.mapbox.com/styles/v1/emro/ciyvuvz1700312so6s8f3ip13/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZW1ybyIsImEiOiJjaXl2dXUzMGQwMDdsMzJuM2s1Nmx1M29yIn0._KtME1k8LIhloMyhMvvCDA",{attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'})
+mapLayer.addTo(map);
 
 L.control.zoom({
      position:'topright'
@@ -84,6 +78,8 @@ beerData.forEach(function(d,idx) {
 		d.LatLng = new L.LatLng(d.Latitude,
 								d.Longitude);
   } else {
+    console.log("ERROR");
+    console.log(d);
     // this is a hack for entries in the spreadsheet that are missing data and this should be deleted before publication
     d.LatLng = new L.LatLng(37.75, -122.43);
   }
@@ -235,7 +231,7 @@ qsa(".clickme").forEach(function(group,index) {
 qsa(".dot").forEach(function(group,index) {
   group.addEventListener("click", function(e) {
     $('html, body').animate({
-        scrollTop: $("#scroll-to-top").offset().top
+        scrollTop: $("#scroll-to-top").offset().top-35
     }, 600);
     document.querySelector("#chosen-brewery").innerHTML = fill_info(beerData[index]);
 
@@ -256,11 +252,46 @@ qsa(".dot").forEach(function(group,index) {
 // event listener for re-setting the map
 document.querySelector("#reset-button").addEventListener("click",function(e) {
   $('html, body').animate({
-      scrollTop: $("#scroll-to-top").offset().top
+      scrollTop: $("#scroll-to-top").offset().top-35
   }, 600);
   document.querySelector("#chosen-brewery").innerHTML = "";
   d3.selectAll(".dot").style("fill", "#FFCC32");
   d3.selectAll(".dot").style("opacity", "0.8");
   d3.selectAll(".dot").style("stroke","#696969");
   map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
+});
+
+// controls for collapsing and expanding sections-----------------------------------
+
+var search_click = document.getElementById('scntl');
+var search_cntl = document.getElementById('scaret');
+var search_sec = document.getElementById('ssec');
+
+var paths_click = document.getElementById('pcntl');
+var paths_cntl = document.getElementById('pcaret');
+var paths_sec = document.getElementById('psec');
+paths_sec.style.display = "none";
+
+search_click.addEventListener("click",function(){
+  if (search_sec.style.display != "none") {
+    search_sec.style.display = "none";
+    search_cntl.classList.remove('fa-caret-down');
+    search_cntl.classList.add('fa-caret-right');
+  } else {
+    search_sec.style.display = "block";
+    search_cntl.classList.remove('fa-caret-right');
+    search_cntl.classList.add('fa-caret-down');
+  }
+});
+
+paths_click.addEventListener("click",function(){
+  if (paths_sec.style.display != "none") {
+    paths_sec.style.display = "none";
+    paths_cntl.classList.remove('fa-caret-down');
+    paths_cntl.classList.add('fa-caret-right');
+  } else {
+    paths_sec.style.display = "block";
+    paths_cntl.classList.remove('fa-caret-right');
+    paths_cntl.classList.add('fa-caret-down');
+  }
 });

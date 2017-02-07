@@ -27,5 +27,17 @@
     "Blurb": "Homebrew supply store also sells handcrafted beers on tap.",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww3.hdnux.com/photos/43/31/21/9278562/4/300x300.jpg"
+  },
+  {
+    "Brewery": "Roseville Brewing Co. ",
+    "Address": "501 Derek Place",
+    "City": "Roseville",
+    "Latitude": 38.766848,
+    "Longitude": "-121.300403",
+    "Website": "http://www.rosevillebrewingcompany.com/",
+    "Blurb": "Brews include a Blackberry Wheat and Armstrong Amber. ",
+    "Logo\nin folder?": "yes",
+    "Logo Link": "http://ww1.hdnux.com/photos/43/31/40/9279528/4/300x300.jpg",
+    "undefined": "breweryRosevilleBrewingCo"
   }
 ]

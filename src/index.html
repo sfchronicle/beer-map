@@ -22,8 +22,8 @@
     <%= t.include("partials/_nav.html") %>
 
     <div class="hed-wrapper">
-      <div class="hed">Most Ultimate NorCal Brewery Map</div>
-      <div class="chatter">Discover the best breweries in Northern California! Hover over the map or search below to find just the right brewery with the most delicious beer just for you, brought to you by your beer-loving friends at the Chronicle, who encourage you to imbibe responsibly.</div>
+      <div class="hed">The Ultimate NorCal Brewery Map</div>
+      <div class="chatter">The craft beer movement has its roots in Northern California, and new breweries seem to pop up every day. How's a dedicated beer drinker supposed to keep up? Start with this completely redesigned interactive map of more than 220 breweries. Hover over the map and click, search for your favorite, or check out The Chronicle’s list of beer excursions. Whatever you do, get around safe and share this with other beer fans.<div class="button" id="reset-button">Reset map</div></div>
     </div>
 
     <div class="content">
@@ -37,27 +37,35 @@
       </div>
 
       <div class="sidebar">
-        <div class="search-container">
-          <span class="search">Search by brewery or city:</span>
-          <input class="input" id="input" type="text" placeholder="Try Oakland or Lagunitas or ... ">
+
+        <div class="cntl" id="pcntl"><i class="fa fa-caret-right" id="pcaret" aria-hidden="true"></i>  Brewery Trails</div>
+        <div id="psec">
+
         </div>
 
-        <div class="button" id="reset-button">Reset map</div>
+        <div class="cntl" id="scntl"><i class="fa fa-caret-down" id="scaret" aria-hidden="true"></i>  Brewery List</div>
+        <div id="ssec">
+          <div class="search-container">
+            <span class="search">Search by brewery or city:</span>
+            <input class="input" id="input" type="text" placeholder="Try Oakland or Lagunitas or ... ">
+          </div>
+          <div class="brewery-list">
+            <div class="brewery-scroll-container">
 
-        <div class="brewery-list">
-          <div class="brewery-scroll-container">
-            <% json.Open.forEach(function(d){ %>
-            <% var strBrewery = d.Brewery; %>
-            <% var strCity = d.City; %>
-              <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active">
-                <div class="name"><%=d.Brewery%>  <a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></div>
-                <div class="address"><a href="<%=d.Website%>" target="_blank"><%=d.Address%>, <%=d.City%></a></div>
-                <div class="blurb"><%=d.Blurb%></div>
-                <div class="clickme <%=d.BreweryClass%>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
-              </div>
-            <% }); %>
+              <% json.Open.forEach(function(d){ %>
+              <% var strBrewery = d.Brewery; %>
+              <% var strCity = d.City; %>
+                <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active">
+                  <div class="name"><%=d.Brewery%>  <a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></div>
+                  <div class="address"><a href="<%=d.Website%>" target="_blank"><%=d.Address%>, <%=d.City%></a></div>
+                  <div class="blurb"><%=d.Blurb%></div>
+                  <div class="clickme <%=d.BreweryClass%>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
+                </div>
+              <% }); %>
+            </div>
           </div>
         </div>
+
       </div>
 
     </div>
@@ -66,7 +74,6 @@
 
     <script>
       var beerData = <%= JSON.stringify(json.Open) %>
-      console.log(beerData);
     </script>
 
     <script src="app.js" async></script>
