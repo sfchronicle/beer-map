@@ -23,7 +23,7 @@ function tooltip_function (d) {
 function fill_info(data){
   var strBrewery = data.Brewery;
   var strCity = data.City;
-  var html = "<div class='brewery-group-top active'><div class='name'>"+data.Brewery+"</div><div class='address'><a href='"+data.Website+"' target='_blank'>"+data.Address+", "+data.City+"</a></div><div class='blurb'>"+data.Blurb+"</div></div>";
+  var html = "<div class='brewery-group-top active'><div class='name'>"+data.Brewery+"<a href="+data.Website+" target='_blank'><i class='fa fa-external-link' aria-hidden='true'></i></a></div><div class='address'>"+data.Address+", "+data.City+"</div><div class='blurb'>"+data.Blurb+"</div></div>";
   return html;
 }
 
@@ -130,40 +130,6 @@ var feature = g.selectAll("circle")
 
   map.on("viewreset", update);
   update();
-
-
-  // var node = svgMap.selectAll(".circle")
-  //     .data(beerData)
-  //     .enter().append("g")
-  //     .attr("class","node")
-  //     .attr("id",function(d) {
-  //       d.Brewery.toLowerCase().replace(/ /g,'');
-  //       console.log(d.Brewery.toLowerCase().replace(/ /g,''));
-  //     })
-  //
-  // node.append("text")
-  //     .style("fill","black")
-  //     .style("font-family","AntennaExtraLight")
-  //     .style("font-size","14px")
-  //     .style("font-style","italic")
-  //     .style("visibility",function(d) {
-  //       // if (d.NAME == "Crosby Hotel") {
-  //       //   return "visible"
-  //       // } else {
-  //         return "hidden"
-  //       // }
-  //     })
-  //     .attr("transform",
-  //     function(d) {
-  //       return "translate("+
-  //         (map.latLngToLayerPoint(d.LatLng).x+10) +","+
-  //         map.latLngToLayerPoint(d.LatLng).y +")";
-  //       }
-  //     )
-  //     .text(function(d) {
-  //       return d.NAME
-  //     });
-// }
 
 // show tooltip
 var tooltip = d3.select("div.tooltip-beermap");
@@ -312,6 +278,9 @@ trailsData.forEach(function(d,idx) {
       }
     }
   });
+  console.log(d.class);
+  console.log("number of stops:");
+  console.log(trail_path.length);
   polyline[d.class] = L.polyline(trail_path,
   {
     className: d.class,
@@ -330,7 +299,7 @@ var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
 qsa(".clickme-trail").forEach(function(group,index) {
   group.addEventListener("click", function(e) {
     $('html, body').animate({
-        scrollTop: $("#scroll-to-top").offset().top
+        scrollTop: $("#scroll-to-top").offset().top-35
     }, 600);
     document.querySelector("#chosen-brewery").innerHTML = "";
     d3.selectAll(".dot").style("fill", "#FFCC32");

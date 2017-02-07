@@ -258,7 +258,7 @@
     "Blurb": "Two beer-loving friends opened this small East Bay operation in 2014. The taproom is open for growler fills and tastings on Saturdays."
   },
   {
-    "Brewery": "Berryessa Brewing Co. ",
+    "Brewery": "Berryessa Brewing Co.",
     "Address": "27260 Highway 128",
     "City": "Winters",
     "Latitude": 38.51361289,
@@ -270,7 +270,7 @@
     "BreweryClass": "breweryBerryessaBrewingCo"
   },
   {
-    "Brewery": "Big Sexy Brewing Co. ",
+    "Brewery": "Big Sexy Brewing Co.",
     "Address": "5861 88th St., Suite 800",
     "City": "Sacramento",
     "Latitude": 38.520179,
@@ -280,14 +280,14 @@
     "BreweryClass": "breweryBigSexyBrewingCo"
   },
   {
-    "Brewery": "Big Stump Brewing Company",
+    "Brewery": "Big Stump Brewing Co.",
     "Address": "1716 L St.",
     "City": "Sacramento",
     "Latitude": 38.57505,
     "Longitude": "-121.484227",
     "Website": "http://www.bigstumpbrewco.com/",
     "Blurb": "Downtown brewery features such beers as its award-winning Haight St. Hefeweizen and Tree Town IPA.",
-    "BreweryClass": "breweryBigStumpBrewingCompany"
+    "BreweryClass": "breweryBigStumpBrewingCo"
   },
   {
     "Brewery": "Bike Dog Brewing Co.",
@@ -326,7 +326,7 @@
     "BreweryClass": "breweryBlackDragonBrewery"
   },
   {
-    "Brewery": "Black Hammer Brewing Co. ",
+    "Brewery": "Black Hammer Brewing Co.",
     "Address": "544 Bryant St.",
     "City": "San Francisco",
     "Latitude": 37.780688,
@@ -597,7 +597,7 @@
     "BreweryClass": "breweryDempseysRestaurantandBrewery"
   },
   {
-    "Brewery": "Device Brewing Co. ",
+    "Brewery": "Device Brewing Co.",
     "Address": "8166 14th Ave.",
     "City": "Sacramento",
     "Latitude": 38.539374,
@@ -929,7 +929,7 @@
     "BreweryClass": "breweryFermentDrinkRepeat-FDRBrewing"
   },
   {
-    "Brewery": "Fieldwork Brewing Co. ",
+    "Brewery": "Fieldwork Brewing Co.",
     "Address": "1160 Sixth St. ",
     "City": "Berkeley",
     "Latitude": 37.881499,
@@ -1095,7 +1095,7 @@
     "BreweryClass": "breweryHalfMoonBayBrewingCo"
   },
   {
-    "Brewery": "Harmonic Brewing ",
+    "Brewery": "Harmonic Brewing",
     "Address": "1050 26th St.",
     "City": "San Francisco",
     "Latitude": 37.7516223,
@@ -1504,7 +1504,7 @@
     "BreweryClass": "breweryMareIslandBrewingCo"
   },
   {
-    "Brewery": "Marin Brewing Co. ",
+    "Brewery": "Marin Brewing Co.",
     "Address": "1809 Larkspur Landing",
     "City": "Larkspur",
     "Latitude": 37.947507,
@@ -1718,7 +1718,7 @@
     "BreweryClass": "breweryOMearaBrosBrewingCo"
   },
   {
-    "Brewery": "Oak Park Brewing Co. ",
+    "Brewery": "Oak Park Brewing Co.",
     "Address": "3514 Broadway ",
     "City": "Sacramento",
     "Latitude": 38.55130933,
@@ -2276,7 +2276,7 @@
     "BreweryClass": "brewerySudwerkRestaurantandBrewery"
   },
   {
-    "Brewery": "Sunset Reservoir Brewing Co. ",
+    "Brewery": "Sunset Reservoir Brewing Co.",
     "Address": "1735 Noriega St. ",
     "City": "San Francisco",
     "Latitude": 37.753762,
@@ -2397,7 +2397,7 @@
     "BreweryClass": "breweryThirdStreetAleworks"
   },
   {
-    "Brewery": "Thirsty Bear Brewing Co. ",
+    "Brewery": "Thirsty Bear Brewing Co.",
     "Address": "661 Howard St. ",
     "City": "San Francisco",
     "Latitude": 37.7853457,
