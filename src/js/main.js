@@ -54,7 +54,9 @@ var map = L.map("map", {
 map.dragging.enable();
 
 // add tiles to the map
-var OpenStreetMap = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+var OpenStreetMap = L.tileLayer("http://{s}.tile.stamen.com/terrain/{z}/{x}/{y}.png",{
+  subdomains: "abcd".split(""),
+  scheme: "xyz",//'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
 	maxZoom: 16,
   minZoom: 7,
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -99,7 +101,6 @@ var feature = g.selectAll("circle")
     return d.BreweryClass;
   })
   .attr("class",function(d) {
-    console.log(d);
     return "dot "+d.BreweryClass;
   })
   .style("opacity", function(d) {
@@ -233,7 +234,6 @@ qsa(".clickme").forEach(function(group,index) {
 // event listener for each dot
 qsa(".dot").forEach(function(group,index) {
   group.addEventListener("click", function(e) {
-    console.log(e.target.classList);
     $('html, body').animate({
         scrollTop: $("#scroll-to-top").offset().top
     }, 600);
@@ -255,7 +255,6 @@ qsa(".dot").forEach(function(group,index) {
 
 // event listener for re-setting the map
 document.querySelector("#reset-button").addEventListener("click",function(e) {
-  console.log(e);
   $('html, body').animate({
       scrollTop: $("#scroll-to-top").offset().top
   }, 600);
