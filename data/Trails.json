@@ -4,34 +4,39 @@
     "author": "Tim O'Rourke",
     "description": "Head north up the coast along Highway 101 and hit some of the most revered breweries in the region that have helped shape craft beer culture across the nation.",
     "transit": "You're going to need a patient designated driver.",
-    "breweries": "Marin Brewing Co., Lagunitas Brewing Co., Russian River Brewing Co., Bear Republic Brewing Co. (Taproom), Mendocino Brewing Co., Anderson Valley Brewing Co., North Coast Brewing Co., Eel River Brewing Co., Lost Coast Brewery/Cafe, Mad River Brewing Co."
+    "breweries": "Marin Brewing Co., Lagunitas Brewing Co., Russian River Brewing Co., Bear Republic Brewing Co. (Taproom), Mendocino Brewing Co., Anderson Valley Brewing Co., North Coast Brewing Co., Eel River Brewing Co., Lost Coast Brewery/Cafe, Mad River Brewing Co.",
+    "class": "northcoast"
   },
   {
     "title": "Ballpark Beer Stroll",
     "author": "Rich Pestorich",
     "description": "Fans of beer, and the Giants, have plenty of options within about a mile of AT&T Park. For for a more laid-back experience, hit these spots when the Orange and Black are on the road.",
     "transit": "Plenty of public transportation along the way.",
-    "breweries": "Thirsty Bear Brewing Co., Black Hammer, 21st Amendment Brewery, Local Brewing, Triple Voodoo Brewery, Magnolia Smokestack, Harmonic Brewing"
+    "breweries": "Thirsty Bear Brewing Co., Black Hammer, 21st Amendment Brewery, Local Brewing, Triple Voodoo Brewery, Magnolia Smokestack, Harmonic Brewing",
+    "class": "ballpark"
   },
   {
     "title": "A West S.F. Brew Tour",
     "author": "Rich Pestorich",
     "description": "The brew-for-you options are a bit more spread out on the west side of the city, but that shouldn't stop you from exploring this turf.",
     "transit": "You can plot out a complicated public transit route or tap a ride-hailing app.",
-    "breweries": "Barrel Head Brewhouse, Magnolia Pub & Brewery, Social Kitchen & Brewery, Sunset Reservoir Brewing Co., Beach Chalet"
+    "breweries": "Barrel Head Brewhouse, Magnolia Pub & Brewery, Social Kitchen & Brewery, Sunset Reservoir Brewing Co., Beach Chalet",
+    "class": "westSF"
   },
   {
     "title": "Capital City Crawl",
     "author": "Tim O'Rourke",
     "description": "SacTown has a long brewing history, and the scene from West Sac to Midtown up to Gold Country is thriving again.",
     "transit": "Chop it up for a smaller walkable tour or enlist a few Uber or Lyft rides.",
-    "breweries": "Bike Dog Brewing Co., New Helvetia Brewing Co., Ruhstaller, Big Stump Brewing Co., Rubicon Brewing Co., Oak Park Brewing Co., Track 7 Brewing Co., Device Brewing Co."
+    "breweries": "Bike Dog Brewing Co., New Helvetia Brewing Co., Ruhstaller, Big Stump Brewing Co., Rubicon Brewing Co., Oak Park Brewing Co., Track 7 Brewing Co., Device Brewing Co.",
+    "class": "sac"
   },
   {
     "title": "Berkeley Bike+Beer Bash",
     "author": "Tim O’Rourke",
     "description": "For a city of around 115,000 people, Berkeley has more than its share of standout brewing operations, and the range in flagship styles at these eight spots raises the bar for beer fans looking for more than 12 takes on an IPA.",
     "transit": "Bike until you've hit the limit, then walk or catch a ride.",
-    "breweries": "Fieldwork Brewing Co., Gilman Brewing Co., Trumer Brauerei, Sierra Nevada Torpedo Room, The Rare Barrel, Hoi Polloi Brewpub and Beat Lounge, Jupiter Beer, Triple Rock Brewery and Alehouse"
+    "breweries": "Fieldwork Brewing Co., Gilman Brewing Co., Trumer Brauerei, Sierra Nevada Torpedo Room, The Rare Barrel, Hoi Polloi Brewpub and Beat Lounge, Jupiter Beer, Triple Rock Brewery and Alehouse",
+    "class": "berkeley"
   }
 ]

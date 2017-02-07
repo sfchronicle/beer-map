@@ -3,8 +3,56 @@
 @dark-yellow: #E6B319;
 @sea-blue: #7C9B9D;
 
+#pcntl {
+  @media @mobile {
+    margin-bottom: 20px;
+  }
+}
+
 #psec {
   display: none;
+  height: 800px;
+  overflow-y: scroll;
+  margin-bottom: 30px;
+  @media @mobile {
+    margin-bottom: 0;
+  }
+  font-family: @block-graphics;
+  font-size: 15px;
+  .trail-group {
+    padding-bottom: 20px;
+  }
+  .trail-desc, .trail-transit {
+    padding-bottom: 3px;
+  }
+  .bold-class {
+    font-family: @med-graphics;
+  }
+  .trail-author {
+    font-size: 13px;
+    padding: 3px 0;
+    font-style: italic;
+  }
+  .trail-title {
+    font-family: @med-graphics;
+    border-bottom: 1px solid @dark-gray;
+    margin-bottom: 5px;
+  }
+  .address {
+    font-style: italic;
+    padding-bottom: 3px;
+    font-size: 14px;
+  }
+  .clickme-trail {
+    font-family: @bold-graphics;
+    // padding-top: 5px;
+    font-size: 14px;
+    color: darken(@gray-blue,10%);
+    cursor: pointer;
+  }
+  &.active {
+    display: block;
+  }
 }
 
 #pcntl, #scntl {
@@ -42,6 +90,7 @@
     @media @mobile {
       .flex(0 0 90%);
       margin: auto;
+      margin-top: 30px;
     }
   }
   .map-wrapper {
@@ -77,6 +126,7 @@
         text-align: center;
         border-radius: 1px @dark-gray solid;
         .address {
+          font-family: @block-graphics;
           font-style: italic;
           padding-bottom: 3px;
           font-size: 16px;
@@ -97,8 +147,8 @@
         width: 100%;
       }
       @media @mobile {
-        width: 300px;
-        height: 250px;
+        width: 90%;
+        height: 320px;
         margin: auto;
       }
     }
@@ -158,7 +208,7 @@ circle {
 .search-container {
   font-family: @block-graphics;
   @media @mobile {
-    margin-top: 30px;
+    margin-top: 20px;
   }
   // text-align: center;
   .search {

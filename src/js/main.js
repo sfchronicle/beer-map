@@ -74,15 +74,8 @@ map._initPathRoot();
 
 // creating Lat/Lon objects that d3 is expecting
 beerData.forEach(function(d,idx) {
-  if (d.Latitude){
 		d.LatLng = new L.LatLng(d.Latitude,
 								d.Longitude);
-  } else {
-    console.log("ERROR");
-    console.log(d);
-    // this is a hack for entries in the spreadsheet that are missing data and this should be deleted before publication
-    d.LatLng = new L.LatLng(37.75, -122.43);
-  }
 });
 
 // creating svg layer for data
@@ -110,7 +103,7 @@ var feature = g.selectAll("circle")
     if (screen.width <= 480) {
       return 7;
     } else {
-      return 7;
+      return 9;
     }
   })
   .on('mouseover', function(d) {
@@ -127,7 +120,7 @@ var feature = g.selectAll("circle")
         // .style("left",10+"px");
     } else {
       return tooltip
-        .style("top", (d3.event.pageY-220)+"px")
+        .style("top", (d3.event.pageY-300)+"px")
         .style("left",(d3.event.pageX-50)+"px");
     }
   })
@@ -209,7 +202,7 @@ var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
 qsa(".clickme").forEach(function(group,index) {
   group.addEventListener("click", function(e) {
     $('html, body').animate({
-        scrollTop: $("#scroll-to-top").offset().top
+        scrollTop: $("#scroll-to-top").offset().top-35
     }, 600);
     document.querySelector("#chosen-brewery").innerHTML = fill_info(beerData[index]);
 
@@ -259,9 +252,10 @@ document.querySelector("#reset-button").addEventListener("click",function(e) {
   d3.selectAll(".dot").style("opacity", "0.8");
   d3.selectAll(".dot").style("stroke","#696969");
   map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
+  d3.selectAll(".leaflet-clickable").style("display", "none");
 });
 
-// controls for collapsing and expanding sections-----------------------------------
+// controls for collapsing and expanding sections -----------------------------------
 
 var search_click = document.getElementById('scntl');
 var search_cntl = document.getElementById('scaret');
@@ -277,10 +271,15 @@ search_click.addEventListener("click",function(){
     search_sec.style.display = "none";
     search_cntl.classList.remove('fa-caret-down');
     search_cntl.classList.add('fa-caret-right');
+    d3.selectAll(".leaflet-clickable").style("display", "none");
   } else {
     search_sec.style.display = "block";
     search_cntl.classList.remove('fa-caret-right');
     search_cntl.classList.add('fa-caret-down');
+    paths_sec.style.display = "none";
+    paths_cntl.classList.remove('fa-caret-down');
+    paths_cntl.classList.add('fa-caret-right');
+    d3.selectAll(".leaflet-clickable").style("display", "none");
   }
 });
 
@@ -289,9 +288,55 @@ paths_click.addEventListener("click",function(){
     paths_sec.style.display = "none";
     paths_cntl.classList.remove('fa-caret-down');
     paths_cntl.classList.add('fa-caret-right');
+    d3.selectAll(".leaflet-clickable").style("display", "none");
   } else {
     paths_sec.style.display = "block";
     paths_cntl.classList.remove('fa-caret-right');
     paths_cntl.classList.add('fa-caret-down');
+    search_sec.style.display = "none";
+    search_cntl.classList.remove('fa-caret-down');
+    search_cntl.classList.add('fa-caret-right');
+    d3.selectAll(".leaflet-clickable").style("display", "block");
   }
+});
+
+// beer map paths --------------------------------------------------------------
+var polyline = [];
+trailsData.forEach(function(d,idx) {
+  var trail_path = [];
+  var trailList = d.breweries.split(", ");
+  trailList.forEach(function(bb,bdx) {
+    for (var ii=0; ii < beerData.length; ii++) {
+      if (beerData[ii]["Brewery"] == bb) {
+        trail_path.push([beerData[ii]["Latitude"],beerData[ii]["Longitude"]]);
+      }
+    }
+  });
+  polyline[d.class] = L.polyline(trail_path,
+  {
+    className: d.class,
+    color: "#DE5D26",//"#B38000",
+    weight: 3,
+    opacity: 1.0,
+    lineJoin: "round"
+  }).addTo(map);
+});
+
+d3.selectAll(".leaflet-clickable").style("display", "none");
+
+// highlighting beer paths -----------------------------------------------------
+
+var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
+qsa(".clickme-trail").forEach(function(group,index) {
+  group.addEventListener("click", function(e) {
+    $('html, body').animate({
+        scrollTop: $("#scroll-to-top").offset().top
+    }, 600);
+    document.querySelector("#chosen-brewery").innerHTML = "";
+    d3.selectAll(".dot").style("fill", "#FFCC32");
+    d3.selectAll(".dot").style("opacity", "0.8");
+    d3.selectAll(".dot").style("stroke","#696969");
+    d3.selectAll(".leaflet-clickable").style("display", "block");
+    map.fitBounds(polyline[group.classList[1]].getBounds());
+  });
 });

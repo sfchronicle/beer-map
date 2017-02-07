@@ -40,7 +40,15 @@
 
         <div class="cntl" id="pcntl"><i class="fa fa-caret-right" id="pcaret" aria-hidden="true"></i>  Brewery Trails</div>
         <div id="psec">
-
+          <% json.Trails.forEach(function(d){ %>
+            <div class="trail-group">
+              <div class="trail-title"><%=d.title%></div>
+              <div class="trail-desc"><span class="bold-class">Description: </span><%=d.description%></div>
+              <div class="trail-transit"><span class="bold-class">Transit: </span><%=d.transit%></div>
+              <div class="clickme-trail <%=d.class%>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
+              <div class="trail-author"> &mdash; <%=d.author%></div>
+            </div>
+          <% }); %>
         </div>
 
         <div class="cntl" id="scntl"><i class="fa fa-caret-down" id="scaret" aria-hidden="true"></i>  Brewery List</div>
@@ -74,6 +82,7 @@
 
     <script>
       var beerData = <%= JSON.stringify(json.Open) %>
+      var trailsData = <%= JSON.stringify(json.Trails) %>
     </script>
 
     <script src="app.js" async></script>
