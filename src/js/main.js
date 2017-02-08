@@ -1,5 +1,5 @@
 require("./lib/social"); //Do not delete
-// require("component-leaflet-map");
+require("leaflet");
 var d3 = require('d3');
 
 // setting parameters for the center of the map and initial zoom level
@@ -120,7 +120,7 @@ var feature = g.selectAll("circle")
         // .style("left",10+"px");
     } else {
       return tooltip
-        .style("top", (d3.event.pageY-300)+"px")
+        .style("top", (d3.event.pageY-260)+"px")
         .style("left",(d3.event.pageX-50)+"px");
     }
   })
@@ -208,63 +208,51 @@ qsa(".dot").forEach(function(group,index) {
   });
 });
 
-// event listener for re-setting the map
-document.querySelector("#reset-button").addEventListener("click",function(e) {
-  $('html, body').animate({
-      scrollTop: $("#scroll-to-top").offset().top-35
-  }, 600);
-  document.querySelector("#chosen-brewery").innerHTML = "";
-  d3.selectAll(".dot").style("fill", "#FFCC32");
-  d3.selectAll(".dot").style("opacity", "0.8");
-  d3.selectAll(".dot").style("stroke","#696969");
-  map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
-  d3.selectAll(".leaflet-clickable").style("display", "none");
-});
 
 // controls for collapsing and expanding sections -----------------------------------
 
-var search_click = document.getElementById('scntl');
-var search_cntl = document.getElementById('scaret');
-var search_sec = document.getElementById('ssec');
-
-var paths_click = document.getElementById('pcntl');
-var paths_cntl = document.getElementById('pcaret');
-var paths_sec = document.getElementById('psec');
-paths_sec.style.display = "none";
-
-search_click.addEventListener("click",function(){
-  if (search_sec.style.display != "none") {
-    search_sec.style.display = "none";
-    search_cntl.classList.remove('fa-caret-down');
-    search_cntl.classList.add('fa-caret-right');
-    d3.selectAll(".leaflet-clickable").style("display", "none");
-  } else {
-    search_sec.style.display = "block";
-    search_cntl.classList.remove('fa-caret-right');
-    search_cntl.classList.add('fa-caret-down');
-    paths_sec.style.display = "none";
-    paths_cntl.classList.remove('fa-caret-down');
-    paths_cntl.classList.add('fa-caret-right');
-    d3.selectAll(".leaflet-clickable").style("display", "none");
-  }
-});
-
-paths_click.addEventListener("click",function(){
-  if (paths_sec.style.display != "none") {
-    paths_sec.style.display = "none";
-    paths_cntl.classList.remove('fa-caret-down');
-    paths_cntl.classList.add('fa-caret-right');
-    d3.selectAll(".leaflet-clickable").style("display", "none");
-  } else {
-    paths_sec.style.display = "block";
-    paths_cntl.classList.remove('fa-caret-right');
-    paths_cntl.classList.add('fa-caret-down');
-    search_sec.style.display = "none";
-    search_cntl.classList.remove('fa-caret-down');
-    search_cntl.classList.add('fa-caret-right');
-    d3.selectAll(".leaflet-clickable").style("display", "block");
-  }
-});
+// var search_click = document.getElementById('scntl');
+// var search_cntl = document.getElementById('scaret');
+// var search_sec = document.getElementById('ssec');
+//
+// var paths_click = document.getElementById('pcntl');
+// var paths_cntl = document.getElementById('pcaret');
+// var paths_sec = document.getElementById('psec');
+// paths_sec.style.display = "none";
+//
+// search_click.addEventListener("click",function(){
+//   if (search_sec.style.display != "none") {
+//     search_sec.style.display = "none";
+//     search_cntl.classList.remove('fa-caret-down');
+//     search_cntl.classList.add('fa-caret-right');
+//     d3.selectAll(".leaflet-clickable").style("display", "none");
+//   } else {
+//     search_sec.style.display = "block";
+//     search_cntl.classList.remove('fa-caret-right');
+//     search_cntl.classList.add('fa-caret-down');
+//     paths_sec.style.display = "none";
+//     paths_cntl.classList.remove('fa-caret-down');
+//     paths_cntl.classList.add('fa-caret-right');
+//     d3.selectAll(".leaflet-clickable").style("display", "none");
+//   }
+// });
+//
+// paths_click.addEventListener("click",function(){
+//   if (paths_sec.style.display != "none") {
+//     paths_sec.style.display = "none";
+//     paths_cntl.classList.remove('fa-caret-down');
+//     paths_cntl.classList.add('fa-caret-right');
+//     d3.selectAll(".leaflet-clickable").style("display", "none");
+//   } else {
+//     paths_sec.style.display = "block";
+//     paths_cntl.classList.remove('fa-caret-right');
+//     paths_cntl.classList.add('fa-caret-down');
+//     search_sec.style.display = "none";
+//     search_cntl.classList.remove('fa-caret-down');
+//     search_cntl.classList.add('fa-caret-right');
+//     d3.selectAll(".leaflet-clickable").style("display", "block");
+//   }
+// });
 
 // beer map paths --------------------------------------------------------------
 var polyline = [];
@@ -308,4 +296,49 @@ qsa(".clickme-trail").forEach(function(group,index) {
     d3.selectAll(".leaflet-clickable").style("display", "block");
     map.fitBounds(polyline[group.classList[1]].getBounds());
   });
+});
+
+// buttons for brewery trails and list -----------------------------------------
+
+var search_click = document.getElementById('list-button');
+var search_sec = document.getElementById('ssec');
+
+var paths_click = document.getElementById('trails-button');
+var paths_sec = document.getElementById('psec');
+
+var reset_click = document.getElementById("reset-button");
+
+paths_sec.style.display = "none";
+
+search_click.addEventListener("click",function(){
+  map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
+  paths_click.classList.remove("selected");
+  search_click.classList.add("selected");
+  reset_click.classList.remove("selected");
+  search_sec.style.display = "block";
+  paths_sec.style.display = "none";
+  d3.selectAll(".leaflet-clickable").style("display", "none");
+});
+
+paths_click.addEventListener("click",function(){
+  document.querySelector("#chosen-brewery").innerHTML = "";
+  map.setView(new L.LatLng(37.718929,-122.338428),11,{animate:true});
+  paths_click.classList.add("selected");
+  search_click.classList.remove("selected");
+  reset_click.classList.remove("selected");
+  paths_sec.style.display = "block";
+  search_sec.style.display = "none";
+  d3.selectAll(".leaflet-clickable").style("display", "block");
+});
+
+// event listener for re-setting the map
+reset_click.addEventListener("click",function(e) {
+  paths_click.classList.remove("selected");
+  search_click.classList.remove("selected");
+  document.querySelector("#chosen-brewery").innerHTML = "";
+  d3.selectAll(".dot").style("fill", "#FFCC32");
+  d3.selectAll(".dot").style("opacity", "0.8");
+  d3.selectAll(".dot").style("stroke","#696969");
+  map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
+  d3.selectAll(".leaflet-clickable").style("display", "none");
 });

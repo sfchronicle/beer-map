@@ -11,7 +11,7 @@
 
 #psec {
   display: none;
-  height: 800px;
+  height: 1000px;
   overflow-y: scroll;
   margin-bottom: 30px;
   @media @mobile {
@@ -83,7 +83,7 @@
     .flex(0 0 28%);
     margin-right: 2%;
     .brewery-list {
-      height: 800px;
+      height: 850px;
       overflow-y: scroll;
       margin-bottom: 20px;
     }
@@ -161,6 +161,7 @@
 
 .chatter {
   max-width: 900px;
+  padding-bottom: 20px;
   @media @mobile {
     padding: 25px 15px;
   }
@@ -173,22 +174,34 @@ circle {
   cursor: pointer;
 }
 
-.button {
-  font-family: @med-graphics;
-  font-size: 16px;
-  width: 200px;
+.button-container {
   text-align: center;
-  margin: auto;
-  margin-top: 30px;
-  border-radius: 5px;
-  border: 1px solid @dark-yellow;
-  color: @dark-yellow;
-  &:hover {
-    color: white;
-    background: @dark-yellow;
+  padding-bottom: 40px;
+  .button {
+    display: inline-block;
+    font-family: @med-graphics;
+    font-size: 16px;
+    // width: 200px;
+    // text-align: center;
+    padding: 2px 20px;
+    margin: auto;
+    // margin-top: 30px;
+    border-radius: 5px;
+    border: 1px solid @dark-yellow;
+    color: @dark-yellow;
+    &:hover {
+      color: white;
+      background: @dark-yellow;
+    }
+    &.selected {
+      color: white;
+      background: @dark-yellow;
+    }
+    cursor: pointer;
   }
-  cursor: pointer;
 }
+
+
 
 // .brewery-scroll-container {
 //   height: 1500px;
