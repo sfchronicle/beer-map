@@ -9,6 +9,53 @@
   }
 }
 
+.hed-wrapper {
+  position: relative;
+}
+
+.title-mobile {
+  @media @mobile {
+    width: 100%;
+    position: relative;
+    height: 95px;
+  }
+}
+
+.banner-content {
+  width: 60%;
+  float: left;
+  @media @mobile {
+    width: 100%;
+  }
+}
+
+.banner-img {
+  width: 20%;
+  float: left;
+  img {
+    display: block;
+    max-width: 200px;
+    width: 90%;
+    margin: auto;
+    padding-top: 30px;
+    @media @mobile {
+      height: 100%;
+      padding: 30px 0;
+    }
+  }
+  &.desktop {
+    @media @mobile {
+      display: none;
+    }
+  }
+  &.mobile {
+    display: none;
+    @media @mobile {
+      display: block;
+    }
+  }
+}
+
 #psec {
   display: none;
   height: 1000px;
@@ -63,8 +110,13 @@
   font-size: 30px;
   color: darken(@yellow,25%);
   font-family: @med-graphics;
-  @media @mobile {
+  @media @tablet {
     font-size: 25px;
+  }
+  @media @mobile {
+    font-size: 18px;
+    width: 60%;
+    float: left;
   }
 }
 
@@ -77,6 +129,9 @@
 }
 
 .content {
+  clear: both;
+  position: relative;
+  width: 100%;
   .display-flex;
   .flex-wrap(wrap);
   .sidebar {
@@ -87,7 +142,7 @@
       overflow-y: scroll;
       margin-bottom: 20px;
     }
-    @media @mobile {
+    @media @tablet {
       .flex(0 0 90%);
       margin: auto;
       margin-top: 30px;
@@ -104,7 +159,7 @@
       float: right;
       width: 80%;
       opacity: 0.8;
-      @media @mobile {
+      @media @tablet {
         position: relative;
         width: 90%;
         top: 0;
@@ -114,11 +169,11 @@
       }
       .brewery-group-top {
         background: white;
-        @media @mobile {
+        @media @tablet {
           background: @lightest-gray;
         }
         padding: 20px;
-        @media @mobile {
+        @media @tablet {
           margin-top: 30px;
         }
         font-family: @med-graphics;
@@ -136,7 +191,7 @@
         }
       }
     }
-    @media @mobile {
+    @media @tablet {
       .flex(0 0 100%);
     }
     #map {
@@ -145,6 +200,7 @@
       z-index: 0;
       @media @tablet {
         width: 100%;
+        height: 500px;
       }
       @media @mobile {
         width: 90%;
@@ -216,6 +272,12 @@ circle {
 
 .leaflet-control-zoom {
   display: block !important;
+  top: 30px !important;
+  right: 20px !important;
+  @media @mobile {
+    top: 5px !important;
+    right: 2px !important;
+  }
 }
 
 .search-container {
@@ -292,7 +354,7 @@ circle {
 .brewery-list {
   font-family: @block-graphics;
   font-size: 15px;
-  max-width: 600px;
+  // max-width: 600px;
   margin: auto;
   margin-top: 30px;
   @media @mobile {

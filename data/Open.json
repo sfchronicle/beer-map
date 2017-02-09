@@ -67,7 +67,8 @@
     "Longitude": "-122.406734",
     "Website": "http://www.almanacbeer.com/",
     "Blurb": "Jesse Friedman and Damian Fagan founded their \"farm-to-table\" brewery in 2010 in an effort to create finely crafted brews that pair well with food, and now they have a taproom open in the Mission District with 15 taps and a seasonal menu. ",
-    "SFC links": "http://insidescoopsf.sfgate.com/blog/2015/07/24/where-to-find-sour-beer-in-the-bay-area/"
+    "SFC links": "http://insidescoopsf.sfgate.com/blog/2015/07/24/where-to-find-sour-beer-in-the-bay-area/",
+    "BreweryClass": "breweryAlmanacBeerCo"
   },
   {
     "Brewery": "Alpha Acid Brewing Co.",
@@ -255,7 +256,8 @@
     "Latitude": 37.94239,
     "Longitude": "-122.357939",
     "Website": "https://bcbrewing.com/",
-    "Blurb": "Two beer-loving friends opened this small East Bay operation in 2014. The taproom is open for growler fills and tastings on Saturdays."
+    "Blurb": "Two beer-loving friends opened this small East Bay operation in 2014. The taproom is open for growler fills and tastings on Saturdays.",
+    "BreweryClass": "breweryBenoitCasperBrewingCo"
   },
   {
     "Brewery": "Berryessa Brewing Co.",
@@ -394,7 +396,8 @@
     "Website": "http://blueoakbrewing.com/",
     "Blurb": "This small brewery named after a tree species native to California has a taproom open Tuesday through Saturday and a Double IPA that's worth a try.",
     "Logo\nin folder?": "yes",
-    "Logo Link": "http://ww2.hdnux.com/photos/43/30/40/9275441/4/300x300.jpg"
+    "Logo Link": "http://ww2.hdnux.com/photos/43/30/40/9275441/4/300x300.jpg",
+    "BreweryClass": "breweryBlueOakBrewingCo"
   },
   {
     "Brewery": "Buffalo Bill's Brewery",

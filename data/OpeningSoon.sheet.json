@@ -24,5 +24,12 @@
     "City": "Yreka",
     "Website": "https://www.facebook.com/Paystreakbrewing/",
     "Blurb": "opening in summer"
+  },
+  {
+    "Brewery": "47 Hills Brewing Company",
+    "Address": "137 South Linden Ave.",
+    "City": "South San Francisco",
+    "Website": "http://47hillsbrewingcompany.com/",
+    "Blurb": "Opening early 2017"
   }
 ]

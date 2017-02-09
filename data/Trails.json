@@ -38,5 +38,19 @@
     "transit": "Bike until you've hit the limit, then walk or catch a ride.",
     "breweries": "Fieldwork Brewing Co., Gilman Brewing Company, Trumer Brauerei, Sierra Nevada Torpedo Room, The Rare Barrel, Hoi Polloi Brewpub and Beat Lounge, Jupiter Beer, Triple Rock Brewery and Alehouse",
     "class": "berkeley"
+  },
+  {
+    "title": "OakTown’s Craft Path",
+    "author": "Tim O’Rourke",
+    "description": "The East Bay’s biggest city is making an ever-increasing impact on the Northern California brew scene. Check out these spots for a taste.",
+    "transit": "You can mix and match public-transit options or wear out a pair of sneakers.",
+    "breweries": "Temescal Brewing , Drake's Dealership, Diving Dog Brewhouse, Woods Bar and Brewery, Pacific Coast Brewing Co. ,  Linden Street Brewery, Independent Brewing Co. "
+  },
+  {
+    "title": "Suds of Suburbia",
+    "author": "Tim O'Rourke",
+    "description": "The hippest spots are in cities, and many of the classic breweries are in far-flung counties. But don’t disregard the beer bastions in the ’burbs.",
+    "transit": "You’ll definitely need a car and a sober driver for this one.",
+    "breweries": "E.J. Phair Brewing, Black Diamond Brewing, Epidemic Ales, Calicraft Brewing Company, Farm Creek Brewing, Danville Brewing Co. , Schubros Brewery, Main Street Brewery, Eight Bridges Brewing, Working Man Brewing Co. , Altamont Beer Works "
   }
 ]

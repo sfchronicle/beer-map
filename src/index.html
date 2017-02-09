@@ -7,8 +7,6 @@
     <meta name="__sync_contentCategory" content="meterA">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-
-    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet-src.js"></script>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
 
     <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
@@ -22,13 +20,21 @@
     <%= t.include("partials/_nav.html") %>
 
     <div class="hed-wrapper">
-      <div class="hed">The Ultimate NorCal Brewery Map</div>
-      <div class="chatter">This redesigned interactive map features more than 220 breweries in Northern California. Hover and click on the spots, search for your favorites, or check out our list of beer excursions.</div>
-      <div class="button-container">
-        <div class="button selected" id="list-button">Brewery List</div>
-        <div class="button" id="trails-button">Brewery Trails</div>
-        <div class="button" id="reset-button">Reset map</div>
+      <div class="banner-img left desktop"><img src="./assets/graphics/hopsL.png"></img></div>
+      <div class="banner-content">
+        <div class="title-mobile">
+          <div class="banner-img left mobile"><img src="./assets/graphics/hopsL.png"></img></div>
+          <div class="hed">The Ultimate NorCal Brewery Map</div>
+          <div class="banner-img left mobile"><img src="./assets/graphics/hopsL.png"></img></div>
+        </div>
+        <div class="chatter">This redesigned interactive map features more than 220 breweries in Northern California. Hover and click on the spots, search for your favorites, or check out our list of beer excursions.</div>
+        <div class="button-container">
+          <div class="button selected" id="list-button">Brewery List</div>
+          <div class="button" id="trails-button">Brewery Trails</div>
+          <div class="button" id="reset-button">Reset map</div>
+        </div>
       </div>
+      <div class="banner-img right desktop"><img src="./assets/graphics/hopsR.png"></img></div>
     </div>
 
     <div class="content">

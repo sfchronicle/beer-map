@@ -45,7 +45,7 @@ var map = L.map("map", {
   maxZoom: 15,
   zoomControl: false,
   dragging: true,
-  touchZoom: true
+  // touchZoom: true
   // zoomControl: isMobile ? false : true,
   // scrollWheelZoom: false
 }).setView([sf_lat,sf_long], zoom_deg);;
@@ -322,6 +322,9 @@ search_click.addEventListener("click",function(){
 
 paths_click.addEventListener("click",function(){
   document.querySelector("#chosen-brewery").innerHTML = "";
+  d3.selectAll(".dot").style("fill", "#FFCC32");
+  d3.selectAll(".dot").style("opacity", "0.8");
+  d3.selectAll(".dot").style("stroke","#696969");
   map.setView(new L.LatLng(37.718929,-122.338428),11,{animate:true});
   paths_click.classList.add("selected");
   search_click.classList.remove("selected");
@@ -342,3 +345,12 @@ reset_click.addEventListener("click",function(e) {
   map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
   d3.selectAll(".leaflet-clickable").style("display", "none");
 });
+
+// hack to fix zooming issue with scrolling ------------------------------------
+
+// document.querySelector(".leaflet-control-zoom").addEventListener("click",function() {
+//   console.log("scrolling down");
+//   $('html, body').animate({
+//       scrollTop: $("#scroll-to-top").offset().top-35
+//   }, 600);
+// });
