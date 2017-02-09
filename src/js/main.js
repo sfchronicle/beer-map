@@ -257,16 +257,21 @@ qsa(".dot").forEach(function(group,index) {
 // beer map paths --------------------------------------------------------------
 var polyline = [];
 trailsData.forEach(function(d,idx) {
+  console.log("NEW TRAIL")
+  console.log(d.title);
   var trail_path = [];
   var trailList = d.breweries.split(", ");
+  console.log(trailList);
   trailList.forEach(function(bb,bdx) {
+    // console.log(bb);
     for (var ii=0; ii < beerData.length; ii++) {
       if (beerData[ii]["Brewery"] == bb) {
+        // console.log("we found a match");
         trail_path.push([beerData[ii]["Latitude"],beerData[ii]["Longitude"]]);
       }
     }
   });
-  console.log(d.class);
+  // console.log(d.class);
   console.log("number of stops:");
   console.log(trail_path.length);
   polyline[d.class] = L.polyline(trail_path,
