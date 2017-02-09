@@ -325,7 +325,11 @@ paths_click.addEventListener("click",function(){
   d3.selectAll(".dot").style("fill", "#FFCC32");
   d3.selectAll(".dot").style("opacity", "0.8");
   d3.selectAll(".dot").style("stroke","#696969");
-  map.setView(new L.LatLng(37.718929,-122.338428),11,{animate:true});
+  if (screen.width >= 480) {
+    map.setView(new L.LatLng(37.718929,-122.338428),11,{animate:true});
+  } else {
+    map.setView(new L.LatLng(37.852280,-122.386665),10,{animate:true});
+  }
   paths_click.classList.add("selected");
   search_click.classList.remove("selected");
   reset_click.classList.remove("selected");
