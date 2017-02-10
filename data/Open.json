@@ -60,7 +60,7 @@
     "BreweryClass": "breweryAleIndustries"
   },
   {
-    "Brewery": "Almanac Beer Co. ",
+    "Brewery": "Almanac Beer Co.",
     "Address": "2704 24th St.",
     "City": "San Francisco",
     "Latitude": 37.753114,
@@ -144,7 +144,7 @@
     "BreweryClass": "breweryAndersonValleyBrewingCo"
   },
   {
-    "Brewery": "Armstrong Brewing Co. ",
+    "Brewery": "Armstrong Brewing Co.",
     "Address": "415 Grand Ave.",
     "City": "South San Francisco",
     "Latitude": 37.65566716,
@@ -612,7 +612,7 @@
     "BreweryClass": "breweryDeviceBrewingCo"
   },
   {
-    "Brewery": "Devil's Canyon Brewing Co. ",
+    "Brewery": "Devil's Canyon Brewing Co.",
     "Address": "935 Washington St. ",
     "City": "San Carlos",
     "Latitude": 37.498274,
@@ -1327,7 +1327,7 @@
     "BreweryClass": "breweryLassenAleWorks"
   },
   {
-    "Brewery": "Laughing Monk ",
+    "Brewery": "Laughing Monk",
     "Address": "1439 Egbert Ave.",
     "City": "San Francisco",
     "Latitude": 37.722784,
@@ -2061,7 +2061,8 @@
     "Latitude": 36.986061,
     "Longitude": "-122.031864",
     "Website": "http://www.shantyshackbrewing.com/",
-    "Blurb": "This operation screams Santa Cruz, and the brewing actually did start in a shack. Now, they're making such beers as Rhino Chaser barleywine and Lunch Pail rye pale ale."
+    "Blurb": "This operation screams Santa Cruz, and the brewing actually did start in a shack. Now, they're making such beers as Rhino Chaser barleywine and Lunch Pail rye pale ale.",
+    "BreweryClass": "breweryShantyShackBrewing"
   },
   {
     "Brewery": "Sierra Nevada Brewing Co.",
@@ -2231,7 +2232,7 @@
     "BreweryClass": "brewerySteelBonnetBrewingCo"
   },
   {
-    "Brewery": "Steelhead Brewing Co. ",
+    "Brewery": "Steelhead Brewing Co.",
     "Address": "333 California Drive",
     "City": "Burlingame",
     "Latitude": 37.58018112,

@@ -2,6 +2,9 @@ require("./lib/social"); //Do not delete
 require("leaflet");
 var d3 = require('d3');
 
+var off_red = "#DE5D26";
+var bright_red = "#AB2A00";
+
 // setting parameters for the center of the map and initial zoom level
 if (screen.width <= 480) {
   var sf_lat = 37.85;
@@ -24,6 +27,12 @@ function fill_info(data){
   var strBrewery = data.Brewery;
   var strCity = data.City;
   var html = "<div class='brewery-group-top active'><div class='name'>"+data.Brewery+"<a href="+data.Website+" target='_blank'><i class='fa fa-external-link' aria-hidden='true'></i></a></div><div class='address'>"+data.Address+", "+data.City+"</div><div class='blurb'>"+data.Blurb+"</div></div>";
+  return html;
+}
+
+// put info for highlighted brewery trail at the top
+function fill_path_info(data){
+  var html = "<div class='brewery-group-top active'><div class='name'>"+data.title+"</div><div class='address small'>"+data.breweries+"</div></div>";
   return html;
 }
 
@@ -101,9 +110,9 @@ var feature = g.selectAll("circle")
   .style("stroke","#696969")
   .attr("r", function(d) {
     if (screen.width <= 480) {
-      return 7;
+      return 8;
     } else {
-      return 9;
+      return 10;
     }
   })
   .on('mouseover', function(d) {
@@ -277,7 +286,7 @@ trailsData.forEach(function(d,idx) {
   polyline[d.class] = L.polyline(trail_path,
   {
     className: d.class,
-    color: "#DE5D26",//"#B38000",
+    color: off_red,//"#B38000",
     weight: 3,
     opacity: 1.0,
     lineJoin: "round"
@@ -290,16 +299,26 @@ d3.selectAll(".leaflet-clickable").style("display", "none");
 
 var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
 qsa(".clickme-trail").forEach(function(group,index) {
+  console.log(group.classList[1]);
   group.addEventListener("click", function(e) {
     $('html, body').animate({
         scrollTop: $("#scroll-to-top").offset().top-35
     }, 600);
-    document.querySelector("#chosen-brewery").innerHTML = "";
+
     d3.selectAll(".dot").style("fill", "#FFCC32");
     d3.selectAll(".dot").style("opacity", "0.8");
     d3.selectAll(".dot").style("stroke","#696969");
     d3.selectAll(".leaflet-clickable").style("display", "block");
     map.fitBounds(polyline[group.classList[1]].getBounds());
+
+    d3.selectAll(".leaflet-clickable").style("stroke",off_red);
+    d3.selectAll(".leaflet-clickable").style("opacity","0.6");
+    d3.selectAll(".leaflet-clickable").style("stroke-width","3");
+    d3.selectAll("."+group.classList[1]).style("stroke",bright_red);
+    d3.selectAll("."+group.classList[1]).style("opacity","1.0");
+    d3.selectAll("."+group.classList[1]).style("stroke-width","5");
+
+    document.querySelector("#chosen-brewery").innerHTML = fill_path_info(trailsData[index]);
   });
 });
 
@@ -316,6 +335,7 @@ var reset_click = document.getElementById("reset-button");
 paths_sec.style.display = "none";
 
 search_click.addEventListener("click",function(){
+  document.querySelector("#chosen-brewery").innerHTML = "";
   map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
   paths_click.classList.remove("selected");
   search_click.classList.add("selected");
@@ -340,7 +360,11 @@ paths_click.addEventListener("click",function(){
   reset_click.classList.remove("selected");
   paths_sec.style.display = "block";
   search_sec.style.display = "none";
+
   d3.selectAll(".leaflet-clickable").style("display", "block");
+  d3.selectAll(".leaflet-clickable").style("stroke",off_red);
+  d3.selectAll(".leaflet-clickable").style("opacity","1.0");
+  d3.selectAll(".leaflet-clickable").style("stroke-width","3");
 });
 
 // event listener for re-setting the map
