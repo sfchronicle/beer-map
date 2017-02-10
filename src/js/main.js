@@ -4,6 +4,7 @@ var d3 = require('d3');
 
 var off_red = "#DE5D26";
 var bright_red = "#AB2A00";
+var dot_red = "#C5440D";//"red";
 
 // setting parameters for the center of the map and initial zoom level
 if (screen.width <= 480) {
@@ -185,7 +186,7 @@ qsa(".clickme").forEach(function(group,index) {
     d3.selectAll(".dot").style("fill", "#FFCC32");
     d3.selectAll(".dot").style("opacity", "0.2");
     d3.selectAll(".dot").style("stroke","black");
-    d3.select("#"+e.target.classList[1]).style("fill","red");
+    d3.select("#"+e.target.classList[1]).style("fill",dot_red);
     d3.select("#"+e.target.classList[1]).style("opacity","1.0");
     d3.select("#"+e.target.classList[1]).style("stroke","#696969");
 
@@ -207,7 +208,7 @@ qsa(".dot").forEach(function(group,index) {
     d3.selectAll(".dot").style("fill", "#FFCC32");
     d3.selectAll(".dot").style("opacity", "0.2");
     d3.selectAll(".dot").style("stroke","black");
-    d3.select("#"+e.target.classList[1]).style("fill","red");
+    d3.select("#"+e.target.classList[1]).style("fill",dot_red);
     d3.select("#"+e.target.classList[1]).style("opacity","1.0");
     d3.select("#"+e.target.classList[1]).style("stroke","#696969");
 
