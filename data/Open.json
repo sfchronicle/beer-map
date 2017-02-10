@@ -944,6 +944,30 @@
     "BreweryClass": "breweryFieldworkBrewingCo"
   },
   {
+    "Brewery": "Fieldwork Brewing Co. (Napa)",
+    "Address": "610 First St.",
+    "City": "Napa",
+    "Latitude": 38.301711,
+    "Longitude": "-122.281618",
+    "Website": "http://fieldworkbrewing.com/napa/",
+    "Blurb": "Fieldwork's Napa Taproom, located within the Oxbow Public Market in Downtown Napa, offers an ever-changing tap list of fresh releases.",
+    "Logo\nin folder?": "yes",
+    "Logo Link": "http://ww4.hdnux.com/photos/43/31/17/9278415/4/300x300.jpg",
+    "BreweryClass": "breweryFieldworkBrewingCoNapa"
+  },
+  {
+    "Brewery": "Fieldwork Brewing Co. (Sacramento)",
+    "Address": "1805 Capitol Ave.",
+    "City": "Sacramento",
+    "Latitude": 38.574142,
+    "Longitude": "-121.483567",
+    "Website": "http://fieldworkbrewing.com/sacramento/",
+    "Blurb": "The Sacramento taproom of the popular East Bay-based brewery offers an ever-changing tap list of fresh releases.",
+    "Logo\nin folder?": "yes",
+    "Logo Link": "http://ww4.hdnux.com/photos/43/31/17/9278415/4/300x300.jpg",
+    "BreweryClass": "breweryFieldworkBrewingCoSacramento"
+  },
+  {
     "Brewery": "Fifty Fifty Brewing Co.",
     "Address": "11197 Brockway Road, No. 1",
     "City": "Truckee",
@@ -2610,11 +2634,47 @@
     "City": "San Francisco ",
     "Latitude": 37.7610887,
     "Longitude": "-122.4285214",
-    "Website": "http://www.woodsbeer.com/",
+    "Website": "http://www.woodsbeer.com/locations/#/cerveceria/",
     "Blurb": "Small, experimental brewery and the original home of Woods MateVeza IPA. ",
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww4.hdnux.com/photos/43/31/43/9279735/4/300x300.jpg",
     "BreweryClass": "breweryWoodsCerveceria"
+  },
+  {
+    "Brewery": "Woods Island Club",
+    "Address": "422 Clipper Cove Way",
+    "City": "San Francisco ",
+    "Latitude": 37.818453,
+    "Longitude": "-122.367664",
+    "Website": "http://www.woodsbeer.com/locations/#/islandclub/",
+    "Blurb": "Woods beers and house-made barrel aged special releases are served up at this Treasure Island location.",
+    "Logo\nin folder?": "yes",
+    "Logo Link": "http://ww4.hdnux.com/photos/43/31/43/9279735/4/300x300.jpg",
+    "BreweryClass": "breweryWoodsIslandClub"
+  },
+  {
+    "Brewery": "Woods Outbound",
+    "Address": "4045 Judah Street",
+    "City": "San Francisco ",
+    "Latitude": 37.760288,
+    "Longitude": "-122.505556",
+    "Website": "http://www.woodsbeer.com/locations/#/outbound/",
+    "Blurb": "Woods beers are served up at this Outer Sunset taproom.",
+    "Logo\nin folder?": "yes",
+    "Logo Link": "http://ww4.hdnux.com/photos/43/31/43/9279735/4/300x300.jpg",
+    "BreweryClass": "breweryWoodsOutbound"
+  },
+  {
+    "Brewery": "Woods Polk Station",
+    "Address": "2255 Polk St.",
+    "City": "San Francisco ",
+    "Latitude": 37.79767,
+    "Longitude": "-122.422324",
+    "Website": "http://www.woodsbeer.com/locations/#/polkstation/",
+    "Blurb": "Woods beers and guest taps are served up in this mountain lodge-style outpost at the top of Russian Hill.",
+    "Logo\nin folder?": "yes",
+    "Logo Link": "http://ww4.hdnux.com/photos/43/31/43/9279735/4/300x300.jpg",
+    "BreweryClass": "breweryWoodsPolkStation"
   },
   {
     "Brewery": "Woody's Brewing Co.",

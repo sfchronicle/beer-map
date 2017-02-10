@@ -124,13 +124,18 @@ var feature = g.selectAll("circle")
   .on("mousemove", function() {
     if (screen.width <= 480) {
       return tooltip
-        .style("top", 70+"px")
+        .style("top",70+"px")
         .style("left",40+"px");
         // .style("top",(d3.event.pageY+40)+"px")//(d3.event.pageY+40)+"px")
         // .style("left",10+"px");
+    } else if (screen.width <= 1024) {
+      console.log("mid");
+      return tooltip
+        .style("top", (d3.event.pageY-200)+"px")
+        .style("left",(d3.event.pageX-50)+"px");
     } else {
       return tooltip
-        .style("top", (d3.event.pageY-260)+"px")
+        .style("top", (d3.event.pageY-250)+"px")
         .style("left",(d3.event.pageX-50)+"px");
     }
   })

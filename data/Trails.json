@@ -1,19 +1,27 @@
 [
   {
-    "title": "North Coast Ale Trail",
-    "author": "Tim O'Rourke",
-    "description": "Head north up the coast along Highway 101 and hit some of the most revered breweries in the region that have helped shape craft beer culture across the nation.",
-    "transit": "You're going to need a patient designated driver.",
-    "breweries": "Marin Brewing Co., Lagunitas Brewing Co., Russian River Brewing Co., Bear Republic Brewing Co. (Taproom), Mendocino Brewing Co., Anderson Valley Brewing Co., North Coast Brewing Co., Eel River Brewing Co., Lost Coast Brewery (Brewery/Cafe), Mad River Brewing Co.",
-    "class": "northcoast"
+    "title": "Mission Brewery Tour",
+    "author": "Paolo Lucchesi",
+    "description": "Pop quiz: Can you name all the breweries in the Mission? (Bonus: All of them have solid food options.)",
+    "transit": "Few neighborhoods are better for walking. ",
+    "breweries": "Woods Cerveceria, Southpaw BBQ, Southern Pacific Brewing Co., Almanac Beer Co., Old Bus Tavern",
+    "class": "mission"
   },
   {
     "title": "Ballpark Beer Stroll",
     "author": "Rich Pestorich",
     "description": "Fans of beer, and the Giants, have plenty of options within about a mile of AT&T Park. For for a more laid-back experience, hit these spots when the Orange and Black are on the road.",
     "transit": "Plenty of public transportation along the way.",
-    "breweries": "Thirsty Bear Brewing Co., Black Hammer Brewing Co., 21st Amendment Brewery (taproom), Local Brewing, Triple Voodoo Brewery, Magnolia Smokestack, Harmonic Brewing",
+    "breweries": "Thirsty Bear Brewing Co., Black Hammer Brewing Co., 21st Amendment Brewery (taproom), Local Brewing, Triple Voodoo Brewery, Magnolia Smokestack",
     "class": "ballpark"
+  },
+  {
+    "title": "S.F.'s Eastside Excursion",
+    "author": "Paolo Lucchesi",
+    "description": "Thanks to a plethora of industrial spaces, the Dogpatch and Bayview neighborhoods are home to some of San Francisco's best breweries. ",
+    "transit": "Public transportation is a solid option on this route, as is, for the real go-getters, walking.",
+    "breweries": "Triple Voodoo Brewery, Magnolia Smokestack, Harmonic Brewing, Speakeasy Ales & Lagers, Laughing Monk",
+    "class": "bayview"
   },
   {
     "title": "A West S.F. Brew Tour",
@@ -24,12 +32,12 @@
     "class": "westSF"
   },
   {
-    "title": "Capital City Crawl",
+    "title": "North Coast Ale Trail",
     "author": "Tim O'Rourke",
-    "description": "SacTown has a long brewing history, and the scene from West Sac to Midtown up to Gold Country is thriving again.",
-    "transit": "Chop it up for a smaller walkable tour or enlist a few Uber or Lyft rides.",
-    "breweries": "Bike Dog Brewing Co., New Helvetia Brewing Co., Ruhstaller, Big Stump Brewing Co., Rubicon Brewing Co., Oak Park Brewing Co., Track 7 Brewing Co., Device Brewing Co.",
-    "class": "sac"
+    "description": "Head north up the coast along Highway 101 and hit some of the most revered breweries in the region that have helped shape craft beer culture across the nation.",
+    "transit": "You're going to need a patient designated driver.",
+    "breweries": "Marin Brewing Co., Lagunitas Brewing Co., Russian River Brewing Co., Bear Republic Brewing Co. (Taproom), Mendocino Brewing Co., Anderson Valley Brewing Co., North Coast Brewing Co., Eel River Brewing Co., Lost Coast Brewery (Brewery/Cafe), Mad River Brewing Co.",
+    "class": "northcoast"
   },
   {
     "title": "Berkeley Bike+Beer Bash",
@@ -56,14 +64,6 @@
     "class": "suburbia"
   },
   {
-    "title": "The Eastside Excursion",
-    "author": "Paolo Lucchesi",
-    "description": "Thanks to a plethora of industrial spaces, the Dogpatch and Bayview neighborhoods are home to some of San Francisco's best breweries. ",
-    "transit": "Public transportation is a solid option on this route, as is, for the real go-getters, walking.",
-    "breweries": "Triple Voodoo Brewery, Magnolia Smokestack, Harmonic Brewing, Speakeasy Ales & Lagers, Laughing Monk",
-    "class": "bayview"
-  },
-  {
     "title": "The 650 Swing",
     "author": "Paolo Lucchesi",
     "description": "From South City to Mountain View, the Peninsula has a bunch of spots for your beer-drinking pleasure. Some are all about the beer, but most are just a good time.",
@@ -72,11 +72,11 @@
     "class": "peninsula"
   },
   {
-    "title": "Mission Brewery Tour",
-    "author": "Paolo Lucchesi",
-    "description": "Pop quiz: Can you name all the breweries in the Mission? (Bonus: All of them have solid food options.)",
-    "transit": "Few neighborhoods are better for walking. ",
-    "breweries": "Woods Cerveceria, Southpaw BBQ, Southern Pacific Brewing Co., Almanac Beer Co., Old Bus Tavern",
-    "class": "mission"
+    "title": "Capital City Crawl",
+    "author": "Tim O'Rourke",
+    "description": "SacTown has a long brewing history, and the scene from West Sac to Midtown up to Gold Country is thriving again.",
+    "transit": "Chop it up for a smaller walkable tour or enlist a few Uber or Lyft rides.",
+    "breweries": "Bike Dog Brewing Co., New Helvetia Brewing Co., Ruhstaller, Big Stump Brewing Co., Rubicon Brewing Co., Oak Park Brewing Co., Track 7 Brewing Co., Device Brewing Co.",
+    "class": "sac"
   }
 ]
