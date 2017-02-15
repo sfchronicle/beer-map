@@ -150,7 +150,7 @@ var feature = g.selectAll("circle")
 var tooltip = d3.select("div.tooltip-beermap");
 
 // searchbar code
-$("input").bind("input propertychange", function() {
+$("#searchbar").bind("input propertychange", function () {
   var filter = $(this).val().toLowerCase().replace(/ /g,'');
   var class_match = 0;
 
