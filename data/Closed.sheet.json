@@ -39,5 +39,29 @@
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww1.hdnux.com/photos/43/31/40/9279528/4/300x300.jpg",
     "undefined": "breweryRosevilleBrewingCo"
+  },
+  {
+    "Brewery": "Dragas Brewing",
+    "Address": "5860 Pacific St.",
+    "City": "Rocklin ",
+    "Latitude": 38.781912,
+    "Longitude": "-121.242261",
+    "Website": "http://www.dragasbrewing.com/",
+    "Blurb": "Brewery takes some chances with nontraditional beers including a vanilla chili pepper stout and an apple-infused wheat ale.",
+    "Logo\nin folder?": "yes",
+    "Logo Link": "http://ww2.hdnux.com/photos/43/53/43/9353437/4/300x300.jpg",
+    "undefined": "breweryDragasBrewing"
+  },
+  {
+    "Brewery": "Black Dragon Brewery",
+    "Address": "175 W. Main St.",
+    "City": "Woodland",
+    "Latitude": 38.67745901,
+    "Longitude": "-121.7923308",
+    "Website": "http://www.blackdragonbrew.com/",
+    "Blurb": "Small brewery and homebrew supply shop. Beers include Gypsy Blonde and Dragon's Eye Porter.",
+    "Logo\nin folder?": "yes/new",
+    "Logo Link": "http://ww2.hdnux.com/photos/43/32/66/9285033/6/300x300.jpg",
+    "undefined": "breweryBlackDragonBrewery"
   }
 ]

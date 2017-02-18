@@ -1,5 +1,15 @@
 [
   {
+    "Brewery": "47 Hills Brewing Company",
+    "Address": "137 South Linden Ave.",
+    "City": "South San Francisco",
+    "Latitude": 37.644246,
+    "Longitude": "-122.413604",
+    "Website": "http://47hillsbrewingcompany.com/",
+    "Blurb": "This new addition to the South San Francisco brewing scene offers an IPA, Farmhouse Ale, Kellerbier and Porter.",
+    "BreweryClass": "brewery47HillsBrewingCompany"
+  },
+  {
     "Brewery": "101 North Brewing",
     "Address": "1304 Scott St.",
     "City": "Petaluma",
@@ -93,6 +103,26 @@
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww2.hdnux.com/photos/43/30/37/9275381/4/300x300.jpg",
     "BreweryClass": "breweryAltamontBeerWorks"
+  },
+  {
+    "Brewery": "Alvarado Street Brewery",
+    "Address": "426 Alvarado St.",
+    "City": "Monterey",
+    "Latitude": 36.599287,
+    "Longitude": "-121.894761",
+    "Website": "http://www.alvaradostreetbrewery.com/",
+    "Blurb": "The family-owned brewery in Old Monterey serves more than 20 house beers on draft, including their Chinooked on a Feeling American pale ale, When Doves Cryo American IPA and Tall, Dark & Handsome export stout.",
+    "BreweryClass": "breweryAlvaradoStreetBrewery"
+  },
+  {
+    "Brewery": "Alvarado Street Brewery (Salinas)",
+    "Address": "1315 Dayton St. Suite E",
+    "City": "Salinas",
+    "Latitude": 36.648797,
+    "Longitude": "-121.629867",
+    "Website": "http://www.alvaradostreetbrewery.com/",
+    "Blurb": "The Salinas brewery and tasting room opened in 2016 to supplement Alvarado Street Brewery’s flagship location in Monterey, which serves more than 20 house beers on draft.",
+    "BreweryClass": "breweryAlvaradoStreetBrewerySalinas"
   },
   {
     "Brewery": "Amador Brewing Co.",
@@ -314,18 +344,6 @@
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww3.hdnux.com/photos/43/30/40/9275430/4/300x300.jpg",
     "BreweryClass": "breweryBlackDiamondBrewing"
-  },
-  {
-    "Brewery": "Black Dragon Brewery",
-    "Address": "175 W. Main St.",
-    "City": "Woodland",
-    "Latitude": 38.67745901,
-    "Longitude": "-121.7923308",
-    "Website": "http://www.blackdragonbrew.com/",
-    "Blurb": "Small brewery and homebrew supply shop. Beers include Gypsy Blonde and Dragon's Eye Porter.",
-    "Logo\nin folder?": "yes/new",
-    "Logo Link": "http://ww2.hdnux.com/photos/43/32/66/9285033/6/300x300.jpg",
-    "BreweryClass": "breweryBlackDragonBrewery"
   },
   {
     "Brewery": "Black Hammer Brewing Co.",
@@ -648,18 +666,6 @@
     "BreweryClass": "breweryDivingDogBrewhouse"
   },
   {
-    "Brewery": "Dragas Brewing",
-    "Address": "5860 Pacific St.",
-    "City": "Rocklin ",
-    "Latitude": 38.781912,
-    "Longitude": "-121.242261",
-    "Website": "http://www.dragasbrewing.com/",
-    "Blurb": "Brewery takes some chances with nontraditional beers including a vanilla chili pepper stout and an apple-infused wheat ale.",
-    "Logo\nin folder?": "yes",
-    "Logo Link": "http://ww2.hdnux.com/photos/43/53/43/9353437/4/300x300.jpg",
-    "BreweryClass": "breweryDragasBrewing"
-  },
-  {
     "Brewery": "Drake's Brewing Co.",
     "Address": "1933 Davis St., Building 177",
     "City": "San Leandro",
@@ -753,6 +759,16 @@
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww3.hdnux.com/photos/43/31/17/9278430/4/300x300.jpg",
     "BreweryClass": "breweryEelRiverBrewingCo"
+  },
+  {
+    "Brewery": "EDH Brewing Co.",
+    "Address": "875 Embarcadero Drive",
+    "City": "El Dorado Hills",
+    "Latitude": 38.708729,
+    "Longitude": "-121.084542",
+    "Website": "http://edhbrewing.com/",
+    "Blurb": "Rotating taps include their Big Red Pig mosaic hopped red, Trailblazer kolsch and Devil Dog imperial cappuccino stout.",
+    "BreweryClass": "breweryEDHBrewingCo"
   },
   {
     "Brewery": "Eight Bridges Brewing",
@@ -920,6 +936,16 @@
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww4.hdnux.com/photos/43/31/34/9279255/4/300x300.jpg",
     "BreweryClass": "breweryFeatherFallsCasinoBrewingCo"
+  },
+  {
+    "Brewery": "Federation Brewing",
+    "Address": "420 Third St. Unit A",
+    "City": "Oakland",
+    "Latitude": 37.796707,
+    "Longitude": "-122.275099",
+    "Website": "http://www.federationbrewing.com/",
+    "Blurb": "Beers include an In the Weeds IPA, Low Boy Stout and Behind You! Blonde.",
+    "BreweryClass": "breweryFederationBrewing"
   },
   {
     "Brewery": "Ferment Drink Repeat - FDR Brewing",
@@ -1108,6 +1134,16 @@
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww1.hdnux.com/photos/43/31/21/9278548/4/300x300.jpg",
     "BreweryClass": "breweryGordonBierschBrewingCo"
+  },
+  {
+    "Brewery": "Grav South Brew Co.",
+    "Address": "7950 Redwood Drive, Suite 15",
+    "City": "Cotati",
+    "Latitude": 38.332336,
+    "Longitude": "-122.714007",
+    "Website": "http://www.gravsouthbrewco.com",
+    "Blurb": "Small North Bay outpost features at least three IPA variations and a Sweet Stout that's worth a taste.",
+    "BreweryClass": "breweryGravSouthBrewCo"
   },
   {
     "Brewery": "Half Moon Bay Brewing Co. ",
@@ -1960,6 +1996,19 @@
     "BreweryClass": "breweryRuhstaller"
   },
   {
+    "Brewery": "Ruhstaller (Taproom)",
+    "Address": "800 Business Park Drive, Suite G",
+    "City": "Dixon",
+    "Latitude": 38.453466,
+    "Longitude": "-121.819608",
+    "Website": "http://ruhstallerbeer.com/shop/",
+    "Phone": "http://ruhstallerbeer.com/",
+    "Blurb": "The Shop from Ruhstaller is home to their research and development brewery and taproom, featuring 12 taps pouring year-round and limited release brews.",
+    "Logo\nin folder?": "This Sacramento outfit is making exciting beers and growing quickly. Visits to the taproom are on an appointment-only basis.",
+    "Logo Link": "yes",
+    "BreweryClass": "breweryRuhstallerTaproom"
+  },
+  {
     "Brewery": "Russian River Brewing Co.",
     "Address": "725 Fourth St.",
     "City": "Santa Rosa",
@@ -1984,6 +2033,16 @@
     "Logo\nin folder?": "yes",
     "Logo Link": "http://ww2.hdnux.com/photos/44/44/30/9586209/4/300x300.jpg",
     "BreweryClass": "brewerySacTownUnionBrewery"
+  },
+  {
+    "Brewery": "San Francisco Brewing Co. ",
+    "Address": "2175 Market St.",
+    "City": "San Francisco",
+    "Latitude": 37.766308,
+    "Longitude": "-122.430008",
+    "Website": "http://www.sfbrewingco.com/",
+    "Blurb": "Known for its Broadway IPA, it also features seasonal beers ranging from a Sutro Stout to a Fog City Pineapple IPA.",
+    "BreweryClass": "brewerySanFranciscoBrewingCo"
   },
   {
     "Brewery": "Santa Clara Valley Brewing",
@@ -2077,6 +2136,16 @@
     "Website": "http://www.sevenstillsofsf.com/",
     "Blurb": "Both a craft brewery and distillery. Beers include the Fluxuate coffee porter and the Beerception 2 chocolate oatmeal stout",
     "BreweryClass": "brewerySevenStillsBreweryandDistillery"
+  },
+  {
+    "Brewery": "Shadow Puppet Brewing Company",
+    "Address": "4771 Arroyo Vista, Suite B",
+    "City": "Livermore",
+    "Latitude": 37.699095,
+    "Longitude": "-121.73871",
+    "Website": "www.shadowpuppetbrewing.com",
+    "Blurb": "The family-owned brewery features a variety of beers, from a Belma Blonde Ale to a Day at the Farm Saison to a Toasted Coconut Baltic Porter.",
+    "BreweryClass": "breweryShadowPuppetBrewingCompany"
   },
   {
     "Brewery": "Shanty Shack Brewing",
