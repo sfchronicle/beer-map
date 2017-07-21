@@ -75,7 +75,7 @@
               <% json.Open.forEach(function(d){ %>
               <% var strBrewery = d.Brewery; %>
               <% var strCity = d.City; %>
-                <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active">
+                <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'').replace(/ü/g, 'u') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active">
                   <div class="name"><%=d.Brewery%>  <a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></div>
                   <div class="address"><%=d.Address%>, <%=d.City%></div>
                   <div class="blurb"><%=d.Blurb%></div>
