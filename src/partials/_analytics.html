@@ -8,7 +8,9 @@
     var omni_authorName = "<%= json.project.author %>";
     var omni_authorTitle = "San Francisco Chronicle staff";
 
-     // HDN.dataLayer object for content and href data
+    var HDN = HDN || {};
+    HDN.dataLayer = HDN.dataLayer || {};
+    // HDN.dataLayer object for content and href data
     HDN.dataLayer.content = HDN.dataLayer.content || {};
     HDN.dataLayer.href = HDN.dataLayer.href || {};
     HDN.dataLayer.content.title = "<%= json.project.title %>";
