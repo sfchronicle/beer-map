@@ -1,7 +1,7 @@
 @lightest-gray: #F2F2F2;
 @yellow: #FFCC32;
 @dark-yellow: #E6B319;
-@sea-blue: #7C9B9D;
+@sea-blue: #E6B319;//#7C9B9D;
 
 #pcntl {
   @media @mobile {
@@ -203,6 +203,7 @@
       width: 100%;
       height: 1000px;
       z-index: 0;
+      position: relative;
       @media @tablet {
         width: 100%;
         height: 500px;
@@ -324,6 +325,9 @@ circle {
   @media @mobile {
     padding: 0 20px;
   }
+  a {
+    font-family: @med-graphics;
+  }
 }
 
 .divider {
@@ -384,7 +388,7 @@ circle {
     font-family: @bold-graphics;
     padding-top: 5px;
     font-size: 14px;
-    color: darken(@gray-blue,10%);
+    color: @highlight;
     cursor: pointer;
   }
   &.active {
