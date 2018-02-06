@@ -51,7 +51,6 @@
           <div id="map"></div>
         </div>
         <div class="tooltip-beermap"></div>
-        <div id="chosen-brewery"></div>
       </div>
 
       <div class="sidebar">
@@ -76,13 +75,15 @@
             <span class="search">Search by brewery or city:</span>
             <input class="input" id="searchbar" type="text" placeholder="Try Oakland or Lagunitas or ... ">
           </div>
-          <div class="brewery-list">
+          <div class="brewery-list" id="brewery-list">
             <div class="brewery-scroll-container">
+
+              <div id="chosen-brewery"></div>
 
               <% json.Open.forEach(function(d){ %>
               <% var strBrewery = d.Brewery; %>
               <% var strCity = d.City; %>
-                <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'').replace(/ü/g, 'u') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active">
+                <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'').replace(/ü/g, 'u') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active" id="<%=d.BreweryClass.toLowerCase().split('brewery')[1]%>">
                   <div class="name"><%=d.Brewery%>  <a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></div>
                   <div class="address"><%=d.Address%>, <%=d.City%></div>
                   <div class="blurb"><%=d.Blurb%></div>

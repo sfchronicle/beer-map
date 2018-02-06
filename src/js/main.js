@@ -27,7 +27,7 @@ function tooltip_function (d) {
 function fill_info(data){
   var strBrewery = data.Brewery;
   var strCity = data.City;
-  var html = "<div class='brewery-group-top active'><div class='name'>"+data.Brewery+"<a href="+data.Website+" target='_blank'><i class='fa fa-external-link' aria-hidden='true'></i></a></div><div class='address'>"+data.Address+", "+data.City+"</div><div class='blurb'>"+data.Blurb+"</div></div>";
+  var html = "<div class='brewery-group top active'><div class='name'>"+data.Brewery+"<a href="+data.Website+" target='_blank'><i class='fa fa-external-link' aria-hidden='true'></i></a></div><div class='address'>"+data.Address+", "+data.City+"</div><div class='blurb'>"+data.Blurb+"</div></div>";
   return html;
 }
 
@@ -107,7 +107,7 @@ var feature = g.selectAll("circle")
   .data(beerData)
   .enter().append("circle")
   .attr("id",function(d) {
-    return d.BreweryClass;
+    return d.BreweryClass.toLowerCase();
   })
   .attr("class",function(d) {
     return "dot "+d.BreweryClass;
@@ -153,10 +153,10 @@ var feature = g.selectAll("circle")
     return tooltip.style("visibility", "hidden");
   })
   .on("click",function(d){
-    // console.log(d);
     $('html, body').animate({
         scrollTop: $("#scroll-to-top").offset().top-35
     }, 600);
+    $("#brewery-list").animate({ scrollTop: 0 }, "fast");
     document.querySelector("#chosen-brewery").innerHTML = fill_info(d);
 
     // highlight the appropriate dot
@@ -169,9 +169,11 @@ var feature = g.selectAll("circle")
     d3.select(this).transition(0).attr("r",15);
     d3.select(this).style("stroke","#696969");
 
+    d3.select("."+d.BreweryClass.split("brewery")[1].toLowerCase()).classed("active",true);
+
     // zoom and pan the map to the appropriate dot
-    // map.setView(d.LatLng,map.getZoom(),{animate:true});
-    // update();
+    map.setView([d.LatLng.lat-0.5, d.LatLng.lng],map.getZoom(),{animate:true});
+    update();
   });
 
   map.on("zoom", update);
@@ -179,57 +181,72 @@ var feature = g.selectAll("circle")
 
 // show tooltip
 var tooltip = d3.select("div.tooltip-beermap");
-//
-// // searchbar code
-// $("#searchbar").bind("input propertychange", function () {
-//   var filter = $(this).val().toLowerCase().replace(/ /g,'');
-//   var class_match = 0;
-//
-//   $(".brewery-group").filter(function() {
-//
-//     var classes = this.className.split(" ");
-//     for (var i=0; i< classes.length; i++) {
-//
-//       var current_class = classes[i].toLowerCase();
-//
-//       if (classes[i] != "column" && classes[i] != "restaurant") {
-//         if ( current_class.match(filter)) {
-//           class_match = class_match + 1;
-//         }
-//       }
-//     }
-//     if (class_match > 0) {
-//       $(this).addClass("active");
-//     } else {
-//       $(this).removeClass("active");
-//     }
-//     class_match = 0;
-//
-//   });
-//
-// });
-//
+var count;
+
+// searchbar code
+$("#searchbar").bind("input propertychange", function () {
+  var filter = $(this).val().toLowerCase().replace(/ /g,'');
+  var class_match = 0;
+  count = 0;
+
+  $(".brewery-group").filter(function() {
+
+    var classes = this.className.split(" ");
+    for (var i=0; i< classes.length; i++) {
+
+      var current_class = classes[i].toLowerCase();
+
+      if (classes[i] != "column" && classes[i] != "restaurant") {
+        if ( current_class.match(filter)) {
+          class_match = class_match + 1;
+        }
+      }
+    }
+    if (class_match > 0) {
+      $(this).addClass("active");
+      d3.select("#brewery"+this.id).style("fill", "#FFCC32");
+      d3.select("#brewery"+this.id).style("opacity", "0.8");
+      count+=1;
+    } else {
+      $(this).removeClass("active");
+      d3.select("#dot"+this.id).style("fill", "#FFCC32");
+      d3.select("#brewery"+this.id).style("opacity", "0");
+    }
+    class_match = 0;
+
+  });
+
+});
+
 // event listener for each brewery that highlights the brewery on the map and calls the function to fill in the info at the top
 var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
 qsa(".clickme").forEach(function(group,index) {
   group.addEventListener("click", function(e) {
-    $('html, body').animate({
-        scrollTop: $("#scroll-to-top").offset().top-35
-    }, 600);
-    document.querySelector("#chosen-brewery").innerHTML = fill_info(beerData[index]);
+    console.log("CLICK");
+    console.log(e.target.classList[1].toLowerCase());
+    console.log(d3.select("#"+e.target.classList[1].toLowerCase()))
 
     // highlight the appropriate dot
     d3.selectAll(".dot").style("fill", "#FFCC32");
     d3.selectAll(".dot").style("opacity", "0.2");
     d3.selectAll(".dot").transition(0).attr("r",10);
     d3.selectAll(".dot").style("stroke","black");
-    d3.select("#"+e.target.classList[1]).style("fill",dot_red);
-    d3.select("#"+e.target.classList[1]).transition(100).attr("r",15);
-    d3.select("#"+e.target.classList[1]).style("opacity","1.0");
-    d3.select("#"+e.target.classList[1]).style("stroke","#696969");
+
+    $('html, body').animate({
+        scrollTop: $("#scroll-to-top").offset().top-35
+    }, 600);
+    // $("#brewery-list").animate({ scrollTop: 0 }, "fast");
+
+    document.querySelector("#chosen-brewery").innerHTML = fill_info(beerData[index]);
+
+
+    d3.select("#"+e.target.classList[1].toLowerCase()).style("fill",dot_red);
+    d3.select("#"+e.target.classList[1].toLowerCase()).transition(100).attr("r",15);
+    d3.select("#"+e.target.classList[1].toLowerCase()).style("opacity","1.0");
+    d3.select("#"+e.target.classList[1].toLowerCase()).style("stroke","#696969");
 
     // zoom and pan the map to the appropriate dot
-    map.setView(beerData[index].LatLng,map.getZoom(),{animate:true});
+    map.setView([beerData[index].LatLng.lat-0.5, beerData[index].LatLng.lng],map.getZoom(),{animate:true});
     update();
   });
 });
@@ -327,6 +344,7 @@ paths_sec.style.display = "none";
 search_click.addEventListener("click",function(){
   document.querySelector("#chosen-brewery").innerHTML = "";
   map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
+  $("#brewery-list").animate({ scrollTop: 0 }, "fast");
   paths_click.classList.remove("selected");
   search_click.classList.add("selected");
   reset_click.classList.remove("selected");

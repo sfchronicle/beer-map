@@ -373,6 +373,14 @@ circle {
 .brewery-group {
   display: none;
   padding-bottom: 20px;
+  // transition: opacity .25s ease-in-out;
+  // -moz-transition: opacity .25s ease-in-out;
+  // -webkit-transition: opacity .25s ease-in-out;
+  &.top {
+    background: lighten(@yellow,25%);
+    padding: 10px;
+    margin-bottom: 30px;
+  }
   .name {
     font-family: @med-graphics;
     border-bottom: 1px solid @dark-gray;
