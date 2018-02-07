@@ -278,32 +278,32 @@ trailsData.forEach(function(d,idx) {
 
 d3.selectAll(".leaflet-interactive").style("display", "none");
 
-// // highlighting beer paths -----------------------------------------------------
-//
-// var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
-// qsa(".clickme-trail").forEach(function(group,index) {
-//   console.log(group.classList[1]);
-//   group.addEventListener("click", function(e) {
-//     $('html, body').animate({
-//         scrollTop: $("#scroll-to-top").offset().top-35
-//     }, 600);
-//
-//     d3.selectAll(".dot").style("fill", "#FFCC32");
-//     d3.selectAll(".dot").style("opacity", "0.8");
-//     d3.selectAll(".dot").style("stroke","#696969");
-//     d3.selectAll(".leaflet-clickable").style("display", "block");
-//     map.fitBounds(polyline[group.classList[1]].getBounds());
-//
-//     d3.selectAll(".leaflet-clickable").style("stroke",off_red);
-//     d3.selectAll(".leaflet-clickable").style("opacity","0.6");
-//     d3.selectAll(".leaflet-clickable").style("stroke-width","3");
-//     d3.selectAll("."+group.classList[1]).style("stroke",bright_red);
-//     d3.selectAll("."+group.classList[1]).style("opacity","1.0");
-//     d3.selectAll("."+group.classList[1]).style("stroke-width","5");
-//
-//     document.querySelector("#chosen-brewery").innerHTML = fill_path_info(trailsData[index]);
-//   });
-// });
+// highlighting beer paths -----------------------------------------------------
+
+var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
+qsa(".clickme-trail").forEach(function(group,index) {
+  console.log(group.classList[1]);
+  group.addEventListener("click", function(e) {
+    $('html, body').animate({
+        scrollTop: $("#scroll-to-top").offset().top-35
+    }, 600);
+
+    d3.selectAll(".dot").style("fill", "#FFCC32");
+    d3.selectAll(".dot").style("opacity", "0.8");
+    d3.selectAll(".dot").style("stroke","#696969");
+    d3.selectAll(".leaflet-clickable").style("display", "block");
+    map.fitBounds(polyline[group.classList[1]].getBounds());
+
+    d3.selectAll(".leaflet-clickable").style("stroke",off_red);
+    d3.selectAll(".leaflet-clickable").style("opacity","0.6");
+    d3.selectAll(".leaflet-clickable").style("stroke-width","3");
+    d3.selectAll("."+group.classList[1]).style("stroke",bright_red);
+    d3.selectAll("."+group.classList[1]).style("opacity","1.0");
+    d3.selectAll("."+group.classList[1]).style("stroke-width","5");
+
+    document.querySelector("#chosen-brewery").innerHTML = fill_path_info(trailsData[index]);
+  });
+});
 //
 // buttons for brewery trails and list -----------------------------------------
 
