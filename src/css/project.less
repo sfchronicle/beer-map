@@ -150,10 +150,16 @@ body, html {
   z-index: 50;
   padding: 10px;
   margin-right: 10px;
+  @media @mobile {
+    position: relative;
+  }
 }
 
 .map-container {
   height: 100%;
+  @media @mobile {
+    height: auto;
+  }
 }
 
 .content {
@@ -161,6 +167,9 @@ body, html {
   position: relative;
   width: 100%;
   height: 100%;
+  @media @mobile {
+    height: auto;
+  }
   .display-flex;
   .flex-wrap(wrap);
   .sidebar {
@@ -172,6 +181,9 @@ body, html {
       margin-top: 180px;
       // height: 850px;
       margin-bottom: 20px;
+      @media @mobile {
+        margin-top: 20px;
+      }
     }
     @media @tablet {
       .flex(0 0 90%);
@@ -324,9 +336,9 @@ circle {
 
 .search-container {
   font-family: @block-graphics;
-  @media @mobile {
-    margin-top: 10px;
-  }
+  // @media @mobile {
+    // margin-top: 10px;
+  // }
   // text-align: center;
   .search {
     font-family: @med-graphics;
