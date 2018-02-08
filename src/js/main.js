@@ -47,7 +47,7 @@ var map = L.map("map", {
   // attributionControl: false
   // touchZoom: true
   // zoomControl: isMobile ? false : true,
-  // scrollWheelZoom: false
+  scrollWheelZoom: false
 }).setView([sf_lat,sf_long], zoom_deg);
 // window.map = map;
 
