@@ -38,7 +38,6 @@
         <div class="button-container">
           <div class="button selected" id="list-button">Brewery List</div>
           <div class="button" id="trails-button">Brewery Trails</div>
-          <div class="button" id="reset-button">Reset map</div>
         </div>
       </div>
       <div class="banner-img right desktop"><img src="./assets/graphics/hopsR.png"></img></div>
@@ -70,10 +69,13 @@
 
 
         <div id="ssec">
-          <div class="cntl" id="scntl">Brewery List</div>
-          <div class="search-container">
-            <span class="search">Search by brewery or city:</span>
-            <input class="input" id="searchbar" type="text" placeholder="Try Oakland or Lagunitas or ... ">
+          <div id="stick-me">
+            <div class="cntl" id="scntl">Brewery List</div>
+            <div class="button" id="reset-button">Reset map</div>
+            <div class="search-container">
+              <span class="search">Search by brewery or city:</span>
+              <input class="input" id="searchbar" type="text" placeholder="Try Oakland or Lagunitas or ... ">
+            </div>
           </div>
           <div id="no-results">There are no results for your search. Please try again.</div>
           <div class="brewery-list" id="brewery-list">
@@ -106,7 +108,7 @@
       var trailsData = <%= JSON.stringify(json.Trails) %>
     </script>
 
-    <script src="app.js?5" async></script>
+    <script src="app.js?6" async></script>
     <%= t.include("partials/_helloSFC.html") %>
 
   </body>

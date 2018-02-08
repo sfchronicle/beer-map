@@ -72,7 +72,7 @@ L.control.zoom({
 }).addTo(map);
 
 // dragging and zooming controls
-map.scrollWheelZoom.disable();
+// map.scrollWheelZoom.disable();
 // map.dragging.disable();
 // map.touchZoom.disable();
 // map.doubleClickZoom.disable();
@@ -131,10 +131,9 @@ var feature = g.selectAll("circle")
     return tooltip.style("visibility", "hidden");
   })
   .on("click",function(d){
-    $('html, body').animate({
-        scrollTop: $("#scroll-to-top").offset().top-35
-    }, 600);
-    $("#brewery-list").animate({ scrollTop: 0 }, "fast");
+    $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top-35}, 600);
+    $('#brewery-list').scrollTop = 0;
+    // $('body, html, #brewery-list').scrollTop(0);
     document.querySelector("#chosen-brewery").innerHTML = fill_info(d);
 
     // highlight the appropriate dot
@@ -151,7 +150,7 @@ var feature = g.selectAll("circle")
 
     // zoom and pan the map to the appropriate dot
     // map.setView([sf_lat,sf_long], zoom_deg, {animate:false} );
-    map.panTo([d.LatLng.lat-0.3, d.LatLng.lng],{animate:true},{duration:1});
+    map.panTo([d.LatLng.lat, d.LatLng.lng],{animate:true},{duration:1});
     // map.setView([d.LatLng.lat, d.LatLng.lng],map.getZoom(),{animate:true});
 
     $(".brewery-group").addClass("active");
@@ -258,10 +257,8 @@ qsa(".clickme").forEach(function(group,index) {
       d3.selectAll(".dot").transition(0).attr("r",10);
       // d3.selectAll(".dot").style("stroke","black");
 
-      $('html, body').animate({
-          scrollTop: $("#scroll-to-top").offset().top-35
-      }, 600);
-      // $("#brewery-list").animate({ scrollTop: 0 }, "fast");
+      $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top-35}, 600);
+      $("#brewery-list").animate({ scrollTop: 0 }, "fast");
 
       document.querySelector("#chosen-brewery").innerHTML = fill_info(beerData[index]);
 
@@ -274,7 +271,7 @@ qsa(".clickme").forEach(function(group,index) {
       // zoom and pan the map to the appropriate dot
       // map.setView([sf_lat,sf_long], zoom_deg);
       // map.setView([beerData[index].LatLng.lat, beerData[index].LatLng.lng],map.getZoom(),{animate:true});
-      map.panTo([beerData[index].LatLng.lat-0.3, beerData[index].LatLng.lng],{animate:true},{duration:1});
+      map.panTo([beerData[index].LatLng.lat, beerData[index].LatLng.lng],{animate:true},{duration:1});
     }
 
   });
@@ -311,9 +308,8 @@ var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
 qsa(".clickme-trail").forEach(function(group,index) {
   // console.log(group.classList[1]);
   group.addEventListener("click", function(e) {
-    $('html, body').animate({
-        scrollTop: $("#scroll-to-top").offset().top-35
-    }, 600);
+    $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top-35}, 600);
+    $('#brewery-list').animate({scrollTop: $("#stick-me").offset().top}, 600);
 
     d3.selectAll(".dot").style("fill", "#FFCC32");
     d3.selectAll(".dot").style("opacity", "0.8");
