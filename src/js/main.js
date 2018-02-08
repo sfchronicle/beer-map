@@ -84,8 +84,7 @@ L.svg().addTo(map);
 
 // creating Lat/Lon objects that d3 is expecting
 beerData.forEach(function(d,idx) {
-		d.LatLng = new L.LatLng(d.Latitude,
-								d.Longitude);
+	d.LatLng = new L.LatLng(+d.Latitude,+d.Longitude);
 });
 
 // creating svg layer for data
@@ -151,8 +150,9 @@ var feature = g.selectAll("circle")
     d3.select("."+d.BreweryClass.split("brewery")[1].toLowerCase()).classed("active",true);
 
     // zoom and pan the map to the appropriate dot
-    map.setView([d.LatLng.lat-0.1, d.LatLng.lng],map.getZoom(),{animate:true});
-    // update();
+    // map.setView([sf_lat,sf_long], zoom_deg, {animate:false} );
+    map.panTo([d.LatLng.lat-0.3, d.LatLng.lng],{animate:true},{duration:1});
+    // map.setView([d.LatLng.lat, d.LatLng.lng],map.getZoom(),{animate:true});
 
     $(".brewery-group").addClass("active");
     document.getElementById('searchbar').value = "";
@@ -272,8 +272,9 @@ qsa(".clickme").forEach(function(group,index) {
       d3.select("#"+e.target.classList[1].toLowerCase()).style("stroke","#696969");
 
       // zoom and pan the map to the appropriate dot
-      map.setView([beerData[index].LatLng.lat-0.5, beerData[index].LatLng.lng],map.getZoom(),{animate:true});
-      // update();
+      // map.setView([sf_lat,sf_long], zoom_deg);
+      // map.setView([beerData[index].LatLng.lat, beerData[index].LatLng.lng],map.getZoom(),{animate:true});
+      map.panTo([beerData[index].LatLng.lat-0.3, beerData[index].LatLng.lng],{animate:true},{duration:1});
     }
 
   });

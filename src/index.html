@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="__sync_contentCategory" content="meterA">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css?4">
+    <link rel="stylesheet" type="text/css" href="style.css?5">
 
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
@@ -34,7 +34,7 @@
           <div class="hed">The Ultimate NorCal Brewery Map</div>
           <div class="banner-img right mobile"><img src="./assets/graphics/hopsR.png"></img></div>
         </div>
-        <div class="chatter">This redesigned interactive map features more than 260 breweries in Northern California. Hover and click on the spots, search for your favorites, or check out our list of beer excursions.</div>
+        <div class="chatter">This redesigned interactive map features more than 255 breweries in Northern California. Hover and click on the spots, search for your favorites, or check out our list of beer excursions.</div>
         <div class="button-container">
           <div class="button selected" id="list-button">Brewery List</div>
           <div class="button" id="trails-button">Brewery Trails</div>
@@ -106,7 +106,7 @@
       var trailsData = <%= JSON.stringify(json.Trails) %>
     </script>
 
-    <script src="app.js?4" async></script>
+    <script src="app.js?5" async></script>
     <%= t.include("partials/_helloSFC.html") %>
 
   </body>
