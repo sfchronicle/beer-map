@@ -3,6 +3,16 @@
 @dark-yellow: #E6B319;
 @sea-blue: #E6B319;//#7C9B9D;
 
+#no-results {
+  font-family: @block-graphics;
+  font-style: italic;
+  text-align: left;
+  padding-top: 20px;
+  line-height: 1.2;
+  display: none;
+  font-size: 16px;
+}
+
 #pcntl {
   @media @mobile {
     margin-bottom: 20px;
@@ -260,6 +270,9 @@ circle {
       background: @dark-yellow;
     }
     cursor: pointer;
+    @media @mobile {
+      margin-bottom: 5px;
+    }
   }
 }
 
@@ -289,7 +302,7 @@ circle {
 .search-container {
   font-family: @block-graphics;
   @media @mobile {
-    margin-top: 20px;
+    margin-top: 10px;
   }
   // text-align: center;
   .search {
@@ -304,6 +317,9 @@ circle {
     padding: 5px;
     width: 80%;
     font-size: 14px;
+    @media @tablet {
+      width: 100%;
+    }
     @media @mobile {
       width: 90%;
       font-size: 16px;
