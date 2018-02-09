@@ -3,6 +3,17 @@
 @dark-yellow: #E6B319;
 @sea-blue: #E6B319;//#7C9B9D;
 
+.last-updated {
+  text-align: center;
+  font-family: @block-graphics;
+  font-style: italic;
+  margin-top: 40px;
+  font-size: 16px;
+  @media @mobile {
+    margin-top: 30px;
+  }
+}
+
 #no-results {
   font-family: @block-graphics;
   font-style: italic;
@@ -409,6 +420,12 @@ circle {
     margin: auto;
     border-bottom: 1px @dark-gray solid;
   }
+  &.mobile-only {
+    display: none;
+    @media @mobile {
+      display: block;
+    }
+  }
 }
 
 .brewery-list {
@@ -418,6 +435,8 @@ circle {
   margin: auto;
   margin-top: 30px;
   @media @mobile {
+    max-height: 1000px;
+    overflow-y: scroll;
     padding-bottom: 20px;
   }
 }
