@@ -103,13 +103,13 @@
                         <% } else { %>
                           <% var text = "Read more"; %>
                         <% } %>
-                        <div class="read-more readmore<%=sfclinkIDX%>"><a href="<%=sfclink%>" target="_blank"><i class="fa fa-external-link"></i> <%=text%></a></div>
+                        <div class="read-more readmore<%=sfclinkIDX%>"><a href="<%=sfclink%>" target="_blank"><img class="mobile-logo" src="./assets/logos/sfletter_c_black.png"></img> <%=text%></a></div>
                       <% }) %>
                     <% } else { %>
-                      <div class="read-more"><a href="<%=d.SFC_links%>" target="_blank"><i class="fa fa-external-link"></i>Chronicle coverage</a></div>
+                      <div class="read-more"><a href="<%=d.SFC_links%>" target="_blank"><img class="mobile-logo" src="./assets/logos/sfletter_c_black.png"></img>Chronicle coverage</a></div>
                     <% } %>
                   <% } %>
-                  <div class="brewery-link"><a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i>Visit brewery website</div>
+                  <div class="brewery-link"><a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i>Visit brewery website</a></div>
                 </div>
               <% }); %>
             </div>
