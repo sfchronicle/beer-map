@@ -471,6 +471,24 @@ circle {
     font-size: 14px;
     color: @highlight;
     cursor: pointer;
+    letter-spacing: 0.5px;
+    &:hover {
+      color: darken(@highlight, 10%);
+    }
+  }
+  .read-more, .brewery-link {
+    padding-top: 5px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-family: @bold-graphics;
+    letter-spacing: 0.5px;
+    .fa {
+      padding-right: 5px;
+      padding-left: 0;
+    }
+    // &.readmore1 {
+    //   padding-top: 0;
+    // }
   }
   &.active {
     display: block;

@@ -90,10 +90,26 @@
               <% var strBrewery = d.Brewery; %>
               <% var strCity = d.City; %>
                 <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'').replace(/ü/g, 'u') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active" id="<%=d.BreweryClass.toLowerCase().split('brewery')[1]%>">
-                  <div class="name"><%=d.Brewery%>  <a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></div>
+                  <div class="name"><%=d.Brewery%></a></div>
                   <div class="address"><%=d.Address%>, <%=d.City%></div>
                   <div class="blurb"><%=d.Blurb%></div>
                   <div class="clickme <%=d.BreweryClass%>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
+                  <% if (d.SFC_links){ %>
+                    <% if (d.SFC_links.split(", ").length > 1){ %>
+                      <% var sfclinkslist = d.SFC_links.split(", "); %>
+                      <% sfclinkslist.forEach(function(sfclink,sfclinkIDX){ %>
+                        <% if (sfclinkIDX == 0){ %>
+                          <% var text = "Chronicle coverage"; %>
+                        <% } else { %>
+                          <% var text = "Read more"; %>
+                        <% } %>
+                        <div class="read-more readmore<%=sfclinkIDX%>"><a href="<%=sfclink%>" target="_blank"><i class="fa fa-external-link"></i> <%=text%></a></div>
+                      <% }) %>
+                    <% } else { %>
+                      <div class="read-more"><a href="<%=d.SFC_links%>" target="_blank"><i class="fa fa-external-link"></i>Chronicle coverage</a></div>
+                    <% } %>
+                  <% } %>
+                  <div class="brewery-link"><a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i>Visit brewery website</div>
                 </div>
               <% }); %>
             </div>
