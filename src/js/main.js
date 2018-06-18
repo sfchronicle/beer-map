@@ -95,7 +95,7 @@ L.svg().addTo(map);
 
 // creating Lat/Lon objects that d3 is expecting
 beerData.forEach(function(d,idx) {
-	d.LatLng = new L.LatLng(+d.Latitude,+d.Longitude);
+	d.LatLng = new L.LatLng(+d.Lat,+d.Lng);
 });
 
 // creating svg layer for data
@@ -299,7 +299,7 @@ trailsData.forEach(function(d,idx) {
   trailList.forEach(function(bb,bdx) {
     for (var ii=0; ii < beerData.length; ii++) {
       if (beerData[ii]["Brewery"] == bb) {
-        trail_path.push([beerData[ii]["Latitude"],beerData[ii]["Longitude"]]);
+        trail_path.push([beerData[ii]["Lat"],beerData[ii]["Lng"]]);
       }
     }
   });
