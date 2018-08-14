@@ -64,7 +64,7 @@
               <div class="trail-title"><%=d.title%></div>
               <div class="trail-desc"><span class="bold-class">Description: </span><%=d.description%></div>
               <div class="trail-transit"><span class="bold-class">Transit: </span><%=d.transit%></div>
-              <div class="clickme-trail <%=d.class%>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
+              <div class="clickme-trail <%=d.class%>">Find me on the map</div>
               <div class="trail-author"> &mdash; <%=d.author%></div>
             </div>
           <% }); %>
@@ -93,7 +93,7 @@
                   <div class="name"><%=d.Brewery%></a></div>
                   <div class="address"><%=d.Address%>, <%=d.City%></div>
                   <div class="blurb"><%=d.Blurb%></div>
-                  <div class="clickme <%=d.BreweryClass%>"><i class="fa fa-hand-o-right" aria-hidden="true"></i>  Click here to find me on the map.</div>
+                  <div class="clickme <%=d.BreweryClass%>">Find on map</div>
                   <% if (d.SFC_links){ %>
                     <% if (d.SFC_links.split(", ").length > 1){ %>
                       <% var sfclinkslist = d.SFC_links.split(", "); %>
@@ -103,13 +103,13 @@
                         <% } else { %>
                           <% var text = "Read more"; %>
                         <% } %>
-                        <div class="read-more readmore<%=sfclinkIDX%>"><a href="<%=sfclink%>" target="_blank"><img class="mobile-logo" src="./assets/logos/sfletter_c_gold_small.png"></img> <%=text%></a></div>
+                        <div class="read-more readmore<%=sfclinkIDX%>"><a href="<%=sfclink%>" target="_blank"><%=text%></a></div>
                       <% }) %>
                     <% } else { %>
-                      <div class="read-more"><a href="<%=d.SFC_links%>" target="_blank"><img class="mobile-logo" src="./assets/logos/sfletter_c_gold_small.png"></img>Chronicle coverage</a></div>
+                      <div class="read-more"><a href="<%=d.SFC_links%>" target="_blank">Chronicle coverage</a></div>
                     <% } %>
                   <% } %>
-                  <div class="brewery-link"><a href="<%=d.Website%>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i>Visit brewery website</a></div>
+                  <div class="brewery-link"><a href="<%=d.Website%>" target="_blank">Visit brewery website</a></div>
                 </div>
               <% }); %>
             </div>

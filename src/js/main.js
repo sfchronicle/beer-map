@@ -27,17 +27,15 @@ function tooltip_function (d) {
 function fill_info(data){
   var strBrewery = data.Brewery;
   var strCity = data.City;
-  console.log(data);
   if (data.SFC_links){
-    console.log(data.SFC_links);
     if (data.SFC_links.split(", ").length > 1){
-      var extralinks = "<div class='read-more'><a href='"+data.SFC_links[0]+"' target='_blank'><i class='fa fa-external-link'></i>Chronicle coverage</a></div><div class='read-more'><a href='"+data.SFC_links[1]+"' target='_blank'><i class='fa fa-external-link'></i>Read more</a></div>";
+      var extralinks = "<div class='read-more'><a href='"+data.SFC_links[0]+"' target='_blank'>Chronicle coverage</a></div><div class='read-more'><a href='"+data.SFC_links[1]+"' target='_blank'><i class='fa fa-external-link'></i>Read more</a></div>";
     } else {
-      var extralinks = "<div class='read-more'><a href='"+data.SFC_links[0]+"' target='_blank'><i class='fa fa-external-link'></i>Chronicle coverage</a></div>";
+      var extralinks = "<div class='read-more'><a href='"+data.SFC_links[0]+"' target='_blank'>Chronicle coverage</a></div>";
     }
-    var html = "<div class='brewery-group top active'><div class='name'>"+data.Brewery+"</div><div class='address'>"+data.Address+", "+data.City+"</div><div class='blurb'>"+data.Blurb+"</div>"+extralinks+"<div class='brewery-link'><a href="+data.Website+" target='_blank'><i class='fa fa-external-link' aria-hidden='true'></i>Visit brewery website</a></div></div>";
+    var html = "<div class='brewery-group top active'><div class='name'>"+data.Brewery+"</div><div class='address'>"+data.Address+", "+data.City+"</div><div class='blurb'>"+data.Blurb+"</div>"+extralinks+"<div class='brewery-link'><a href="+data.Website+" target='_blank'>Visit brewery website</a></div></div>";
   } else {
-    var html = "<div class='brewery-group top active'><div class='name'>"+data.Brewery+"</div><div class='address'>"+data.Address+", "+data.City+"</div><div class='blurb'>"+data.Blurb+"</div><div class='brewery-link'><a href="+data.Website+" target='_blank'><i class='fa fa-external-link' aria-hidden='true'></i>Visit brewery website</a></div>";
+    var html = "<div class='brewery-group top active'><div class='name'>"+data.Brewery+"</div><div class='address'>"+data.Address+", "+data.City+"</div><div class='blurb'>"+data.Blurb+"</div><div class='brewery-link'><a href="+data.Website+" target='_blank'>Visit brewery website</a></div>";
   }
   return html;
 }
