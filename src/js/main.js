@@ -239,10 +239,14 @@ $("#searchbar").bind("input propertychange", function () {
 
   });
 
+  console.log(count);
+
   if (count != 0){
     $("#no-results").css("display","none");
   } else {
     $("#no-results").css("display","block");
+    var topHeight = document.getElementById("stick-me").getBoundingClientRect().height;
+    $("#no-results").css("margin-top",topHeight+"px");
   }
 
   } else {
