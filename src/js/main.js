@@ -92,8 +92,10 @@ L.svg().addTo(map);
 // map._initPathRoot();
 
 // creating Lat/Lon objects that d3 is expecting
+let beerDataNested = {};
 beerData.forEach(function(d,idx) {
 	d.LatLng = new L.LatLng(+d.Lat,+d.Lng);
+  beerDataNested[d.BreweryClass.toLowerCase().split("brewery")[1]] = d;
 });
 
 // creating svg layer for data
@@ -170,6 +172,8 @@ var feature = g.selectAll("circle")
     $(".brewery-group").addClass("active");
     document.getElementById('searchbar').value = "";
     $("#no-results").css("display","none");
+    $("#count-results").css("display","none");
+    $(".brewery-list").css("margin-top","180px");
   });
 
 // function that zooms and pans the data when the map zooms and pans
@@ -195,10 +199,15 @@ var tooltip = d3.select("div.tooltip-beermap");
 var count;
 
 // searchbar code
+var panMapToGroup;
 $("#searchbar").bind("input propertychange", function () {
   var filterval = $(this).val().toLowerCase().replace(/ /g,'');
   var class_match = 0;
   count = 0;
+
+  // initialize lat/lon grouping to be empty
+  var latlngGroup = {};
+
   document.querySelector("#chosen-brewery").innerHTML = "";
   document.querySelector("#chosen-brewery-trails").innerHTML = "";
 
@@ -224,6 +233,10 @@ $("#searchbar").bind("input propertychange", function () {
     }
 
     if (class_match > 0) {
+
+      // add latitude and longitude to group
+      latlngGroup = [...latlngGroup, L.latLng(+beerDataNested[this.id].Lat,+beerDataNested[this.id].Lng)];
+
       $(this).addClass("active");
       d3.select("#brewery"+this.id).style("stroke","black");
       d3.select("#brewery"+this.id).style("fill", "#FFCC32");
@@ -239,14 +252,31 @@ $("#searchbar").bind("input propertychange", function () {
 
   });
 
-  console.log(count);
+  // $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top-35}, 600);
 
+  clearTimeout(panMapToGroup);
+  var topHeight = document.getElementById("stick-me").getBoundingClientRect().height;
   if (count != 0){
+
+    $("#count-results").css("display","block");
+    if (count === 1){
+      document.getElementById("count-results").innerHTML = "There is 1 result.";
+    } else {
+      document.getElementById("count-results").innerHTML = "There are "+count+" results.";
+    }
+    $("#count-results").css("margin-top",topHeight+"px");
+    $(".brewery-list").css("margin-top","20px");
     $("#no-results").css("display","none");
+
+    var myBounds = new L.LatLngBounds(latlngGroup);
+    panMapToGroup = setTimeout(function(){
+      map.fitBounds(myBounds, {"maxZoom":12} );
+    },200)
+
   } else {
     $("#no-results").css("display","block");
-    var topHeight = document.getElementById("stick-me").getBoundingClientRect().height;
     $("#no-results").css("margin-top",topHeight+"px");
+    $("#count-results").css("display","none");
   }
 
   } else {
@@ -255,6 +285,7 @@ $("#searchbar").bind("input propertychange", function () {
     d3.selectAll(".dot").style("opacity", "0.8");
     d3.selectAll(".dot").transition(0).attr("r",10);
     $("#no-results").css("display","none");
+    $("#count-results").css("display","none");
   }
   console.log(count);
 
@@ -268,6 +299,9 @@ qsa(".clickme").forEach(function(group,index) {
   group.addEventListener("click", function(e) {
 
     if (d3.select("#"+e.target.classList[1].toLowerCase()).attr("r") != 15){
+
+      $("#count-results").css("display","none");
+      $(".brewery-list").css("margin-top","180px");
 
       // highlight the appropriate dot
       d3.selectAll(".dot").style("fill", "#FFCC32");
@@ -383,6 +417,8 @@ search_click.addEventListener("click",function(){
   $(".brewery-group").addClass("active");
   document.getElementById('searchbar').value = "";
   $("#no-results").css("display","none");
+  $("#count-results").css("display","none");
+  $(".brewery-list").css("margin-top","180px");
 });
 
 paths_click.addEventListener("click",function(){
@@ -412,6 +448,8 @@ paths_click.addEventListener("click",function(){
   $(".brewery-group").addClass("active");
   document.getElementById('searchbar').value = "";
   $("#no-results").css("display","none");
+  $("#count-results").css("display","none");
+  $(".brewery-list").css("margin-top","180px");
 });
 
 // event listener for re-setting the map
@@ -439,4 +477,6 @@ reset_click.addEventListener("click",function(e) {
   $(".brewery-group").addClass("active");
   document.getElementById('searchbar').value = "";
   $("#no-results").css("display","none");
+  $("#count-results").css("display","none");
+  $(".brewery-list").css("margin-top","180px");
 });
