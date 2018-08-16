@@ -286,6 +286,7 @@ $("#searchbar").bind("input propertychange", function () {
     d3.selectAll(".dot").transition(0).attr("r",10);
     $("#no-results").css("display","none");
     $("#count-results").css("display","none");
+    $(".brewery-list").css("margin-top","180px");
   }
   console.log(count);
 
