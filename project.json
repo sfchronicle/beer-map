@@ -12,5 +12,10 @@
   "image": "assets/beermap_social.jpg",
   "sheets": ["1B1mOzs35YKHd6YhYPTs9kv8IL2yT-8uGu5oKMu05zT8"],
   "production": false,
-  "embedded": false
+  "embedded": false,
+  "paywall":"meter",
+  "paywall_meta": 1,
+  "time": "06:00:00Z",
+  "date_modifed": "2018-10-19",
+  "time_modified": "09:58:00Z"
 }
