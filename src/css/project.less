@@ -6,9 +6,12 @@
 .last-updated {
   text-align: center;
   font-family: @block-graphics;
-  font-style: italic;
-  margin-top: 40px;
-  font-size: 16px;
+  font-size: 14px;
+
+  span{
+    font-weight:bold;
+    color:@redlinks;
+  }
   @media @mobile {
     margin-top: 30px;
   }
@@ -290,14 +293,13 @@ body, html {
 }
 
 .chatter {
-  max-width: 900px;
-  padding-bottom: 20px;
+  max-width: 720px;
+  padding: 0 0 20px;
+  font-size: 17px;
+
   @media @mobile {
     padding: 25px 15px;
   }
-  // @media @tablet-horiz {
-  //   padding: 0 20px;
-  // }
 }
 
 circle {
