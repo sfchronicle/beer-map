@@ -7,17 +7,9 @@
     <meta name="ispremium" content="<%= json.project.paywall_meta %>">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-
-    <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-
-    <!-- Mapbox GL -->
-    <!-- <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css" rel='stylesheet' />
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js"></script> -->
-
     <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
-
     <%= t.include("partials/_head.html") %>
 
   </head>
@@ -27,15 +19,26 @@
     <%= t.include("partials/_nav.html") %>
 
     <div class="hed-wrapper">
+
+      <div class="latest-news">
+        <div class="wrapper">
+          <div class="stories">
+            <div class="story loading"><img src="./assets/loading.png"></div>
+            <div class="story loading"><img src="./assets/loading.png"></div>
+            <div class="story loading"><img src="./assets/loading.png"></div>
+          </div>
+        </div>
+      </div>
+
       <div class="banner-img left desktop"><img src="./assets/graphics/hopsL.png"></img></div>
       <div class="banner-content">
         <div class="title-mobile">
           <div class="banner-img left mobile"><img src="./assets/graphics/hopsL.png"></img></div>
-          <div class="hed">The Ultimate NorCal Brewery Map</div>
           <div class="banner-img right mobile"><img src="./assets/graphics/hopsR.png"></img></div>
+          <div class="hed">The Ultimate NorCal Brewery Map</div>
         </div>
-        <div class="last-updated"><span>Updated:</span> Dec. 17, 2018</div>
-        <div class="chatter">This interactive map features more than 250 breweries in Northern California. Hover and click on the spots, search for your favorites, or check out our list of beer excursions.</div>
+        <div class="last-updated"><span>Updated:</span> Jan. 8, 2019</div>
+        <div class="chatter">This interactive map features more than 300 breweries in Northern California. Hover and click on the spots, search for your favorites, or check out our list of beer excursions.</div>
         <div class="button-container">
           <div class="button selected" id="list-button">Brewery List</div>
           <div class="button" id="trails-button">Brewery Trails</div>
@@ -75,11 +78,11 @@
         <div id="ssec">
           <div id="stick-me">
             <div class="cntl" id="scntl">Brewery List</div>
-            <div class="button" id="reset-button">Reset map</div>
             <div class="search-container">
               <span class="search">Search by brewery or city:</span>
               <input class="input" id="searchbar" type="text" placeholder="Try Oakland or Lagunitas or ... ">
             </div>
+            <div class="button" id="reset-button">Reset map</div>
           </div>
           <div id="count-results"></div>
           <div id="no-results">There are no results for your search. Please try again.</div>
@@ -111,7 +114,7 @@
                       <div class="read-more"><a href="<%=d.SFC_links%>" target="_blank">Chronicle coverage</a></div>
                     <% } %>
                   <% } %>
-                  <div class="brewery-link"><a href="<%=d.Website%>" target="_blank">Visit brewery website</a></div>
+                  <div class="brewery-link"><a href="<%=d.Website%>" target="_blank">Brewery website</a></div>
                 </div>
               <% }); %>
             </div>

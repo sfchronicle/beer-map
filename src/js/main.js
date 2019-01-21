@@ -4,7 +4,7 @@ var d3 = require('d3');
 
 var off_red = "#DE5D26";
 var bright_red = "#AB2A00";
-var dot_red = "#C5440D";//"red";
+var dot_red = "#ff2424";
 
 // setting parameters for the center of the map and initial zoom level
 if (screen.width <= 480) {
@@ -49,7 +49,7 @@ function fill_path_info(data){
 
 // initialize map with center position and zoom levels
 var map = L.map("map", {
-  minZoom: 6,
+  minZoom: 7,
   maxZoom: 15,
   zoomControl: false,
   dragging: true,
@@ -60,32 +60,26 @@ var map = L.map("map", {
 }).setView([sf_lat,sf_long], zoom_deg);
 // window.map = map;
 
+var southWest = L.latLng(33.9268878,-130.3795377),
+northEast = L.latLng(45.5580821,-114.5673183);
+var bounds = L.latLngBounds(southWest, northEast);
+
+map.setMaxBounds(bounds);
+map.on('drag', function() {
+    map.panInsideBounds(bounds, { animate: false });
+});
+
 map.dragging.enable();
 
-// var gl = L.mapboxGL({
-//     accessToken: 'pk.eyJ1IjoiZW1ybyIsImEiOiJjaXl2dXUzMGQwMDdsMzJuM2s1Nmx1M29yIn0._KtME1k8LIhloMyhMvvCDA',
-//     style: 'mapbox://styles/emro/ciyvuvz1700312so6s8f3ip13'
-// }).addTo(map);
-
-// var attribution = L.control.attribution();
-// attribution.setPrefix('');
-// attribution.addAttribution('Map data: <a href="http://openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> <a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> | <a href="https://www.mapbox.com/map-feedback/" target="_blank" class="mapbox-improve-map">Improve this map</a>');
-// attribution.addTo(map);
 
 // add tiles to the map
-var mapLayer = L.tileLayer("https://api.mapbox.com/styles/v1/emro/ciyvuvz1700312so6s8f3ip13/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZW1ybyIsImEiOiJjaXl2dXUzMGQwMDdsMzJuM2s1Nmx1M29yIn0._KtME1k8LIhloMyhMvvCDA",{attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'})
+var mapLayer = L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",{attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> &copy; <a target="_blank" href="https://carto.com/attributions">CARTO</a>'})
 mapLayer.addTo(map);
 
 L.control.zoom({
      position:'topright'
 }).addTo(map);
 
-// dragging and zooming controls
-// map.scrollWheelZoom.disable();
-// map.dragging.disable();
-// map.touchZoom.disable();
-// map.doubleClickZoom.disable();
-// map.keyboard.disable();
 
 // initializing the svg layer
 L.svg().addTo(map);
@@ -97,6 +91,12 @@ beerData.forEach(function(d,idx) {
 	d.LatLng = new L.LatLng(+d.Lat,+d.Lng);
   beerDataNested[d.BreweryClass.toLowerCase().split("brewery")[1]] = d;
 });
+
+d3.selection.prototype.moveToFront = function() {  
+  return this.each(function(){
+    this.parentNode.appendChild(this);
+  });
+};
 
 // creating svg layer for data
 var svgMap = d3.select("#map").select("svg").attr("style","z-index:300"),//.attr('style', 'pointer-events:all'),
@@ -121,9 +121,9 @@ var feature = g.selectAll("circle")
   .style("stroke","#696969")
   .attr("r", function(d) {
     if (screen.width <= 480) {
-      return 8;
+      return 5;
     } else {
-      return 10;
+      return 7;
     }
   })
   .on('mouseover', function(d) {
@@ -135,46 +135,42 @@ var feature = g.selectAll("circle")
   })
   .on("mousemove", function() {
     return tooltip
-      .style("top", (d3.event.pageY - 250)+"px")
+      .style("top", (d3.event.pageY - 350)+"px")
       .style("left",(d3.event.pageX - 50)+"px");
   })
   .on("mouseout", function(){
     return tooltip.style("visibility", "hidden");
   })
+
   .on("click",function(d){
-    $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top-35}, 600);
+    d3.select(this).moveToFront();
+    $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top}, 600);
 
     $(".sidebar").animate({ scrollTop: 0 }, "fast");
     $("#brewery-list").animate({ scrollTop: 0 }, "fast");
     $("#psec").animate({ scrollTop: 0 }, "fast");
 
+    $(".brewery-group.active").removeClass("active");
     document.querySelector("#chosen-brewery").innerHTML = fill_info(d);
     document.querySelector("#chosen-brewery-trails").innerHTML = fill_info(d);
+    
 
     // highlight the appropriate dot
     d3.selectAll(".dot").style("fill", "#FFCC32");
-    d3.selectAll(".dot").style("opacity", "0.2");
-    d3.selectAll(".dot").transition(0).attr("r",10);
-    d3.selectAll(".dot").style("stroke","black");
-
+    d3.selectAll('.dot').transition(100).attr("r",7);
     d3.select(this).style("fill",dot_red);
-    d3.select(this).style("opacity","1.0");
-    d3.select(this).transition(0).attr("r",15);
-    // d3.select(this).style("stroke","#696969");
+    d3.select(this).style("opacity",1);
+    d3.select(this).style("stroke","#696969");
 
-    d3.select("."+d.BreweryClass.split("brewery")[1].toLowerCase()).classed("active",true);
+    // pulse animation
 
-    // zoom and pan the map to the appropriate dot
-    // map.setView([sf_lat,sf_long], zoom_deg, {animate:false} );
-    map.panTo([d.LatLng.lat, d.LatLng.lng],{animate:true},{duration:1});
-    // map.setView([d.LatLng.lat, d.LatLng.lng],map.getZoom(),{animate:true});
-
-    $(".brewery-group").addClass("active");
+    // clear out everything else
     document.getElementById('searchbar').value = "";
     $("#no-results").css("display","none");
     $("#count-results").css("display","none");
     $(".brewery-list").css("margin-top","180px");
   });
+
 
 // function that zooms and pans the data when the map zooms and pans
 function update() {
@@ -212,8 +208,6 @@ $("#searchbar").bind("input propertychange", function () {
   document.querySelector("#chosen-brewery-trails").innerHTML = "";
 
   d3.selectAll(".dot").style("fill", "#FFCC32");
-  d3.selectAll(".dot").style("opacity", "0.2");
-  d3.selectAll(".dot").transition(0).attr("r",10);
 
   $(".sidebar").animate({ scrollTop: 0 }, "fast");
   $("#brewery-list").animate({ scrollTop: 0 }, "fast");
@@ -283,14 +277,10 @@ $("#searchbar").bind("input propertychange", function () {
     d3.selectAll(".dot").style("stroke","#696969");
     d3.selectAll(".dot").style("fill", "#FFCC32");
     d3.selectAll(".dot").style("opacity", "0.8");
-    d3.selectAll(".dot").transition(0).attr("r",10);
     $("#no-results").css("display","none");
     $("#count-results").css("display","none");
     $(".brewery-list").css("margin-top","180px");
   }
-  console.log(count);
-
-  // update();
 
 });
 
@@ -299,29 +289,23 @@ var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
 qsa(".clickme").forEach(function(group,index) {
   group.addEventListener("click", function(e) {
 
-    if (d3.select("#"+e.target.classList[1].toLowerCase()).attr("r") != 15){
+    if (d3.select("#"+e.target.classList[1].toLowerCase()).attr("r")){
 
       $("#count-results").css("display","none");
       $(".brewery-list").css("margin-top","180px");
 
       // highlight the appropriate dot
       d3.selectAll(".dot").style("fill", "#FFCC32");
-      d3.selectAll(".dot").style("opacity", "0.2");
-      d3.selectAll(".dot").transition(0).attr("r",10);
-      // d3.selectAll(".dot").style("stroke","black");
 
-      $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top-35}, 600);
+      $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top}, 600);
 
-      document.querySelector("#chosen-brewery").innerHTML = fill_info(beerData[index]);
+      d3.select("#"+e.target.classList[1].toLowerCase())
+      .style("fill",dot_red)
+      .style("stroke","white")
+      .attr("r",12)
+      .moveToFront();
 
-      d3.select("#"+e.target.classList[1].toLowerCase()).style("fill",dot_red);
-      d3.select("#"+e.target.classList[1].toLowerCase()).transition(100).attr("r",15);
-      d3.select("#"+e.target.classList[1].toLowerCase()).style("opacity","1.0");
-      d3.select("#"+e.target.classList[1].toLowerCase()).style("stroke","#696969");
-
-      // zoom and pan the map to the appropriate dot
-      // map.setView([sf_lat,sf_long], zoom_deg);
-      // map.setView([beerData[index].LatLng.lat, beerData[index].LatLng.lng],map.getZoom(),{animate:true});
+      map.setView([beerData[index].LatLng.lat, beerData[index].LatLng.lng],14,{animate:true});
       map.panTo([beerData[index].LatLng.lat, beerData[index].LatLng.lng],{animate:true},{duration:1});
     }
 
@@ -337,6 +321,7 @@ trailsData.forEach(function(d,idx) {
     for (var ii=0; ii < beerData.length; ii++) {
       if (beerData[ii]["Brewery"] == bb) {
         trail_path.push([beerData[ii]["Lat"],beerData[ii]["Lng"]]);
+        $("#brewery"+bb.toLowerCase().replace(/ /g,'').replace('.','').replace('.','').replace('(','').replace(')','').replace('&','').replace('/','').replace("'",'')).addClass("beer-trail"); 
       }
     }
   });
@@ -359,13 +344,9 @@ var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
 qsa(".clickme-trail").forEach(function(group,index) {
   // console.log(group.classList[1]);
   group.addEventListener("click", function(e) {
-    $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top-35}, 600);
-
-    $(".sidebar").animate({ scrollTop: 0 }, "fast");
-    $("#brewery-list").animate({ scrollTop: 0 }, "fast");
+    $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top}, 600);
 
     d3.selectAll(".dot").style("fill", "#FFCC32");
-    d3.selectAll(".dot").style("opacity", "0.8");
     d3.selectAll(".dot").style("stroke","#696969");
     d3.selectAll(".leaflet-interactive").style("display", "block");
     map.fitBounds(polyline[group.classList[1]].getBounds(), {"maxZoom":13} );
@@ -413,9 +394,10 @@ search_click.addEventListener("click",function(){
   d3.selectAll(".leaflet-interactive").style("display", "none");
 
   d3.selectAll(".dot").style("fill", "#FFCC32");
-  d3.selectAll(".dot").style("opacity", "0.8");
   d3.selectAll(".dot").style("stroke","#696969");
   $(".brewery-group").addClass("active");
+  d3.selectAll(".dot").style("opacity", "0.8");
+  $(".dot").removeClass("hide");
   document.getElementById('searchbar').value = "";
   $("#no-results").css("display","none");
   $("#count-results").css("display","none");
@@ -428,10 +410,9 @@ paths_click.addEventListener("click",function(){
   document.querySelector("#chosen-brewery-trails").innerHTML = "";
 
   d3.selectAll(".dot").style("fill", "#FFCC32");
-  d3.selectAll(".dot").style("opacity", "0.8");
   d3.selectAll(".dot").style("stroke","#696969");
   if (screen.width >= 480) {
-    map.setView(new L.LatLng(37.718929,-122.338428),11,{animate:true});
+    map.setView(new L.LatLng(37.718929,-122.338428),9,{animate:true});
   } else {
     map.setView(new L.LatLng(37.852280,-122.386665),10,{animate:true});
   }
@@ -440,10 +421,10 @@ paths_click.addEventListener("click",function(){
   reset_click.classList.remove("selected");
   paths_sec.style.display = "block";
   search_sec.style.display = "none";
+  $('.dot').addClass('hide');
 
   d3.selectAll(".leaflet-interactive").style("display", "block");
   d3.selectAll(".leaflet-interactive").style("stroke",off_red);
-  d3.selectAll(".leaflet-interactive").style("opacity","1.0");
   d3.selectAll(".leaflet-interactive").style("stroke-width","3");
 
   $(".brewery-group").addClass("active");
@@ -466,9 +447,8 @@ reset_click.addEventListener("click",function(e) {
   document.querySelector("#chosen-brewery-trails").innerHTML = "";
 
   d3.selectAll(".dot").style("fill", "#FFCC32");
-  d3.selectAll(".dot").transition(100).attr("r",10);
-  d3.selectAll(".dot").style("opacity", "0.8");
   d3.selectAll(".dot").style("stroke","#696969");
+  d3.selectAll(".dot").style("opacity", "0.8");
   map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
   d3.selectAll(".leaflet-interactive").style("display", "none");
 
@@ -480,4 +460,44 @@ reset_click.addEventListener("click",function(e) {
   $("#no-results").css("display","none");
   $("#count-results").css("display","none");
   $(".brewery-list").css("margin-top","180px");
+});
+
+
+
+
+// RSS parser
+var Feed = require('./lib/rss');
+
+Feed.load('https://www.sfchronicle.com/default/feed/ultimate-norcal-brewery-map-recirc-2228.php', function(err, rss){
+
+  var items = rss.items.splice(0,3);
+
+  items.forEach(function(item){
+
+    // Get title
+    var title = item.title;
+    // Get link
+    var link = item.link;
+
+    // check if article contains image
+    if(item.media){
+
+      // Get first image src
+      var imageURL = item.media.content[0].url[0];
+      var lastSlash = imageURL.lastIndexOf("/");
+      imageURL = imageURL.replace(imageURL.substring(lastSlash+1), "premium_gallery_landscape.jpg");
+
+      // push each story html
+      var html = '<div class="story "><a target="_blank" href="'+link+'"><img src="'+imageURL+'"></a><div class="story-info"><h3><a target="_blank" href="'+link+'"><span class="latest-title">'+title+'</span></a></h3></div></div>';
+      $('.story.loading').remove();
+      $('.stories').append(html);
+
+    }else{
+      var html = '<div class="story no-img"><div class="story-info"><h3><a target="_blank" href="'+link+'"><span class="latest-title">'+title+'</span></a></h3></div></div>';
+      $('.story.loading').remove();
+      $('.stories').append(html);
+    }
+
+  });
+
 });
