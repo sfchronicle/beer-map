@@ -234,13 +234,13 @@ $("#searchbar").bind("input propertychange", function () {
       $(this).addClass("active");
       d3.select("#brewery"+this.id).style("stroke","black");
       d3.select("#brewery"+this.id).style("fill", "#FFCC32");
-      d3.select("#brewery"+this.id).style("opacity", "1.0");
+      d3.select("#brewery"+this.id).style("display", "block");
       count+=1;
     } else {
       $(this).removeClass("active");
       d3.select("#brewery"+this.id).style("stroke","#696969");
       d3.select("#brewery"+this.id).style("fill", "#FFCC32");
-      d3.select("#brewery"+this.id).style("opacity", "0");
+      d3.select("#brewery"+this.id).style("display", "none");
     }
     class_match = 0;
 
@@ -446,6 +446,7 @@ reset_click.addEventListener("click",function(e) {
   document.querySelector("#chosen-brewery").innerHTML = "";
   document.querySelector("#chosen-brewery-trails").innerHTML = "";
 
+  d3.selectAll(".dot").style("display", "block");
   d3.selectAll(".dot").style("fill", "#FFCC32");
   d3.selectAll(".dot").style("stroke","#696969");
   d3.selectAll(".dot").style("opacity", "0.8");
