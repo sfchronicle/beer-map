@@ -124,7 +124,7 @@
               <% json.Open.forEach(function(d){ %>
               <% var strBrewery = d.Brewery; %>
               <% var strCity = d.City; %>
-                <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'').replace(/\d+/g, '').replace(/\(|\)/g, '').replace(/ü/g, 'u') %> active" id="<%=d.BreweryClass.toLowerCase().replace(/\d+/g, '').replace(/\(|\)/g, '').replace('.','').slice(7)%>">
+                <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'').replace(/\d+/g, '').replace(/\(|\)/g, '').replace(/ü/g, 'u') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active" id="<%=d.BreweryClass.toLowerCase().replace(/\d+/g, '').replace(/\(|\)/g, '').replace('.','').slice(7)%>">
                   <div class="name"><%=d.Brewery%></a></div>
                   <div class="address"><%=d.Address%>, <%=d.City%></div>
                   <div class="blurb"><%=d.Blurb%></div>
