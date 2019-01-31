@@ -72,9 +72,9 @@
         <div id="list-popup">
           <div class="popup-content">
             <div class="popup-close">X</div>
-            You currently have no breweries saved to a list, please 
+            You currently have no breweries saved to a list. Please 
             use the checkbox in the Brewery List to add breweries and click 
-            on the "Email List" to email your list to yourself and/or friends.
+            on the "Email List" to send your list to yourself and/or friends.
           </div>
         </div>
 
@@ -107,7 +107,7 @@
               <input class="input" id="searchbar" type="text" placeholder="Try Oakland or Lagunitas or ... ">
             </div>
 
-            <div id="mylist-text">Use the checkbox in the Brewery List tab to add breweries and then click on then "Email List" to email your list to yourself and/or friends.</div>
+            <div id="mylist-text">Add breweries to this list on the Brewery List tab and then click on the "Email List" to send your list to yourself and/or friends.</div>
 
             <div class="main-buttons">
               <div class="button" id="reset-button">Reset map</div>
@@ -147,7 +147,7 @@
                   <div class="brewery-link"><a href="<%=d.Website%>" target="_blank">Brewery website</a></div>
                   <div class="savetolist">
                     <label><input type="checkbox" class="savebeer" data-id="<%=d.BreweryClass.toLowerCase().replace(/\d+/g, '').replace(/\(|\)/g, '').slice(7)%>" name="<%=d.Brewery%>" value="<%=d.Brewery%>" data-address="<%=d.Address%>, <%=d.City%>" data-info="<%=encodeURIComponent(d.Blurb)%>">
-                      <span>Save to list</span>
+                      <span>Add to list</span>
                     </input></label>
                   </div>
                 </div>

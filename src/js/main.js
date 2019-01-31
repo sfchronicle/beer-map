@@ -403,7 +403,8 @@ search_click.on("click",function(){
   $('#mylist-text').css('display','none');
   $('.search-container').css('display','block');
   d3.selectAll(".leaflet-interactive").style("display", "none");
-
+  d3.selectAll('.dot').classed("only-onlist", false);
+  d3.selectAll('.dot').classed("hide-forlist", false);
   d3.selectAll(".dot").style("fill", "#FFCC32");
   d3.selectAll(".dot").style("stroke","#696969");
   $(".brewery-group").addClass("active");
@@ -430,7 +431,7 @@ mylist.on("click",function(){
     $('html, body').animate({scrollTop: $(".latest-news").offset().top}, 600);
   }
   
-  map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
+  map.setView(new L.LatLng(sf_lat,sf_long),7,{animate:true});
   $(".sidebar").animate({ scrollTop: 0 }, "fast");
 
   paths_click.removeClass("selected");
@@ -438,6 +439,7 @@ mylist.on("click",function(){
   mylist.addClass("selected");
   paths_sec.style.display = "none";
   $('.search-container').css('display','none');
+  $(".dot").removeClass("hide");
   $('#mylist-text').css('display','block');
   d3.selectAll(".leaflet-interactive").style("display", "none");
 
@@ -445,7 +447,7 @@ mylist.on("click",function(){
   d3.selectAll(".dot").style("stroke","#696969");
   $(".brewery-group").removeClass("active");
   d3.selectAll(".dot").style("opacity", "0.8");
-  $(".dot").removeClass("hide");
+  $(".dot").addClass("hide-forlist");
   document.getElementById('searchbar').value = "";
 
   $(".brewery-group.clickedon").removeClass("clickedon");
@@ -456,7 +458,9 @@ mylist.on("click",function(){
   $(".brewery-list").css("display","block");
 
   $(".savebeer:checked").each(function() {
-   $("#"+$(this).data('id')).addClass("mylist-active");
+    var dotID = $(this).data('id');
+    $("#"+dotID).addClass("mylist-active");
+   d3.select('#brewery'+dotID).classed("only-onlist", true);
   });  
 
   // 
@@ -494,6 +498,8 @@ paths_click.on("click",function(){
   mylist.removeClass("selected");
   paths_sec.style.display = "block";
   $('.dot').addClass('hide');
+  d3.selectAll('.dot').classed("only-onlist", false);
+  d3.selectAll('.dot').classed("hide-forlist", false);
 
   d3.selectAll(".leaflet-interactive").style("display", "block");
   d3.selectAll(".leaflet-interactive").style("stroke",off_red);
@@ -509,7 +515,7 @@ paths_click.on("click",function(){
   $('#email-list').css('display','none');
 
   activateClick()
-  
+
 });
 
 // event listener for re-setting the map
