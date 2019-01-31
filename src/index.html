@@ -20,31 +20,41 @@
 
     <div class="hed-wrapper">
 
-      <div class="latest-news">
-        <div class="wrapper">
-          <div class="stories">
-            <div class="story loading"><img src="./assets/loading.png"></div>
-            <div class="story loading"><img src="./assets/loading.png"></div>
-            <div class="story loading"><img src="./assets/loading.png"></div>
-          </div>
-        </div>
-      </div>
+      <div class="hed-content">
 
-      <div class="banner-img left desktop"><img src="./assets/graphics/hopsL.png"></img></div>
-      <div class="banner-content">
-        <div class="title-mobile">
-          <div class="banner-img left mobile"><img src="./assets/graphics/hopsL.png"></img></div>
-          <div class="banner-img right mobile"><img src="./assets/graphics/hopsR.png"></img></div>
-          <div class="hed">The Ultimate NorCal Brewery Map</div>
+        <div class="hed-video">
+          <video autoplay muted loop playsinline>
+            <source src="./assets/video.mp4" type="video/mp4">
+          </video>
         </div>
-        <div class="last-updated"><span>Updated:</span> Jan. 8, 2019</div>
-        <div class="chatter">This interactive map features more than 300 breweries in Northern California. Hover and click on the spots, search for your favorites, or check out our list of beer excursions.</div>
-        <div class="button-container">
-          <div class="button selected" id="list-button">Brewery List</div>
-          <div class="button" id="trails-button">Brewery Trails</div>
+
+        <div class="hed-overlay"></div>
+
+        <div class="banner-content">
+
+          <div class="hed">The Ultimate NorCal Brewery Map</div>
+        
+          <div class="last-updated"><span>Updated:</span> Jan. 8, 2019</div>
+          <div class="chatter">This interactive map features more than 300 breweries in Northern California. Hover and click on the spots, search for your favorites, or check out our list of beer excursions.</div>
+          
+          <div class="button-container">
+            <div class="button list-button">Breweries</div>
+            <div class="button trails-button">Brewery Trails</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="latest-news">
+      <div class="wrapper">
+        <div class="stories">
+          <div class="story loading"><img src="./assets/loading.png"></div>
+          <div class="story loading"><img src="./assets/loading.png"></div>
+          <div class="story loading"><img src="./assets/loading.png"></div>
         </div>
       </div>
-      <div class="banner-img right desktop"><img src="./assets/graphics/hopsR.png"></img></div>
     </div>
 
     <div class="content">
@@ -52,14 +62,23 @@
         <div id="scroll-to-top"></div>
         <div class="map-container">
           <div id="map"></div>
+          <div id="mylist-map"></div>
         </div>
         <div class="tooltip-beermap"></div>
       </div>
 
       <div class="sidebar">
 
+        <div id="list-popup">
+          <div class="popup-content">
+            <div class="popup-close">X</div>
+            You currently have no breweries saved to a list, please 
+            use the checkbox in the Brewery List to add breweries and click 
+            on the "Email List" to email your list to yourself and/or friends.
+          </div>
+        </div>
+
         <div id="psec">
-          <div class="cntl" id="pcntl">Brewery Trails</div>
 
           <div id="chosen-brewery-trails"></div>
 
@@ -77,24 +96,35 @@
 
         <div id="ssec">
           <div id="stick-me">
-            <div class="cntl" id="scntl">Brewery List</div>
+            <div class="tabs">
+               <div class="cntl selected list-button" id="scntl">Breweries</div>
+              <div class="cntl trails-button" id="pcntl">Trails</div>
+              <div class="cntl mylist-button" id="mylist">My List</div>
+            </div>
+           
             <div class="search-container">
               <span class="search">Search by brewery or city:</span>
               <input class="input" id="searchbar" type="text" placeholder="Try Oakland or Lagunitas or ... ">
             </div>
-            <div class="button" id="reset-button">Reset map</div>
+
+            <div id="mylist-text">Use the checkbox in the Brewery List tab to add breweries and then click on then "Email List" to email your list to yourself and/or friends.</div>
+
+            <div class="main-buttons">
+              <div class="button" id="reset-button">Reset map</div>
+              <div id="email-list" class="button">Email list</div>
+            </div>
           </div>
-          <div id="count-results"></div>
-          <div id="no-results">There are no results for your search. Please try again.</div>
+
           <div class="brewery-list" id="brewery-list">
             <div class="brewery-scroll-container">
 
-              <div id="chosen-brewery"></div>
+              <div id="no-results">There are no results for your search.<br>Please try again.</div>
+              <div id="count-results"></div>
 
               <% json.Open.forEach(function(d){ %>
               <% var strBrewery = d.Brewery; %>
               <% var strCity = d.City; %>
-                <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'').replace(/ü/g, 'u') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active" id="<%=d.BreweryClass.toLowerCase().split('brewery')[1]%>">
+                <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'').replace(/\d+/g, '').replace(/\(|\)/g, '').replace(/ü/g, 'u') %> active" id="<%=d.BreweryClass.toLowerCase().replace(/\d+/g, '').replace(/\(|\)/g, '').replace('.','').slice(7)%>">
                   <div class="name"><%=d.Brewery%></a></div>
                   <div class="address"><%=d.Address%>, <%=d.City%></div>
                   <div class="blurb"><%=d.Blurb%></div>
@@ -115,6 +145,11 @@
                     <% } %>
                   <% } %>
                   <div class="brewery-link"><a href="<%=d.Website%>" target="_blank">Brewery website</a></div>
+                  <div class="savetolist">
+                    <label><input type="checkbox" class="savebeer" data-id="<%=d.BreweryClass.toLowerCase().replace(/\d+/g, '').replace(/\(|\)/g, '').slice(7)%>" name="<%=d.Brewery%>" value="<%=d.Brewery%>" data-address="<%=d.Address%>, <%=d.City%>" data-info="<%=encodeURIComponent(d.Blurb)%>">
+                      <span>Save to list</span>
+                    </input></label>
+                  </div>
                 </div>
               <% }); %>
             </div>

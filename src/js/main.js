@@ -1,6 +1,6 @@
 require("./lib/social"); //Do not delete
-require("./lib/leaflet-mapbox-gl");
 var d3 = require('d3');
+require('./lib/save');
 
 var off_red = "#DE5D26";
 var bright_red = "#AB2A00";
@@ -89,7 +89,7 @@ L.svg().addTo(map);
 let beerDataNested = {};
 beerData.forEach(function(d,idx) {
 	d.LatLng = new L.LatLng(+d.Lat,+d.Lng);
-  beerDataNested[d.BreweryClass.toLowerCase().split("brewery")[1]] = d;
+  beerDataNested[d.BreweryClass.replace(/\d+/g, '').toLowerCase()] = d;
 });
 
 d3.selection.prototype.moveToFront = function() {  
@@ -101,86 +101,58 @@ d3.selection.prototype.moveToFront = function() {
 // creating svg layer for data
 var svgMap = d3.select("#map").select("svg").attr("style","z-index:300"),//.attr('style', 'pointer-events:all'),
 g = svgMap.append("g");
-
 // adding circles to the map
 var feature = g.selectAll("circle")
-  .data(beerData)
-  .enter().append("circle")
-  .attr("id",function(d) {
-    return d.BreweryClass.toLowerCase();
-  })
-  .attr("class",function(d) {
-    return "dot "+d.BreweryClass;
-  })
-  .style("opacity", function(d) {
-    return 0.8;
-  })
-  .style("fill", function(d) {
-    return "#FFCC32";
-  })
-  .style("stroke","#696969")
-  .attr("r", function(d) {
-    if (screen.width <= 480) {
-      return 5;
-    } else {
-      return 7;
-    }
-  })
-  .on('mouseover', function(d) {
-    if (screen.width >= 1024){
-      var html_str = tooltip_function(d);
-      tooltip.html(html_str);
-      tooltip.style("visibility", "visible");
-    }
-  })
-  .on("mousemove", function() {
-    return tooltip
-      .style("top", (d3.event.pageY - 350)+"px")
-      .style("left",(d3.event.pageX - 50)+"px");
-  })
-  .on("mouseout", function(){
-    return tooltip.style("visibility", "hidden");
-  })
+.data(beerData)
+.enter().append("circle")
+.attr("id",function(d) {
+  return d.BreweryClass.replace(/\d+/g, '').toLowerCase();
+})
+.attr("class",function(d) {
+  return "dot "+d.BreweryClass.replace(/\d+/g, '').toLowerCase();
+})
+.style("opacity", function(d) {
+  return 0.8;
+})
+.style("fill", function(d) {
+  return "#FFCC32";
+})
+.style("stroke","#696969")
+.attr("r", function(d) {
+  if (screen.width <= 480) {
+    return 5;
+  } else {
+    return 7;
+  }
+})
+.on('mouseover', function(d) {
+  if (screen.width >= 1024){
+    var html_str = tooltip_function(d);
+    tooltip.html(html_str);
+    tooltip.style("visibility", "visible");
+  }
+})
+.on("mousemove", function() {
+  return tooltip
+    .style("top", (d3.event.pageY - 405)+"px")
+    .style("left",(d3.event.pageX - 50)+"px");
+})
+.on("mouseout", function(){
+  return tooltip.style("visibility", "hidden");
+})
 
-  .on("click",function(d){
-    d3.select(this).moveToFront();
-    $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top}, 600);
-
-    $(".sidebar").animate({ scrollTop: 0 }, "fast");
-    $("#brewery-list").animate({ scrollTop: 0 }, "fast");
-    $("#psec").animate({ scrollTop: 0 }, "fast");
-
-    $(".brewery-group.active").removeClass("active");
-    document.querySelector("#chosen-brewery").innerHTML = fill_info(d);
-    document.querySelector("#chosen-brewery-trails").innerHTML = fill_info(d);
-    
-
-    // highlight the appropriate dot
-    d3.selectAll(".dot").style("fill", "#FFCC32");
-    d3.selectAll('.dot').transition(100).attr("r",7);
-    d3.select(this).style("fill",dot_red);
-    d3.select(this).style("opacity",1);
-    d3.select(this).style("stroke","#696969");
-
-    // pulse animation
-
-    // clear out everything else
-    document.getElementById('searchbar').value = "";
-    $("#no-results").css("display","none");
-    $("#count-results").css("display","none");
-    $(".brewery-list").css("margin-top","180px");
-  });
-
+.on("click", activateClick);
+  
 
 // function that zooms and pans the data when the map zooms and pans
 function update() {
-	feature.attr("transform",
-	function(d) {
-		return "translate("+
-			map.latLngToLayerPoint(d.LatLng).x +","+
-			map.latLngToLayerPoint(d.LatLng).y +")";
-		}
-	)
+  feature.attr("transform",
+  function(d) {
+    return "translate("+
+      map.latLngToLayerPoint(d.LatLng).x +","+
+      map.latLngToLayerPoint(d.LatLng).y +")";
+    }
+  )
 }
 
 // map.on("moveend", update);
@@ -189,6 +161,47 @@ map.on("viewreset", update);
 map.on("zoom", update);
 // map.on("load", update);
 update();
+
+function activateClick(){
+  feature.on("click",function(d){
+  d3.select(this).moveToFront();
+  if ($(window).width() < 768) {
+   $('html, body').animate({scrollTop: $(".map-container").offset().top-10}, 600);
+  }
+  else {
+    $('html, body').animate({scrollTop: $(".latest-news").offset().top}, 600);
+  }
+
+  $(".sidebar").animate({ scrollTop: 0 }, "fast");
+  $("#brewery-list").animate({ scrollTop: 0 }, "fast");
+  $("#psec").animate({ scrollTop: 0 }, "fast");
+
+  $(".brewery-group.active").removeClass("active");
+  mylist.removeClass("selected");
+  $(".mylist-active").removeClass("mylist-active");
+  $(".brewery-group.clickedon").removeClass("clickedon");
+  $('#'+this.id.slice(7)).addClass('clickedon');
+  $('#mylist-text').css('display','none');
+  // d3.selectAll(".leaflet-interactive").style("display", "none");
+  // document.querySelector("#chosen-brewery").innerHTML = fill_info(d);
+  document.querySelector("#chosen-brewery-trails").innerHTML = fill_info(d);
+  
+  $('#email-list').css('display','none');
+
+  // highlight the appropriate dot
+  d3.selectAll(".dot").style("fill", "#FFCC32");
+  d3.selectAll('.dot').transition(100).attr("r",7);
+  d3.select(this).style("fill",dot_red);
+  d3.select(this).style("opacity",1);
+  d3.select(this).style("stroke","#696969");
+
+  // clear out everything else
+  document.getElementById('searchbar').value = "";
+  $("#no-results").css("display","none");
+  $("#count-results").css("display","none");
+});
+}
+
 
 // show tooltip
 var tooltip = d3.select("div.tooltip-beermap");
@@ -204,7 +217,6 @@ $("#searchbar").bind("input propertychange", function () {
   // initialize lat/lon grouping to be empty
   var latlngGroup = {};
 
-  document.querySelector("#chosen-brewery").innerHTML = "";
   document.querySelector("#chosen-brewery-trails").innerHTML = "";
 
   d3.selectAll(".dot").style("fill", "#FFCC32");
@@ -227,26 +239,24 @@ $("#searchbar").bind("input propertychange", function () {
     }
 
     if (class_match > 0) {
-
+      console.log('typed!',this)
       // add latitude and longitude to group
-      latlngGroup = [...latlngGroup, L.latLng(+beerDataNested[this.id].Lat,+beerDataNested[this.id].Lng)];
+      latlngGroup = [...latlngGroup, L.latLng(+beerDataNested['brewery'+this.id].Lat,+beerDataNested['brewery'+this.id].Lng)];
 
       $(this).addClass("active");
-      d3.select("#brewery"+this.id).style("stroke","black");
-      d3.select("#brewery"+this.id).style("fill", "#FFCC32");
-      d3.select("#brewery"+this.id).style("display", "block");
+      d3.select("#"+this.id).style("stroke","black");
+      d3.select("#"+this.id).style("fill", "#FFCC32");
+      d3.select("#"+this.id).classed("hide", false );
       count+=1;
     } else {
       $(this).removeClass("active");
-      d3.select("#brewery"+this.id).style("stroke","#696969");
-      d3.select("#brewery"+this.id).style("fill", "#FFCC32");
-      d3.select("#brewery"+this.id).style("display", "none");
+      d3.select("#"+this.id).style("stroke","#696969");
+      d3.select("#"+this.id).style("fill", "#FFCC32");
+      d3.select("#"+this.id).classed("hide", true);
     }
     class_match = 0;
 
   });
-
-  // $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top-35}, 600);
 
   clearTimeout(panMapToGroup);
   var topHeight = document.getElementById("stick-me").getBoundingClientRect().height;
@@ -258,8 +268,7 @@ $("#searchbar").bind("input propertychange", function () {
     } else {
       document.getElementById("count-results").innerHTML = "There are "+count+" results.";
     }
-    $("#count-results").css("margin-top",topHeight+"px");
-    $(".brewery-list").css("margin-top","20px");
+
     $("#no-results").css("display","none");
 
     var myBounds = new L.LatLngBounds(latlngGroup);
@@ -269,7 +278,6 @@ $("#searchbar").bind("input propertychange", function () {
 
   } else {
     $("#no-results").css("display","block");
-    $("#no-results").css("margin-top",topHeight+"px");
     $("#count-results").css("display","none");
   }
 
@@ -279,7 +287,6 @@ $("#searchbar").bind("input propertychange", function () {
     d3.selectAll(".dot").style("opacity", "0.8");
     $("#no-results").css("display","none");
     $("#count-results").css("display","none");
-    $(".brewery-list").css("margin-top","180px");
   }
 
 });
@@ -289,17 +296,16 @@ var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
 qsa(".clickme").forEach(function(group,index) {
   group.addEventListener("click", function(e) {
 
-    if (d3.select("#"+e.target.classList[1].toLowerCase()).attr("r")){
+    if (d3.select("#"+e.target.classList[1].replace(/\d+/g, '').toLowerCase()).attr("r")){
 
       $("#count-results").css("display","none");
-      $(".brewery-list").css("margin-top","180px");
 
       // highlight the appropriate dot
       d3.selectAll(".dot").style("fill", "#FFCC32");
 
-      $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top}, 600);
+      $('html, body').animate({scrollTop: $(".latest-news").offset().top}, 600);
 
-      d3.select("#"+e.target.classList[1].toLowerCase())
+      d3.select("#"+e.target.classList[1].replace(/\d+/g, '').toLowerCase())
       .style("fill",dot_red)
       .style("stroke","white")
       .attr("r",12)
@@ -342,7 +348,7 @@ d3.selectAll(".leaflet-interactive").style("display", "none");
 
 var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
 qsa(".clickme-trail").forEach(function(group,index) {
-  // console.log(group.classList[1]);
+
   group.addEventListener("click", function(e) {
     $('html, body').animate({scrollTop: $("#scroll-to-top").offset().top}, 600);
 
@@ -358,39 +364,44 @@ qsa(".clickme-trail").forEach(function(group,index) {
     d3.selectAll("."+group.classList[1]).style("opacity","1.0");
     d3.selectAll("."+group.classList[1]).style("stroke-width","5");
 
-    document.querySelector("#chosen-brewery").innerHTML = fill_path_info(trailsData[index]);
     $(".brewery-group").addClass("active");
     document.getElementById('searchbar').value = "";
     $("#no-results").css("display","none");
   });
 });
+
 //
 // buttons for brewery trails and list -----------------------------------------
-
-var search_click = document.getElementById('list-button');
-var search_sec = document.getElementById('ssec');
-
-var paths_click = document.getElementById('trails-button');
+// 
+var search_click = $('.list-button');
+var paths_click = $('.trails-button');
 var paths_sec = document.getElementById('psec');
-
-var reset_click = document.getElementById("reset-button");
+var reset_click = $("#reset-button");
+var mylist = $('#mylist')
 
 paths_sec.style.display = "none";
 
-search_click.addEventListener("click",function(){
-  document.querySelector("#chosen-brewery").innerHTML = "";
+search_click.on("click",function(){
+
   document.querySelector("#chosen-brewery-trails").innerHTML = "";
 
+  if ($(window).width() < 768) {
+   $('html, body').animate({scrollTop: $(".map-container").offset().top-10}, 600);
+  }
+  else {
+    $('html, body').animate({scrollTop: $(".latest-news").offset().top}, 600);
+  }
+  
   map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
-  // $("#brewery-list").animate({ scrollTop: 0 }, "fast");
   $(".sidebar").animate({ scrollTop: 0 }, "fast");
-  $("#brewery-list").animate({ scrollTop: 0 }, "fast");
 
-  paths_click.classList.remove("selected");
-  search_click.classList.add("selected");
-  reset_click.classList.remove("selected");
-  search_sec.style.display = "block";
+  paths_click.removeClass("selected");
+  search_click.addClass("selected");
+  reset_click.removeClass("selected");
+  mylist.removeClass("selected");
   paths_sec.style.display = "none";
+  $('#mylist-text').css('display','none');
+  $('.search-container').css('display','block');
   d3.selectAll(".leaflet-interactive").style("display", "none");
 
   d3.selectAll(".dot").style("fill", "#FFCC32");
@@ -401,13 +412,73 @@ search_click.addEventListener("click",function(){
   document.getElementById('searchbar').value = "";
   $("#no-results").css("display","none");
   $("#count-results").css("display","none");
-  $(".brewery-list").css("margin-top","180px");
+
+  $('#reset-button').css('display','inline-block');  
+  $('#email-list').css('display','none');
+  $(".brewery-list").css("display","block");
+  activateClick();
 });
 
-paths_click.addEventListener("click",function(){
+mylist.on("click",function(){
 
-  document.querySelector("#chosen-brewery").innerHTML = "";
   document.querySelector("#chosen-brewery-trails").innerHTML = "";
+
+  if ($(window).width() < 768) {
+   $('html, body').animate({scrollTop: $(".map-container").offset().top-10}, 600);
+  }
+  else {
+    $('html, body').animate({scrollTop: $(".latest-news").offset().top}, 600);
+  }
+  
+  map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
+  $(".sidebar").animate({ scrollTop: 0 }, "fast");
+
+  paths_click.removeClass("selected");
+  search_click.removeClass("selected");
+  mylist.addClass("selected");
+  paths_sec.style.display = "none";
+  $('.search-container').css('display','none');
+  $('#mylist-text').css('display','block');
+  d3.selectAll(".leaflet-interactive").style("display", "none");
+
+  d3.selectAll(".dot").style("fill", "#FFCC32");
+  d3.selectAll(".dot").style("stroke","#696969");
+  $(".brewery-group").removeClass("active");
+  d3.selectAll(".dot").style("opacity", "0.8");
+  $(".dot").removeClass("hide");
+  document.getElementById('searchbar').value = "";
+
+  $(".brewery-group.clickedon").removeClass("clickedon");
+  $("#no-results").css("display","none");
+  $("#count-results").css("display","none");
+  $('#reset-button').css('display','none');
+  $('#email-list').css('display','inline-block');
+  $(".brewery-list").css("display","block");
+
+  $(".savebeer:checked").each(function() {
+   $("#"+$(this).data('id')).addClass("mylist-active");
+  });  
+
+  // 
+  feature.on("click",function(e){
+     return false;     
+  });
+
+  
+});
+
+paths_click.on("click",function(){
+
+  document.querySelector("#chosen-brewery-trails").innerHTML = "";
+
+  if ($(window).width() < 768) {
+   $('html, body').animate({scrollTop: $(".map-container").offset().top-10}, 600);
+  }
+  else {
+    $('html, body').animate({scrollTop: $(".latest-news").offset().top}, 600);
+  }
+  $(".sidebar").animate({ scrollTop: 0 }, "fast");
+  $("#brewery-list").animate({ scrollTop: 0 }, "fast");
 
   d3.selectAll(".dot").style("fill", "#FFCC32");
   d3.selectAll(".dot").style("stroke","#696969");
@@ -416,11 +487,12 @@ paths_click.addEventListener("click",function(){
   } else {
     map.setView(new L.LatLng(37.852280,-122.386665),10,{animate:true});
   }
-  paths_click.classList.add("selected");
-  search_click.classList.remove("selected");
-  reset_click.classList.remove("selected");
+  $('.search-container').css('display','none');
+  $('#mylist-text').css('display','none');
+  paths_click.addClass("selected");
+  search_click.removeClass("selected");
+  mylist.removeClass("selected");
   paths_sec.style.display = "block";
-  search_sec.style.display = "none";
   $('.dot').addClass('hide');
 
   d3.selectAll(".leaflet-interactive").style("display", "block");
@@ -431,36 +503,49 @@ paths_click.addEventListener("click",function(){
   document.getElementById('searchbar').value = "";
   $("#no-results").css("display","none");
   $("#count-results").css("display","none");
-  $(".brewery-list").css("margin-top","180px");
+
+  $(".brewery-list").css("display","none");
+  $('#reset-button').css('display','none');
+  $('#email-list').css('display','none');
+
+  activateClick()
+  
 });
 
 // event listener for re-setting the map
-reset_click.addEventListener("click",function(e) {
+reset_click.on("click",function(e) {
 
-  $(".sidebar").animate({ scrollTop: 0 }, "fast");
-  $("#brewery-list").animate({ scrollTop: 0 }, "fast");
-
-  paths_click.classList.remove("selected");
-  search_click.classList.remove("selected");
-
-  document.querySelector("#chosen-brewery").innerHTML = "";
   document.querySelector("#chosen-brewery-trails").innerHTML = "";
 
-  d3.selectAll(".dot").style("display", "block");
-  d3.selectAll(".dot").style("fill", "#FFCC32");
-  d3.selectAll(".dot").style("stroke","#696969");
-  d3.selectAll(".dot").style("opacity", "0.8");
+  if ($(window).width() < 768) {
+   $('html, body').animate({scrollTop: $(".map-container").offset().top-10}, 600);
+  }
+  else {
+    $('html, body').animate({scrollTop: $(".latest-news").offset().top}, 600);
+  }
+
+  $(".sidebar").animate({ scrollTop: 0 }, "fast");
+
   map.setView(new L.LatLng(sf_lat,sf_long),zoom_deg,{animate:true});
+  
+  paths_click.removeClass("selected");
+  mylist.removeClass("selected");
+  search_click.addClass("selected");
+
+  paths_sec.style.display = "none";
+  $('.search-container').css('display','block');
   d3.selectAll(".leaflet-interactive").style("display", "none");
 
-  search_sec.style.display = "block";
-  paths_sec.style.display = "none";
 
   $(".brewery-group").addClass("active");
+  d3.selectAll(".dot").style("fill", "#FFCC32");
+  d3.selectAll(".dot").style("stroke","#696969");
+  $(".brewery-group").addClass("active");
+  d3.selectAll(".dot").style("opacity", "0.8");
+  $(".dot").removeClass("hide");
   document.getElementById('searchbar').value = "";
   $("#no-results").css("display","none");
   $("#count-results").css("display","none");
-  $(".brewery-list").css("margin-top","180px");
 });
 
 
@@ -501,4 +586,48 @@ Feed.load('https://www.sfchronicle.com/default/feed/ultimate-norcal-brewery-map-
 
   });
 
+});
+
+
+
+$( "#email-list" ).click(function() {
+  var beers = [];
+
+  if ($('.savebeer:checked').length == 0){
+     $('#list-popup').css('display','flex');
+  }else{
+
+    $(".savebeer:checked").each(function() {
+      var beerinfo = {}
+      beerinfo['name'] = $(this).val();
+      beerinfo['address'] = $(this).data('address');
+      beerinfo['blurb'] = $(this).data('info');
+      beers.push(beerinfo);
+    });
+    console.log('beers!', beers)
+    var beerHtml = '';
+    beers.forEach(function(beer){
+     beerHtml += "Brewery: "+beer.name+"%0D%0A" + "Address: "+beer.address+ "%0D%0A" +"About: "+beer.blurb+"%0D%0A%0D%0A";
+    })
+
+    var subject = "My list from the SF Chronicle's NorCal Brewery Map";
+    window.open('mailto:' + '?subject=' + subject + '&body=' + beerHtml);
+
+  }
+
+});
+
+$('.popup-close, #list-popup').click(function(){
+  $('#list-popup').css('display','none');
+});
+
+
+
+$('.savebeer').change(function() {
+
+  if($(this).is(":checked")) {
+    $("#"+$(this).data('id')).addClass("mylist-active");
+  }else{
+    $("#"+$(this).data('id')).removeClass("mylist-active");
+  }       
 });

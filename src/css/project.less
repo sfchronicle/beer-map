@@ -3,10 +3,6 @@
 @dark-yellow: #E6B319;
 @sea-blue: #E6B319;//#7C9B9D;
 
-header{
-  margin-bottom: 4px;
-}
-
 .link.social a{
   color:#333;
 
@@ -37,17 +33,41 @@ header{
   line-height: 1.2;
   display: none;
   font-size: 16px;
-  margin-top: 150px;
+  text-align: center;
 }
 
-#pcntl {
-  @media @mobile {
-    margin-bottom: 20px;
-  }
+#no-results{
+  padding:20px 10px;
 }
 
 .hed-wrapper {
   position: relative;
+  max-width: 1680px;
+  margin:0 auto;
+}
+
+.hed-content{
+  position: relative;
+}
+
+.hed-video{
+  line-height: 0;
+  overflow: hidden;
+
+  video{
+    width: auto;
+    margin-left:-5px;
+    height: 300px;
+  }
+}
+
+.hed-overlay{
+  position: absolute;
+  background: black;
+  top:0;
+  width: 100%;
+  height:100%;
+  opacity: 0.5;
 }
 
 .title-mobile {
@@ -59,10 +79,13 @@ header{
 }
 
 .banner-content {
-  width: 60%;
-  float: left;
-  @media @mobile {
-    width: 100%;
+  width: 100%;
+  position:absolute;
+  top:15%;
+  color:#fff;
+
+  @media @tablet{
+    top:5%;
   }
 }
 
@@ -102,13 +125,21 @@ header{
   height: 1000px;
   overflow-y: scroll;
   margin-bottom: 30px;
+  border-left: 1px solid #ccc;
+  background: #e6e6e6;
+  border-right: 1px solid #ccc;
+  padding: 55px 10px 10px;
+
   @media @mobile {
     margin-bottom: 0;
   }
   font-family: @block-graphics;
   font-size: 15px;
   .trail-group {
-    padding-bottom: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
   }
   .trail-desc, .trail-transit {
     padding-bottom: 3px;
@@ -171,7 +202,22 @@ header{
   font-family: @med-graphics;
   color: darken(@sea-blue,25%);
   font-size: 18px;
-  border-bottom: 2px solid @sea-blue;
+  display: inline-block;
+  padding: 5px 10px 1px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+
+  &.selected{
+    background: #e6e6e6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
 }
 
 body, html {
@@ -183,12 +229,14 @@ body, html {
   top: 0;
   background: lighten(@light-gray,10%);
   z-index: 50;
-  padding: 10px;
-  margin-right: 10px;
   width: 28%;
+
   @media @tablet {
-    // position: relative;
     width: 100%;
+  }
+
+  .tabs{
+    background:#fff;
   }
 }
 
@@ -218,8 +266,13 @@ body, html {
     overflow-y: scroll;
 
     .brewery-list {
-      margin-top: 180px;
+      background: #e6e6e6;
+      padding-top: 130px;
       margin-bottom: 20px;
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      padding-bottom:5px;
     }
     @media @tablet {
       .flex(0 0 100%);
@@ -287,7 +340,7 @@ body, html {
       .flex(0 0 100%);
       height: auto;
     }
-    #map {
+    #map, #mylist-map {
       width: 100%;
       height: 100%;
       z-index: 0;
@@ -303,6 +356,13 @@ body, html {
         margin: auto;
       }
     }
+  }
+}
+
+#chosen-brewery-trails{
+  .brewery-group.top{
+    background:@yellow;
+    margin: 10px 0;
   }
 }
 
@@ -325,7 +385,7 @@ body, html {
 }
 
 .chatter {
-  max-width: 720px;
+  max-width: 650px;
   padding: 0 0 20px;
   font-size: 17px;
 
@@ -347,19 +407,17 @@ circle {
   display: inline-block;
   font-family: @med-graphics;
   font-size: 16px;
-  background: white;
-  // width: 200px;
-  // text-align: center;
+  background: @dark-yellow;
   padding: 2px 20px;
   margin: auto;
-  // margin-top: 30px;
   border-radius: 5px;
   border: 2px solid @dark-yellow;
-  color: @dark-yellow;
+  color: #fff;
  
   &.selected {
     color: white;
     background: darken(@highlight, 10%);
+    border-color:darken(@highlight, 10%);
   }
   cursor: pointer;
   @media @mobile {
@@ -383,7 +441,9 @@ circle {
 
 .search-container {
   font-family: @block-graphics;
-  margin-bottom: 10px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 0 10px;
 
   .search {
     font-family: @med-graphics;
@@ -405,6 +465,12 @@ circle {
       font-size: 16px;
     }
   }
+}
+
+.main-buttons{
+  padding: 10px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
 }
 
 .credits {
@@ -473,12 +539,13 @@ circle {
 }
 .brewery-group {
   display: none;
-  padding-bottom: 20px;
+  padding: 10px 10px 30px;
+  background: white;
+  margin: 10px;
+  border-radius: 5px;
 
   &.top {
-    background: @yellow;
     padding: 10px;
-    margin-bottom: 30px;
   }
   .name {
     font-family: @med-graphics;
@@ -531,6 +598,40 @@ circle {
   &.active {
     display: block;
   }
+}
+
+.savetolist{
+  float:right;  
+
+  span{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+#email-list{
+  display: none;
+}
+
+#mylist{
+  cursor: pointer;
+}
+
+#mylist-text{
+  display: none;
+  padding: 10px 10px 0;
+  font-size: 15px;
+  font-family:@block-graphics;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.mylist-active{
+  display: block;
+}
+
+.clickedon{
+  display: block;
 }
 
 .tooltip-beermap {
@@ -773,3 +874,36 @@ circle {
     padding:5px;
   }
 }
+
+#list-popup{
+  display:none;
+  .justify-content(center);
+  background: rgba(0, 0, 0, 0.4);
+  .align-items(center);
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  z-index: 51;
+
+  .popup-content{
+    max-width: 300px;
+    background:#fff;
+    font-size: 16px;
+    padding:20px;
+    font-family:@block-graphics;
+    position:relative;
+  }
+
+  .popup-close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 17px;
+    font-family: @bold-graphics;
+    cursor: pointer;
+    padding: 1px 6px;
+  }
+}
+
