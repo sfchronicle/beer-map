@@ -3,18 +3,38 @@
   <head>
     <title><%= json.project.seo_title %></title>
     <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="<%= json.project.url + json.project.slug%>">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="ispremium" content="<%= json.project.paywall_meta %>">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
-    <%= t.include("partials/_head.html") %>
+    <script src="//projects.sfchronicle.com/shared/js/jquery.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.sfchronicle.com/favicon.ico" type="image/x-icon">
 
+    <meta name="description" content="<%= grunt.data.json.project.description %>">
+
+    <!-- BEGIN TWITTER SUMMARY CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= grunt.data.json.project.title %>">
+    <meta name="twitter:site" content="@sfchronicle">
+    <meta name="twitter:url" content="<%= grunt.data.json.project.url + grunt.data.json.project.slug%>">
+    <meta name="twitter:image" content="<%= grunt.data.json.project.url + grunt.data.json.project.slug + grunt.data.json.project.image %>">
+    <meta name="twitter:description" content="<%= grunt.data.json.project.description %>">
+
+    <!-- Social sharing meta -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="<%= grunt.data.json.project.title %>">
+    <meta property="og:site_name" content="The San Francisco Chronicle">
+    <meta property="og:url" content="<%= grunt.data.json.project.url + grunt.data.json.project.slug %>">
+    <meta property="og:image" content="<%= grunt.data.json.project.url + grunt.data.json.project.slug + grunt.data.json.project.image %>">
+    <meta property="og:description" content="<%= grunt.data.json.project.description %>">
   </head>
 
-  <%= !json.project.embedded ? "<body>" : "<body is='responsive-body'>" %>
+  <body>
 
     <%= t.include("partials/_nav.html") %>
 
@@ -168,7 +188,5 @@
     </script>
 
     <script src="app.js" async></script>
-    <%= t.include("partials/_helloSFC.html") %>
-
   </body>
 </html>
