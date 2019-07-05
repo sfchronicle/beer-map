@@ -34,7 +34,7 @@
 
           <div class="hed">The Ultimate NorCal Brewery Map</div>
         
-          <div class="last-updated"><span>Updated:</span> Jan. 28, 2019</div>
+          <div class="last-updated"><span>Updated:</span> July 5, 2019</div>
           <div class="chatter">This interactive map features more than 300 breweries in Northern California. Hover and click on the spots, search for your favorites, or check out our list of beer excursions.</div>
           
           <div class="button-container">
@@ -123,6 +123,7 @@
 
               <% json.Open.forEach(function(d){ %>
               <% var strBrewery = d.Brewery; %>
+              <% console.log(d) %>
               <% var strCity = d.City; %>
                 <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'').replace(/\d+/g, '').replace(/\(|\)/g, '').replace(/ü/g, 'u') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active" id="<%=d.BreweryClass.toLowerCase().replace(/\d+/g, '').replace(/\(|\)/g, '').replace('.','').slice(7)%>">
                   <div class="name"><%=d.Brewery%></a></div>
