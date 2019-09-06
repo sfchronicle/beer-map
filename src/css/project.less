@@ -919,3 +919,59 @@ circle {
   }
 }
 
+
+// Sponsor code
+.flex-topper {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .banner-content {
+    flex: 0 0 70%;
+    width: auto;
+    position: relative;
+    top: auto;
+
+    @media @tablet {
+      flex: 0 0 100%;
+    }
+  }
+
+  .sponsor {
+    flex: 0 0 30%;
+    padding: 10px;
+    max-width: 330px;
+    width: 100%;
+
+    @media @tablet {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.sponsor.mobile {
+  margin: auto;
+  padding: 10px;
+  max-width: 330px;
+  width: 100%;
+  text-align: center;
+
+  @media (min-width: 767px) {
+    display: none;
+  }
+
+  img {
+      width: 100%;
+    }
+}
+
+
