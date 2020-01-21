@@ -1,3 +1,88 @@
+// There are additional weights and versions of these fonts available,
+// but adding them makes the client download larger
+@font-face {
+  font-family: 'National Bold';
+  font-display: fallback;
+  font-style: normal;
+  font-weight: 400;
+  src: local('National Bold'), url("https://www.sfchronicle.com/css/core/fonts/national/NationalWeb-Bold.woff2") format('woff2'), url("https://www.sfchronicle.com/css/core/fonts/national/NationalWeb-Bold.woff") format('woff');
+}
+@font-face {
+  font-family: 'National Medium';
+  font-display: fallback;
+  font-style: normal;
+  font-weight: 400;
+  src: local('National Medium'), url("https://www.sfchronicle.com/css/core/fonts/national/NationalWeb-Medium.woff2") format('woff2'), url("https://www.sfchronicle.com/css/core/fonts/national/NationalWeb-Medium.woff") format('woff');
+}
+@font-face {
+  font-family: 'National Light';
+  font-display: fallback;
+  font-style: normal;
+  font-weight: 400;
+  src: local('National Light'), url("https://www.sfchronicle.com/css/core/fonts/national/NationalWeb-Light.woff2") format('woff2'), url("https://www.sfchronicle.com/css/core/fonts/national/NationalWeb-Light.woff") format('woff');
+}
+@font-face {
+  font-family: 'National Book';
+  font-display: fallback;
+  font-style: normal;
+  font-weight: 400;
+  src: local('National Book'), url("https://www.sfchronicle.com/css/core/fonts/national/NationalWeb-Book.woff2") format('woff2'), url("https://www.sfchronicle.com/css/core/fonts/national/NationalWeb-Book.woff") format('woff');
+}
+@font-face {
+  font-family: 'Tiempos Regular';
+  font-display: fallback;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Tiempos Regular'), url("https://www.sfchronicle.com/css/core/fonts/tiempos/TiemposTextWeb-Regular.woff2") format('woff2'), url("https://www.sfchronicle.com/css/core/fonts/tiempos/TiemposTextWeb-Regular.woff") format('woff');
+}
+@font-face {
+  font-family: 'Tiempos Bold';
+  font-display: fallback;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Tiempos Bold'), url("https://www.sfchronicle.com/css/core/fonts/tiempos/TiemposTextWeb-Bold.woff2") format('woff2'), url("https://www.sfchronicle.com/css/core/fonts/tiempos/TiemposTextWeb-Bold.woff") format('woff');
+}
+@font-face {
+  font-family: 'Tiempos Headline Light';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Tiempos Headline Light'), url("https://www.sfchronicle.com/css/core/fonts/tiempos/TiemposHeadlineWeb-Light.woff2") format('woff2'), url("https://www.sfchronicle.com/css/core/fonts/tiempos/TiemposHeadlineWeb-Light.woff") format('woff');
+}
+@font-face {
+  font-family: 'Tiempos Headline Black';
+  font-display: fallback;
+  font-style: normal;
+  font-weight: 400;
+  src: local("Tiempos Headline Black"),url(https://www.sfchronicle.com/css/core/fonts/tiempos/TiemposHeadlineWeb-Black.woff2) format("woff2"), url("https://www.sfchronicle.com/css/core/fonts/tiempos/TiemposHeadlineWeb-Black.woff") format("woff");
+}
+
+div,
+h1,
+h2,
+h3,
+input,
+label,
+li,
+p,
+span,
+textarea {
+  // antialiasing is mainly good for white text on black backgrounds
+  // -webkit-font-smoothing: antialiased;
+  // -webkit-text-stroke: .45px rgba(0,0,0,.1);
+  // -moz-osx-font-smoothing: grayscale;
+  font-variant-numeric: lining-nums;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  font-weight: normal;
+}
+
 @font-face{
   font-family:"Lora";
   font-weight: normal;

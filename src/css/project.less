@@ -18,7 +18,8 @@
 
   span{
     font-weight:bold;
-    color:@redlinks;
+    color:@brand;
+    text-transform: uppercase;
   }
   @media @mobile {
     margin-top: 10px;
@@ -57,7 +58,7 @@
   video{
     width: auto;
     margin-left:-5px;
-    height: 300px;
+    height: 400px;
   }
 }
 
@@ -80,6 +81,7 @@
 
 .banner-content {
   width: 100%;
+  max-width: 700px;
   position:absolute;
   top:15%;
   color:#fff;
@@ -185,11 +187,12 @@
 }
 
 .hed {
-  font-size: 40px;
-  font-family: @med-graphics;
+  font-size: 59px;
+  line-height: 1.2em;
+  font-family: @body-bold;
 
   @media @tablet {
-    font-size: 25px;
+    font-size: 35px;
   }
   @media @mobile {
     font-size: 29px;
@@ -425,7 +428,7 @@ circle {
   border-radius: 5px;
   border: 2px solid @dark-yellow;
   color: #fff;
- 
+
   &.selected {
     color: white;
     background: darken(@highlight, 10%);
@@ -589,7 +592,7 @@ circle {
     font-size: 14px;
     font-family: @block-graphics;
     letter-spacing: 0.5px;
-    
+
     a {
       color: #333;
       display: inline-block;
@@ -613,7 +616,7 @@ circle {
 }
 
 .savetolist{
-  float:right;  
+  float:right;
 
   span{
     text-decoration: underline;
@@ -831,7 +834,7 @@ circle {
 
   h3 {
     margin: 0 0 3px;
-    line-height: 32px;    
+    line-height: 32px;
     font-family: @body;
 
     @media (max-width:666px) {
@@ -973,5 +976,3 @@ circle {
       width: 100%;
     }
 }
-
-
