@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.seo_title2 %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="ispremium" content="<%= json.project.paywall_meta %>">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
+    <%= t.include("partials/_head2.html") %>
+
+  </head>
+
+  <%= !json.project.embedded ? "<body>" : "<body is='responsive-body'>" %>
+
+    <%= t.include("partials/_nav2.html") %>
+
+    <div class="hed-wrapper hof">
+
+            <div class="hed">The Chronicle’s NorCal Beer Hall of Fame</div>
+            <div class="last-updated"><span>Updated:</span> Feb. 5, 2020</div>
+
+            <div class="chatter"><p>The San Francisco Chronicle unveiled the NorCal Beer Hall of Fame in 2019 to recognize our region’s most iconic beers. We induct individual beers, not breweries. It’s a way of commemorating the indelible cultural imprint that craft beer has made on Northern California – and that Northern California has made on the rest of the world.</p>
+            <p>Each year, to determine the set of inductees, we ask Chronicle readers to vote for their picks. We then convene a panel of staff beer experts to cast another set of votes. The reader vote is ultimately weighed equally with the staff vote.</p></div>
+
+
+      </div>
+
+    <section class="hof-wrapper">
+      <div class="year-hed">2020</div>
+      <div class="hof-beers-container">
+        <% json.HOF.forEach(function(d){ %>
+          <% var can = ""; %>
+          <% if (d.Can) { %>
+            <% can = "can"; %>
+          <% } %>
+          <% if (d.Inducted == "2020") { %>
+            <div class="beer <%= can %>">
+              <img src="../assets/photos/<%=d.Path %>">
+                <p class="beer-name"><%=d.Beer %></p>
+                <p class="description"><i><%=d.Where %> &bull; Inducted <%=d.Inducted %></i></p>
+                <p class="text"><%=d.Description %></p>
+            </div>
+          <% } %>
+
+        <% }) %>
+      </div>
+
+        <div class="year-hed">2019</div>
+        <div class="hof-beers-container">
+          <% json.HOF.forEach(function(d){ %>
+            <% var can = ""; %>
+            <% if (d.Can) { %>
+              <% can = "can"; %>
+            <% } %>
+            <% if (d.Inducted == "2019") { %>
+
+            <div class="beer <%= can %>">
+              <img src="../assets/photos/<%=d.Path %>">
+                <p class="beer-name"><%=d.Beer %></p>
+                <p class="description"><i><%=d.Where %> &bull; Inducted <%=d.Inducted %></i></p>
+                <p class="text"><%=d.Description %></p>
+            </div>
+            <% } %>
+
+          <% }) %>
+
+
+      </div>
+    </section>
+
+    <!--
+    <section class="latest-news">
+      <div class="wrapper">
+        <h2>More beer coverage</h2>
+        <div class="stories">
+          <div class="story loading"><img src="./assets/loading.png"></div>
+          <div class="story loading"><img src="./assets/loading.png"></div>
+          <div class="story loading"><img src="./assets/loading.png"></div>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <%= t.include("partials/_footer2.html") %>
+
+    <script>
+      var beerData = <%= JSON.stringify(json.Open) %>
+      var trailsData = <%= JSON.stringify(json.Trails) %>
+    </script>
+
+    <script src="app.js" async></script>
+    <%= t.include("partials/_helloSFC.html") %>
+
+  </body>
+</html>

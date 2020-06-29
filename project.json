@@ -1,7 +1,7 @@
 {
   "title": "The Ultimate NorCal Brewery Map",
   "description": "This interactive guide features more than 300 breweries in Northern California. Search for your favorites, or check out our list of beer excursions.",
-  "seo_title": "Ultimate NorCal Brewery Map: Guide to Northern California beer",
+  "seo_title": "The Ultimate Northern California Brewery Map",
   "author":"",
   "hearst_category":"",
   "date":"2017-02-08",
@@ -9,13 +9,21 @@
   "slug": "brewery-map/",
   "twitter_text":"The Ultimate NorCal Brewery Map: Interactive guide to more than 300 breweries and curated beer trails.",
   "hashtag":"",
-  "image": "assets/social.jpg",
+  "image": "https://s.hdnux.com/photos/01/10/25/43/18962672/5/premium_gallery_landscape.jpg",
   "sheets": ["1B1mOzs35YKHd6YhYPTs9kv8IL2yT-8uGu5oKMu05zT8"],
   "production": false,
   "embedded": false,
   "paywall":"meter",
   "paywall_meta": 1,
   "time": "06:00:00Z",
-  "date_modifed": "2020-01-20",
-  "time_modified": "09:00:00Z"
+  "date_modifed": "2020-01-30",
+  "time_modified": "09:00:00Z",
+  "image_hof": "https://s.hdnux.com/photos/01/00/30/71/16879168/7/premium_gallery_landscape.jpg",
+
+  "title2": "The Chronicle’s NorCal Beer Hall of Fame",
+  "description2": "The votes are in. See the beers that landed in the NorCal Beer Hall of Fame.",
+  "seo_title2": "The Chronicle’s NorCal Beer Hall of Fame",
+  "twitter_text2":"2020 NorCal Beer Hall of Fame: did your favorites make the cut?",
+  "slug2": "hall-of-fame/"
+
 }

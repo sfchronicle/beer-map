@@ -35,12 +35,13 @@
 
             <div class="hed">The Ultimate NorCal Brewery Map</div>
 
-            <div class="last-updated"><span>Updated:</span> Jan. 20, 2020</div>
+            <div class="last-updated"><span>Updated:</span> June 29, 2020</div>
             <div class="chatter">This interactive map features more than 300 breweries in Northern California. Hover and click on the spots, search for your favorites, or check out our list of beer excursions.</div>
 
             <div class="button-container">
               <div class="button list-button">Breweries</div>
               <div class="button trails-button">Brewery Trails</div>
+              <div class="button picks-button"><i class="fa fa-star" aria-hidden="true"></i> Editors' Picks</div>
             </div>
 
           </div>
@@ -57,28 +58,19 @@
       </div>
     </div>
 
-    <div class="latest-news">
-      <div class="wrapper">
-        <div class="stories">
-          <div class="story loading"><img src="./assets/loading.png"></div>
-          <div class="story loading"><img src="./assets/loading.png"></div>
-          <div class="story loading"><img src="./assets/loading.png"></div>
-        </div>
-      </div>
-    </div>
-
+<!--
     <div class="sponsor mobile">
       <a href="https://www.eventbrite.com/e/oktoberfest-by-the-bay-2019-tickets-62663557387" rel="noopener" target="_blank">
         <img src="https://s.hdnux.com/photos/01/05/40/31/18220647/4/500x0.jpg" />
       </a>
     </div>
+-->
 
     <div class="content">
       <div class="map-wrapper">
         <div id="scroll-to-top"></div>
         <div class="map-container">
           <div id="map"></div>
-          <div id="mylist-map"></div>
         </div>
         <div class="tooltip-beermap"></div>
       </div>
@@ -94,28 +86,15 @@
           </div>
         </div>
 
-        <div id="psec">
-
-          <div id="chosen-brewery-trails"></div>
-
-          <% json.Trails.forEach(function(d){ %>
-            <div class="trail-group">
-              <div class="trail-title"><%=d.title%></div>
-              <div class="trail-desc"><span class="bold-class">Description: </span><%=d.description%></div>
-              <div class="trail-transit"><span class="bold-class">Transit: </span><%=d.transit%></div>
-              <div class="clickme-trail <%=d.class%>">Find me on the map</div>
-              <div class="trail-author"> &mdash; <%=d.author%></div>
-            </div>
-          <% }); %>
-        </div>
-
 
         <div id="ssec">
           <div id="stick-me">
             <div class="tabs">
                <div class="cntl selected list-button" id="scntl">Breweries</div>
               <div class="cntl trails-button" id="pcntl">Trails</div>
+              <div class="cntl picks-button" id="edpicks">Editors' Picks</div>
               <div class="cntl mylist-button" id="mylist">My List</div>
+
             </div>
 
             <div class="search-container">
@@ -141,11 +120,24 @@
               <% var strBrewery = d.Brewery; %>
               <% console.log(d) %>
               <% var strCity = d.City; %>
-                <div class="brewery-group <%=strBrewery.toLowerCase().replace(/ /g,'').replace(/\d+/g, '').replace(/\(|\)/g, '').replace(/ü/g, 'u') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active" id="<%=d.BreweryClass.toLowerCase().replace(/\d+/g, '').replace(/\(|\)/g, '').replace('.','').slice(7)%>">
-                  <div class="name"><%=d.Brewery%></a></div>
+
+              <% if (d.EditorsPick){ %>
+                <% var edClass = "editors-pick"; %>
+              <% } else { %>
+                <% var edClass = ""; %>
+              <% } %>
+
+                <div class="brewery-group <%=edClass%> <%=strBrewery.toLowerCase().replace(/ /g,'').replace(/\d+/g, '').replace(/\(|\)/g, '').replace(/ü/g, 'u') %> <%=strCity.toLowerCase().replace(/ /g,'') %> active" id="<%=d.BreweryClass.toLowerCase().replace(/\d+/g, '').replace(/\(|\)/g, '').replace('.','').slice(7)%>">
+                  <div class="name">
+                    <% if (d.EditorsPick){ %>
+                      <i class="fa fa-star" aria-hidden="true"></i> <%=d.Brewery%>
+                    <% } else { %>
+                      <%=d.Brewery%>
+                    <% } %>
+                    </a></div>
                   <div class="address"><%=d.Address%>, <%=d.City%></div>
                   <div class="blurb"><%=d.Blurb%></div>
-                  <div class="clickme <%=d.BreweryClass%>">Find on map</div>
+                  <div class="clickme <%=d.BreweryClass%> <%=strBrewery.toLowerCase().replace(/ /g,'').replace(/\d+/g, '').replace(/\(|\)/g, '').replace(/ü/g, 'u') %>">Find on map</div>
                   <% if (d.SFC_links){ %>
                     <% if (d.SFC_links.split(", ").length > 1){ %>
                       <% var sfclinkslist = d.SFC_links.split(", "); %>
@@ -171,11 +163,37 @@
               <% }); %>
             </div>
           </div>
+          <div id="psec">
+
+            <div id="chosen-brewery-trails"></div>
+
+            <% json.Trails.forEach(function(d){ %>
+              <div class="trail-group">
+                <div class="trail-title"><%=d.title%></div>
+                <div class="trail-desc"><span class="bold-class">Description: </span><%=d.description%></div>
+                <div class="trail-transit"><span class="bold-class">Transit: </span><%=d.transit%></div>
+                <div class="clickme-trail <%=d.class%>">Find me on the map</div>
+                <div class="trail-author"> &mdash; <%=d.author%></div>
+              </div>
+            <% }); %>
+          </div>
+
         </div>
 
       </div>
 
     </div>
+
+    <section class="latest-news">
+      <div class="wrapper">
+        <h2>More beer coverage</h2>
+        <div class="stories">
+          <div class="story "><a target="_blank" href="https://www.sfchronicle.com/wine/article/Results-are-in-for-The-Chronicle-s-Northern-15033715.php"><img src="https://s.hdnux.com/photos/01/10/34/35/18990970/5/premium_gallery_landscape.jpg"></a><div class="story-info"><h3><a target="_blank" href="https://www.sfchronicle.com/wine/article/Results-are-in-for-The-Chronicle-s-Northern-15033715.php"><span class="latest-title">Results are in for The Chronicle’s Northern California Beer Hall of Fame class of 2020</span></a></h3></div></div>
+          <div class="story "><a target="_blank" href="https://www.sfchronicle.com/wine/article/Fort-Point-aims-to-eclipse-Anchor-as-the-new-San-15008082.php"><img src="https://s.hdnux.com/photos/01/10/23/42/18954414/16/premium_gallery_landscape.jpg"></a><div class="story-info"><h3><a target="_blank" href="https://www.sfchronicle.com/wine/article/Fort-Point-aims-to-eclipse-Anchor-as-the-new-San-15008082.php"><span class="latest-title">San Francisco’s new hometown brewery</span></a></h3></div></div>
+          <div class="story "><a target="_blank" href="https://www.sfchronicle.com/wine/article/The-hot-new-thing-in-craft-beer-Good-15018302.php"><img src="https://s.hdnux.com/photos/01/10/20/34/18941719/5/premium_gallery_landscape.jpg"></a><div class="story-info"><h3><a target="_blank" href="https://www.sfchronicle.com/wine/article/The-hot-new-thing-in-craft-beer-Good-15018302.php"><span class="latest-title">The hot new thing in craft beer? Good old-fashioned lager</span></a></h3></div></div>
+        </div>
+      </div>
+    </section>
 
     <%= t.include("partials/_footer.html") %>
 

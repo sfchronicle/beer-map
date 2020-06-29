@@ -1,0 +1,56 @@
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://www.sfchronicle.com/favicon.ico" type="image/x-icon">
+
+<meta name="description" content="<%= grunt.data.json.project.description2 %>">
+
+<!-- BEGIN TWITTER SUMMARY CARD -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= grunt.data.json.project.title2 %>">
+<meta name="twitter:site" content="@sfchronicle">
+<meta name="twitter:url" content="<%= grunt.data.json.project.url + grunt.data.json.project.slug + grunt.data.json.project.slug2 %>">
+<meta name="twitter:image" content="<%= grunt.data.json.project.image_hof %>">
+<meta name="twitter:description" content="<%= grunt.data.json.project.description2 %>">
+
+<!-- Social sharing meta -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="<%= grunt.data.json.project.title2 %>">
+<meta property="og:site_name" content="The San Francisco Chronicle">
+<meta property="og:url" content="<%= grunt.data.json.project.url + grunt.data.json.project.slug + grunt.data.json.project.slug2 %>">
+<meta property="og:image" content="<%= grunt.data.json.project.image_hof %>">
+<meta property="og:description" content="<%= grunt.data.json.project.description2 %>">
+
+
+<!-- Schema.org structured data -->
+		<script data-schema="NewsArticle" type="application/ld+json">
+		{
+		  "@context": "http://schema.org",
+		  "@type": "NewsArticle",
+		  "mainEntityOfPage": {
+		    "@type": "WebPage",
+		    "@id": "<%= grunt.data.json.project.url + grunt.data.json.project.slug + grunt.data.json.project.slug2 %>"
+		  },
+		  "headline": "<%= grunt.data.json.project.seo_title2 %>",
+		  "image": {
+		    "@type": "ImageObject",
+		    "url": "<%= grunt.data.json.project.image_hof %>"
+		  },
+		  "dateCreated": "<%= grunt.data.json.project.date + 'T' + grunt.data.json.project.time %>",
+      "datePublished": "<%= grunt.data.json.project.date + 'T' + grunt.data.json.project.time %>",
+      "dateModified": "<%= grunt.data.json.project.date_modifed + 'T' + grunt.data.json.project.time_modified %>",
+		  "author": {
+		    "@type": "Person",
+		    "name": "San Francisco Chronicle Staff"
+		  },
+		  "publisher": {
+		    "@type": "Organization",
+		    "name": "San Francisco Chronicle",
+		    "logo": {
+		      "@type": "ImageObject",
+		      "url": "https://www.sfchronicle.com/img/modules/siteheader/logos/logo_home_large.png",
+		      "width": 467,
+		      "height": 48
+		    }
+		  },
+		  "description": "<%= grunt.data.json.project.description2 %>"
+		}
+		</script>

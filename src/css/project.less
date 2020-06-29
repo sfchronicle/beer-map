@@ -45,6 +45,17 @@
   position: relative;
   max-width: 1680px;
   margin:0 auto;
+
+  &.hof {
+    max-width: 700px;
+    margin: 30px auto 0;
+
+    .chatter {
+      max-width: 500px;
+      text-align: left;
+      padding: 20px 0;
+    }
+  }
 }
 
 .hed-content{
@@ -124,13 +135,13 @@
 
 #psec {
   display: none;
-  height: 1000px;
+  //height: 1000px;
   overflow-y: scroll;
-  margin-bottom: 30px;
+  //margin-bottom: 30px;
   border-left: 1px solid #ccc;
   background: #e6e6e6;
   border-right: 1px solid #ccc;
-  padding: 55px 10px 10px;
+  padding: 0px 10px;
 
   @media @mobile {
     margin-bottom: 0;
@@ -213,6 +224,10 @@
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 
+  @media @mobile {
+    font-size: 15px;
+  }
+
   &.selected{
     background: #e6e6e6;
     border-top-left-radius: 5px;
@@ -228,11 +243,14 @@ body, html {
 }
 
 #stick-me {
-  position: absolute;
+  //position: absolute;
   top: 0;
   background: lighten(@light-gray,10%);
   z-index: 50;
-  width: 28%;
+  //width: 28%;
+
+  // flex:
+  width: 100%;
 
   @media @tablet {
     width: 100%;
@@ -255,6 +273,7 @@ body, html {
   position: relative;
   width: 100%;
   height: 100%;
+  margin: 1% auto;
 
   @media @tablet {
     height: auto;
@@ -264,18 +283,37 @@ body, html {
 
   .sidebar {
     .flex(0 0 28%);
-    margin-right: 2%;
+    min-width: 390px;
+    margin-right: 1%;
     height: 100%;
     overflow-y: scroll;
 
+    @media @tablet {
+      width: 100%;
+      min-width: 100%;
+    }
+
+    #ssec {
+      .display-flex;
+      .flex-direction(column);
+      height: 100%;
+    }
+
     .brewery-list {
       background: #e6e6e6;
-      padding-top: 130px;
-      margin-bottom: 20px;
+      // padding-top: 130px;
+      // margin-bottom: 20px;
       border-left: 1px solid #ccc;
       border-right: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
       padding-bottom:5px;
+
+      // flex:
+      overflow: scroll;
+
+      .brewery-scroll-container {
+        //overflow: scroll;
+      }
     }
     @media @tablet {
       .flex(0 0 100%);
@@ -291,10 +329,14 @@ body, html {
     }
   }
   .map-wrapper {
-    .flex(0 0 68%);
-    margin-right: 2%;
+    .flex(1 0 auto);
+    margin: 0 1%;
     position: relative;
     height: 100%;
+
+    @media @mobile {
+      margin: 0;
+    }
 
     #chosen-brewery {
       max-width: 500px;
@@ -358,10 +400,9 @@ body, html {
         // margin: auto;
       }
       @media @mobile {
-        width: 90%;
+        width: 100%;
         height: 320px;
-        margin: auto;
-      }
+        margin: 5% 0 0;      }
     }
   }
 }
@@ -378,9 +419,9 @@ body, html {
   &.hide{
     display: none;
 
-    &.beer-trail{
-      display: block;
-    }
+    // &.beer-trail{
+    //   display: block;
+    // }
   }
 
   &.hide-forlist{
@@ -428,6 +469,12 @@ circle {
   border-radius: 5px;
   border: 2px solid @dark-yellow;
   color: #fff;
+
+  .fa {
+    color: blue;
+
+    stroke: 1px solid #696969;
+  }
 
   &.selected {
     color: white;
@@ -488,21 +535,6 @@ circle {
   border-right: 1px solid #ccc;
 }
 
-.credits {
-  font-family: @block-graphics;
-  font-size: 14px;
-  .entry {
-    padding: 0;
-    padding-bottom: 15px;
-  }
-  @media @mobile {
-    padding: 0 20px;
-  }
-  a {
-    font-family: @med-graphics;
-    color:#000;
-  }
-}
 
 .divider {
   padding-top:30px;
@@ -543,8 +575,8 @@ circle {
 .brewery-list {
   font-family: @block-graphics;
   font-size: 15px;
-  margin: auto;
-  margin-top: 30px;
+  //margin: auto;
+  //margin-top: 30px;
 
   @media @tablet {
     max-height: 1000px;
@@ -566,6 +598,10 @@ circle {
     font-family: @med-graphics;
     border-bottom: 1px solid @dark-gray;
     margin-bottom: 5px;
+
+    .fa-star:before {
+      color: blue;
+    }
   }
   .address {
     font-style: italic;
@@ -597,6 +633,7 @@ circle {
       color: #333;
       display: inline-block;
       border-bottom: 2px solid @highlight;
+      text-decoration: none;
     }
     .fa {
       padding-right: 5px;
@@ -708,16 +745,26 @@ circle {
 // recirc styles
 .latest-news {
   padding: 10px 0;
-  width: 100%;
-  height: 71px;
+  max-width: 960px;
+  margin: 0 auto;
+  //height: 71px;
   background:#fff;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc;
+  //margin-bottom: 20px;
+  //border-bottom: 1px solid #ccc;
 
   .wrapper{
     margin: 0 auto;
     max-width: 1200px;
     width:100%;
+
+    h2{
+      font-family: @med-graphics;
+      text-align: center;
+      width: 100%;
+      margin: 2em auto 1em;
+      font-size: 20px;
+      display: inline-block;
+    }
 
     .info{
       font-family: @block-graphics;
@@ -739,19 +786,15 @@ circle {
         margin-bottom:0;
       }
 
-      h2{
-        margin: 0 0 1em;
-        display: inline-block;
-        border-bottom: 2px solid red;
-      }
     }
   }
 
   .stories{
       .display-flex;
-      .align-items(flex-end);
+      .align-items(flex-start);
       .justify-content(space-around);
-      .flex-wrap(nowrap);
+      .flex-wrap(wrap);
+
 
       @media @tablet{
         .justify-content(start);
@@ -759,16 +802,17 @@ circle {
     }
 
     .story-info{
-      align-self: flex-end;
-      height: 43px;
+      align-self: flex-start;
       overflow: hidden;
     }
 
     .story{
       .display-flex;
-      margin: 0 5px;
+      .flex-direction(column);
+      //margin: 0 5px;
       line-height:0;
-      .flex(0 0 28%);
+      .flex(0 0 33.33%);
+      padding: 5px;
 
       &.loading{
         height: 61.38px;
@@ -795,15 +839,15 @@ circle {
         .flex(0 0 40%);
       }
 
-      @media @mobile{
-        .flex(0 0 70%);
+      @media @tablet{
+        .flex(0 0 100%);
       }
 
       img{
-        width:90px;
+        width: 100%;
 
         @media @mobile{
-          width:100px;
+          width:100%;
         }
       }
 
@@ -816,11 +860,11 @@ circle {
       }
 
       h3{
-        font-size:12px;
-        margin-left:10px;
+        font-size:16px;
+        //margin-left:10px;
         line-height:1.2;
         font-family: @block-graphics;
-        max-width: 160px;
+        //max-width: 160px;
       }
     }
 
@@ -975,4 +1019,100 @@ circle {
   img {
       width: 100%;
     }
+}
+
+// hall of fame beers -----------------------------------
+
+.hof-wrapper {
+  //background-color: tan;
+
+  margin: 0 auto 1%;
+  padding: 1%;
+  text-align: center;
+
+  max-width: 1200px;
+
+  .year-hed {
+      font-family: @body-bold;
+      font-size: 30px;
+      margin-bottom: 1.5em;
+      border-bottom: 1px solid lightgray;
+
+      @media @tablet {
+        font-size: 24px;
+      }
+  }
+
+  .hof-title {
+    //color: @redlinks;
+    font-family: @body-bold;
+    font-size: 25px;
+    padding-bottom: 20px;
+  }
+}
+.hof-beers-container {
+  text-align: left;
+
+  .display-flex;
+  .flex-wrap(wrap);
+  .align-items(flex-start);
+  .justify-content(flex-start);
+
+
+  .beer {
+    width: 32%;
+    padding: 0.5%;
+    // .display-flex;
+    // .flex-direction(row);
+    // .align-items(flex-start);
+    margin-bottom: 50px;
+
+    @media @tablet {
+      width: 50%;
+    }
+
+    @media @mobile {
+      width: 100%;
+    }
+
+    img {
+      margin-top: -20px;
+      height: 200px;
+      padding: 0 10px;
+      shape-margin: 5px;
+      float: left;
+      shape-outside: polygon(104px 100.75%, 6.05% 99.78%, 9.98% -5.13%, 68.35% -4.93%, 77.13% 29.87%, 103.45% 47.71%);
+    }
+
+    &.can {
+      img {
+        height: 150px;
+        shape-outside: polygon(115px 101.31%, 6.05% 102%, 5.90% -9.57%, 92.81% -8.27%);
+      }
+    }
+    p {
+      margin-bottom: 5px;
+
+    }
+    p.beer-name {
+      font-family: @bold-graphics;
+      font-size: 23px;
+      border-bottom: 3px solid @dark-yellow;
+      background-color: @yellow;
+      line-height: 1.2em;
+      padding-bottom: .2em;
+      //text-decoration: underline;
+    }
+    p.description {
+      font-family: @block-graphics;
+      font-size: 16px;
+      color: @dark-gray;
+    }
+    p.text {
+      font-family: @body;
+      font-size: 16px;
+      //line-height: 1.2em;
+
+    }
+  }
 }

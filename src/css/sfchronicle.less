@@ -1,3 +1,204 @@
+// A home for our CSS that we think should be on all projects
+//elements
+body {
+  color: black;
+  font-family: @body;
+}
+
+iframe {
+  border: none !important;
+}
+
+p {
+  font-size: 1rem;
+  max-width: 50ch;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 .694rem;
+
+  @media @mobile {
+    font-size: .833rem;
+  }
+}
+
+a {
+  color: @body;
+  text-decoration: underline;
+  text-decoration-color: @dark-yellow;
+  text-decoration-skip-ink: auto;
+  outline: 0 !important;
+
+  &:hover {
+    color: @dark-yellow;
+  }
+
+  &:visited {
+    //color: @charcoal;
+  }
+}
+
+hr {
+  color: @light-gray;
+  max-width: 33%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+article {
+  margin-top:2.986rem;
+}
+
+//figures-------------------------------
+
+figure {
+  max-width: 1200px;
+  padding:0 .694rem;
+  margin:2.074rem auto;
+
+  img {
+    width: 100%;
+  }
+
+  &.float-right {
+    width: 400px;
+    float: right;
+    margin:0 .482rem .482rem .482rem;
+
+    @media @mobile {
+      width: 100%;
+      float: none;
+      margin:2.074rem auto;
+    }
+  }
+
+  &.float-left {
+    max-width: 400px;
+    float: left;
+    margin:0 .482rem .482rem .482rem;
+
+    @media @mobile {
+      width: 100%;
+      float: none;
+      margin:2.074rem auto;
+    }
+  }
+}
+
+figcaption.caption {
+  text-align: left;
+  font-family: @block-graphics;
+  font-size:.694rem;
+  margin-top:.335rem;
+  max-width: 100%;
+}
+
+.wcm-image-wrapper {
+  line-height: 0;
+
+  img {
+    width: 100%;
+  }
+}
+
+//related-links-------------------------------
+.related-link-wrapper {
+  padding:.482rem 0;
+  border-top: 1px solid @charcoal;
+  border-bottom: 1px solid @charcoal;
+  max-width: 960px;
+  margin:.482rem auto;
+
+  .related-links {
+    display: flex;
+    flex-wrap: wrap;
+
+    .link-block {
+      padding:0 .335rem;
+
+      @media @mobile {
+        flex: 0 0 100%;
+      }
+
+      img {
+        width: 100%;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      a {
+        &:hover {
+          color: @dark-yellow;
+        }
+
+        h4 {
+          &:hover {
+            color: @dark-yellow;
+          }
+        }
+      }
+
+      h4 {
+        margin-bottom:.833rem;
+        font-size:.833rem;
+        font-weight: initial;
+      }
+    }
+  }
+}
+
+// credits----------------------------------------------
+
+#credits {
+  margin: 2.488rem auto;
+  text-align: center;
+  font-size:.833rem;
+  font-family: @block-graphics;
+
+  h2 {
+    font-family: @med-graphics;
+    color: @dark-gray;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  a {
+    color: black;
+    text-decoration: underline;
+    text-decoration-color: @dark-yellow;
+    text-decoration-skip-ink: auto;
+    outline: 0 !important;
+
+    &:hover {
+      color: @dark-yellow;
+    }
+
+    :hover {
+      color: @dark-yellow;
+    }
+
+    &:visited {
+      //color: @charcoal;
+    }
+  }
+
+
+  p {
+    margin-bottom: 0;
+
+    @media @mobile {
+      font-size: .694rem;
+    }
+  }
+
+  .credit-header {
+    margin-top:1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: @med-graphics;
+
+  }
+}
 //defensive coding
 * {
   //border-box, you're the best
@@ -32,20 +233,20 @@ main {
   margin-top: 37px;
 }
 
-a {
-  color: @highlight;
-  text-decoration: none;
-  outline: 0 !important;
-  &:hover {
-    color: darken(@highlight,10%);
-  }
-  img {
-    border: none;
-  }
-  :hover {
-    color: darken(@highlight,10%);
-  }
-}
+// a {
+//   // color: @highlight;
+//   // text-decoration: none;
+//   // outline: 0 !important;
+//   &:hover {
+//     color: darken(@highlight,10%);
+//   }
+//   img {
+//     border: none;
+//   }
+//   :hover {
+//     color: darken(@highlight,10%);
+//   }
+// }
 
 hr {
   margin-top:2em;
@@ -80,8 +281,8 @@ p {
   margin-bottom: 1em;
 
   a {
-    text-decoration: none;
-    color: @highlight;
+    //text-decoration: none;
+    //color: @highlight;
   }
 
   @media @mobile {
@@ -246,13 +447,19 @@ text {
 }
 
 .specialhead-top {
-  color: @highlight;
+  color: @dark-gray;
   font-family: @banner;
   font-size: 18px;
   text-transform: uppercase;
+  border-bottom: 2px solid @dark-yellow;
+
   @media @mobile {
     font-size: 13px;
     vertical-align: text-top;
+  }
+  &.inactive {
+    font-family: @block-graphics;
+    border-bottom: none;
   }
 }
 
@@ -280,11 +487,15 @@ text {
 }
 
 .link {
-  padding: 5px 10px 0 7px;
+  padding: 5px 10px 0 5px;
   vertical-align: 3px;
   font-size: 18px;
   font-family: @body;
   cursor: pointer;
+
+  @media @mobile {
+    padding: 5px 5px 0 0;
+  }
 
   &.active {
     background: @active-link;
@@ -526,7 +737,7 @@ header {
     .flex(0 0 25%);
 
     @media @mobile {
-      .flex(1 1 50%)
+      .flex(1 1 50%);
     }
   }
   .padded {
@@ -572,21 +783,7 @@ footer {
 
 // credits ----------------------------------------------
 
-.credits {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 10px;
-  text-align: center;
-  font-size: 15px;
-  font-family: @body;
-  width: 80%;
-  @media @mobile {
-    width: 100%;
-  }
-  .entry {
-    padding-bottom: 10px;
-  }
-}
+
 
 .pageFooter{
   background-color:#ececec;
@@ -608,6 +805,7 @@ footer {
   margin-bottom:30px;
   width:100%;
   list-style: none;
+  padding-left: 0;
 }
 .pageFooter--left-social li{float:left;
   height:25px;

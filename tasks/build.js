@@ -1,8 +1,6 @@
 /*
-
 Build HTML files using any data loaded onto the shared state. See also loadCSV
 and loadSheets, which import data in a compatible way.
-
 */
 
 var path = require("path");
