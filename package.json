@@ -10,7 +10,7 @@
   "dependencies": {
     "async": "^2.0.0-rc.1",
     "aws-sdk": "^2.2.45",
-    "babelify": "^6.0.2",
+    "babelify": "^10.0.0",
     "browserify": "^13.0.0",
     "chalk": "^1.0.0",
     "commonmark": "^0.24.0",
@@ -30,7 +30,7 @@
     "resolve": "^1.1.7",
     "shelljs": "^0.6.0",
     "through2": "^2.0.0",
-    "typogr": "^0.6.4"
+    "typogr": "^0.6.8"
   },
   "browser": {
     "share": "./src/js/lib/share.min.js",
